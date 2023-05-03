@@ -1,22 +1,36 @@
 <?php
 session_start();
 
+require __DIR__ . '/../vendor/autoload.php';
+
+use PHPSupabase\Service;
+use PHPSupabase\Auth\Auth;
+
+$supabaseUrl = 'https://dytzsnjuklknhqkzwihp.supabase.co';
+$supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHpzbmp1a2xrbmhxa3p3aWhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMwODMwMzgsImV4cCI6MTk5ODY1OTAzOH0.mjlP2MxqEBTlUJ5juRyPoG87vbkVgMwdMIIQZROjFw8';
+
+$service = new Service($supabaseKey, $supabaseUrl);
+$auth = $service->createAuth();
+
 if (isset($_POST['login'])) {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // TODO: validate username and password
+    try {
+        $auth->signInWithEmailAndPassword($email, $password);
+        $data = $auth->data();
 
-    // simulate database query to check if user exists
-    if ($username === 'admin' && $password === 'admin') {
-        // set session variable and redirect to dashboard
-        $_SESSION['loggedin'] = true;
-        header('Location: dashboard.php');
-        exit;
-    } else {
-        $error = 'Invalid username or password';
+        if(isset($data->access_token)){
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user'] = $data->user;
+            header('Location: dashboard.php');
+            exit;
+        }
+    } catch (Exception $e) {
+        $error = $auth->getError();
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +48,8 @@ if (isset($_POST['login'])) {
 
     <form method="post">
         <label>
-            Username:
-            <input type="text" name="username">
+            Email:
+            <input type="email" name="email">
         </label>
         <br>
         <label>
@@ -45,5 +59,7 @@ if (isset($_POST['login'])) {
         <br>
         <button type="submit" name="login">Login</button>
     </form>
+
+    <p>Don't have an account yet? <a href="signup.php">Sign up here</a>.</p>
 </body>
 </html>
