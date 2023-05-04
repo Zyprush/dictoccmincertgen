@@ -1,2 +1,0 @@
-# dictoccmincertgen
-Website certificate generator

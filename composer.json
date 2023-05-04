@@ -1,7 +1,0 @@
-{
-    "name": "vendor/autoload.php",
-    "type": "library",
-    "require": {
-        "rafaelwendel/phpsupabase": "^0.0.4"
-    }
-}
