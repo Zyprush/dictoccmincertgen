@@ -12,14 +12,10 @@
             }
         ?>
         <div class="card-header">
-            <h1 class="text-center">Sign Up</h1>
+            <h1 class="text-center">Sign In</h1>
         </div>
         <div class="card-body">
-            <form action="code.php" method="POST">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="fname" required>
-                </div>
+            <form action="logincode.php" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="email" name="email" required>
@@ -28,11 +24,11 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" name="signup_btn">Sign Up</button>
+                <button type="submit" class="btn btn-primary btn-block" name="signin_btn">Sign In</button>
             </form>
         </div>
         <div class="card-footer">
-            <p class="text-center">Already have an account? <a href="signin.php">Sign in</a></p>
+            <p class="text-center">Don't have an account? <a href="signup.php">Sign Up</a></p>
         </div>
     </div>
 </div>

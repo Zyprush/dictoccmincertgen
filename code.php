@@ -3,7 +3,28 @@ session_start();
 include ('dbcon.php');
 
 if(isset($_POST['signup_btn'])){
+    $fullname = $_POST['fname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $userProperties = [
+        'email' => $email,
+        'emailVerified' => false,
+        'password' => $password,
+        'displayName' => $fullname,
+    ];
     
+    $createdUser = $auth->createUser($userProperties);
+
+    if($createdUser){
+        $_SESSION['status'] = "Sign up successfully!";
+        header('location: signup.php');
+        exit();
+    } else {
+        $_SESSION['status'] = "Sign up is not successfully!";
+        header('location: signup.php');
+        exit();
+    }
 }
 
 if(isset($_POST['delete_btn'])){
