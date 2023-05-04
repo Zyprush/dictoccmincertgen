@@ -1,5 +1,6 @@
 <?php
-    include('includes/header.php');
+  include('authentication.php');
+  include('includes/header.php');
 ?>
 
 <div class="container">
