@@ -13,8 +13,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="webinarManagementDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Webinar Management</a>
                     <div class="dropdown-menu" aria-labelledby="webinarManagementDropdown">
-                        <a class="dropdown-item" href="#">Add Webinar</a>
-                        <a class="dropdown-item" href="#">Webinar List</a>
+                        <a class="dropdown-item" href="addWebinar.php">Add Webinar</a>
+                        <a class="dropdown-item" href="webinarlist.php">Webinar List</a>
                     </div>
                 </li>
                 <li class="nav-item">
