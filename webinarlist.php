@@ -35,10 +35,7 @@
             <th scope="col">Title</th>
             <th scope="col">Date</th>
             <th scope="col">Link</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-            <th scope="col">External Link</th>
-            <th scope="col">Send Email</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody id="webinar-list-body">
@@ -57,26 +54,27 @@
             <td><?=$row['webinar_date']?></td>
             <td><?=$row['webinar_link']?></td>
             <td>
-              <a href="edit-webinar.php?id=<?=$key;?>" class="btn btn-primary btn-sm">
-                Edit <i class="fas fa-edit fa-lg text-white"></i>
-              </a>
-            </td>
-            <td>
-              <form action="code.php" method="POST">
-                <button type="submit" name="delete_btn" value="<?=$key;?>" class="btn btn-danger btn-sm">
-                  Delete <i class="fas fa-trash-alt fa-lg text-white"></i>
-                </button>
-              </form>
-            </td>
-            <td>
-              <button class="btn btn-success btn-sm">
-                Link <i class="fas fa-external-link-alt fa-lg text-white"></i>
+              <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
               </button>
-            </td>
-            <td>
-              <button class="btn btn-info btn-sm">
-                Send <i class="fas fa-envelope fa-lg text-white"></i>
-              </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a href="edit-webinar.php?id=<?=$key;?>" class="dropdown-item">
+                    Edit <i class="fas fa-edit fa-lg text-primary"></i>
+                  </a>
+                  <form action="code.php" method="POST">
+                    <button type="submit" name="delete_btn" value="<?=$key;?>" class="dropdown-item">
+                      Delete <i class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </button>
+                  </form>
+                  <button class="dropdown-item">
+                    View Link <i class="fas fa-external-link-alt fa-lg text-success"></i>
+                  </button>
+                  <button class="dropdown-item">
+                    Send Email <i class="fas fa-envelope fa-lg text-info"></i>
+                  </button>
+                </div>
+              </div>
             </td>
           </tr>
           <?php
@@ -84,7 +82,7 @@
             } else {
           ?>
           <tr>
-            <td colspan="7">
+            <td colspan="4">
               No Record Found
             </td>
           </tr>
@@ -96,7 +94,13 @@
     </div>
   </div>
 </div>
-
+<script>
+$(document).ready(function(){
+  $(".dropdown-toggle").on("click", function(){
+    $(this).next(".dropdown-menu").toggle();
+  });
+});
+</script>
 <?php
     include('includes/footer.php');
 ?>

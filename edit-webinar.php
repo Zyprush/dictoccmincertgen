@@ -51,7 +51,7 @@
                         <button type="submit" class="btn btn-primary btn-block" name="update_webinar">Update</button>
                     </div>
                     <div class="col-sm-6 mb-3">
-                        <button type="button" class="btn btn-danger btn-block">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-block" onclick="window.location.href='webinarlist.php'">Cancel</button>
                     </div>
                 </div>
             </form>

@@ -82,7 +82,7 @@
                             } else {
                         ?>
                         <tr>
-                            <td colspan="7">
+                            <td colspan="4">
                             No Record Found
                             </td>
                         </tr>

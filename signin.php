@@ -16,22 +16,25 @@
     <title>Sign in</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">DICT CertGen</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-phone"></i> Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-question-circle"></i> About Us</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mx-auto">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
+        <span class="ml-2">DICT Cert Gen</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us<i class="fas fa-phone mr-2 ml-2"></i> </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">About Us<i class="far fa-question-circle mr-2 ml-2"></i> </a>
+    </li>
+    </ul>   
+    </div>
+</nav>
 <div class="container my-5">
     <div class="card mx-auto shadow" style="max-width: 400px;">
         <?php
