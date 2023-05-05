@@ -6,8 +6,8 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\Contract\Auth;
 
 $factory = (new Factory)
-    ->withServiceAccount('dict-occ-min-certgen-firebase-adminsdk-chc4f-1d6e73de33.json')
-    ->withDatabaseUri('https://dict-occ-min-certgen-default-rtdb.asia-southeast1.firebasedatabase.app/');
+    ->withServiceAccount('certgen-c2fc5-firebase-adminsdk-dqhkh-622b182ab1.json')
+    ->withDatabaseUri('https://certgen-c2fc5-default-rtdb.firebaseio.com/');
 
     $database = $factory->createDatabase();
 
