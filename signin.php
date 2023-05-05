@@ -16,7 +16,7 @@
     <title>Sign in</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">DICT CertGen</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,8 +32,8 @@
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
-    <div class="card mx-auto shadow">
+<div class="container my-5">
+    <div class="card mx-auto shadow" style="max-width: 400px;">
         <?php
             if(isset($_SESSION['status'])){
                 echo "<h5 class='alert alert-success'>".($_SESSION['status'])."</h5>";
