@@ -1,10 +1,10 @@
 <?php
-    include('authentication.php');
+    include('config/authentication.php');
     include('includes/header.php');
     
     // Redirect to dashboard if user is already logged in
     if(isset($_SESSION['user_id'])) {
-        header("Location: dashboard.php");
+        header("Location: pages/dashboard.php");
         exit();
     }
 ?>

@@ -18,11 +18,11 @@ if(isset($_POST['signup_btn'])){
 
     if($createdUser){
         $_SESSION['status'] = "Sign up successfully!";
-        header('location: signup.php');
+        header('location: ../pages/signup.php');
         exit();
     } else {
         $_SESSION['status'] = "Sign up is not successfully!";
-        header('location: signup.php');
+        header('location: ../pages/signup.php');
         exit();
     }
 }
@@ -35,10 +35,10 @@ if(isset($_POST['delete_btn'])){
 
     if($deletequery_result) {
         $_SESSION['status'] = "Webinar Successfully Deleted!";
-        header('location: webinarlist.php');
+        header('location: ../pages/webinarlist.php');
     } else {
         $_SESSION['status'] = "Webinar is NOT Deleted!";
-        header('location: webinarlist.php');
+        header('location: ../pages/webinarlist.php');
     }
 }
 
@@ -59,23 +59,31 @@ if(isset($_POST['update_webinar'])){
 
     if($updatequery_result) {
         $_SESSION['status'] = "Webinar Successfully Updated!";
-        header('location: webinarlist.php');
+        header('location: ../pages/webinarlist.php');
     } else {
         $_SESSION['status'] = "Webinar is NOT updated!";
-        header('location: webinarlist.php');
+        header('location: ../pages/webinarlist.php');
     }
 }
 
 if(isset($_POST['save_webinar']))
 {
+    $webinar_id = $_POST['webinar_id'];
     $webinar_title = $_POST['webinar_title'];
     $webinar_date = $_POST['webinar_date'];
     $webinar_link = $_POST['webinar_link'];
-
+    $registration_link = $_POST['registration_link'];
+    $assessment_link = $_POST['assessment_link'];
+    
+    //$webinar_id = $_POST['webinar_id'];
+    
     $postData = [
+        'webinar_id' => $webinar_id,
         'webinar_title' => $webinar_title,
         'webinar_date' => $webinar_date,
         'webinar_link' => $webinar_link,
+        'registration_link' => $registration_link,
+        'assessment_link' => $assessment_link
     ];
 
     $ref_table = "webinars";
@@ -83,10 +91,11 @@ if(isset($_POST['save_webinar']))
 
     if($postRef_result) {
         $_SESSION['status'] = "Webinar Successfully Added!";
-        header('location: dashboard.php');
+        // redirect to registration page with webinar_id parameter
+        header('location: ../pages/dashboard.php');
     } else {
         $_SESSION['status'] = "Webinar is NOT Added!";
-        header('location: dashboard.php');
+        header('location: ../pages/dashboard.php');
     }
 }
 

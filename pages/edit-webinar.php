@@ -1,6 +1,6 @@
 <?php
-    include('authentication.php');
-    include('includes/header.php');
+    include('../config/authentication.php');
+    include('../includes/header.php');
 ?>
 
 <div class="container">
@@ -8,7 +8,7 @@
     <h3 class="my-4">Webinar details</h3>
 
     <?php
-        include('dbcon.php');
+        include('../config/dbcon.php');
         if (isset($_GET['id'])){
             $key_child = $_GET['id'];
 
@@ -19,7 +19,7 @@
 
             ?>
 
-            <form action="code.php" method="POST">
+            <form action="../config/code.php" method="POST">
 
                 <input type="hidden" name="key" value="<?=$key_child;?>">
                 <div class="mb-3">
@@ -72,6 +72,6 @@
 </div>
 
 <?php
-    include('includes/footer.php');
+    include('../includes/footer.php');
 ?>
  

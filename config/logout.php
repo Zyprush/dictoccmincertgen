@@ -9,7 +9,7 @@ if(isset($_SESSION['expiry_status'])){
 } else {
     $_SESSION['status'] = "Logged out successfully!";
 }
-header('location: signin.php');
+header('location: ../pages/signin.php');
 exit();
 
 ?>

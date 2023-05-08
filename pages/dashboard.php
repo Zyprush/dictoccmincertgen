@@ -1,6 +1,6 @@
 <?php
-    include('authentication.php');
-    include('includes/header.php');
+    include('../config/authentication.php');
+    include('../includes/header.php');
 ?>
 
 <div class="container my-5">
@@ -18,7 +18,7 @@
                     <h5 class="card-title mb-0">Total Webinars</h5>
                     <p class="card-text text-center display-4 mt-2">
                         <?php
-                        include('dbcon.php');
+                        include('../config/dbcon.php');
                         $ref_table = 'webinars';
                         $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();
                         echo $total_count;
@@ -55,16 +55,17 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
+                            <th scope="col">Webinar ID</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Link</th>
+                            <th scope="col">Event Date</th>
+                            <th scope="col">Participants</th>
                             <th scope="col">Status</th>
                         </tr>
                         </thead>
                         <tbody id="webinar-list-body">
                         <!-- Data fetched from Realtime Database will be added here -->
                         <?php
-                            include ('dbcon.php');
+                            include ('../config/dbcon.php');
 
                             $ref_table = 'webinars';
                             $fetchdata = $database->getReference($ref_table)->getValue();
@@ -73,9 +74,9 @@
                             foreach($fetchdata as $key => $row){
                         ?>
                         <tr>
+                            <td><?=$row['webinar_id']?></td>
                             <td><?=$row['webinar_title']?></td>
                             <td><?=$row['webinar_date']?></td>
-                            <td><?=$row['webinar_link']?></td>
                         </tr>
                         <?php
                             }
@@ -99,5 +100,5 @@
 </div>
 
 <?php
-    include('includes/footer.php');
+    include('../includes/footer.php');
 ?>

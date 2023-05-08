@@ -1,0 +1,54 @@
+    <?php
+        include('../includes/header.php');
+
+        // Get the webinar_id parameter from the query string
+        $webinar_id = $_GET['webinar_id'];
+    ?>
+
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-header">
+                <h1 class="my-4">Registration Form</h1>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="../config/submit_registration.php">
+                    <!-- Add a hidden input field for webinar_id -->
+                    <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-id"><i class="fas fa-id-card"></i> Student ID:</label>
+                        <input type="text" class="form-control" id="student-id" name="student_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="school"><i class="fas fa-school"></i> School:</label>
+                        <input type="text" class="form-control" id="school" name="school" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization"><i class="fas fa-building"></i> Organization:</label>
+                        <input type="text" class="form-control" id="organization" name="organization" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program"><i class="fas fa-book"></i> Program:</label>
+                        <input type="text" class="form-control" id="program" name="program" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position"><i class="fas fa-users"></i> Position:</label>
+                        <input type="text" class="form-control" id="position" name="position" required>
+                    </div>
+                    <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
+                    <button type="submit" class="btn btn-primary" name="register_btn"><i class="fas fa-paper-plane"></i> Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <?php
+        include('../includes/footer.php');
+    ?>

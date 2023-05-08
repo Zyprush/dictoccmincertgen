@@ -16,22 +16,24 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mx-auto">
+    <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
-        <span class="ml-2">DICT Cert Gen</span>
+      <img src="../assets/img/logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
+      <span class="ml-2">DICT Cert Gen</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us<i class="fas fa-phone mr-2 ml-2"></i> </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">About Us<i class="far fa-question-circle mr-2 ml-2"></i> </a>
-    </li>
-    </ul>   
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us<i class="fas fa-phone mr-2 ml-2"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us<i class="far fa-question-circle mr-2 ml-2"></i> </a>
+        </li>
+      </ul>   
+    </div>
     </div>
 </nav>
 <div class="container my-5">
@@ -46,7 +48,7 @@
             <h1 class="text-center">Sign Up</h1>
         </div>
         <div class="card-body">
-            <form action="code.php" method="POST">
+            <form action="../config/code.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="fname" required>

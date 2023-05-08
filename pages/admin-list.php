@@ -1,6 +1,6 @@
 <?php
-    include('authentication.php');
-    include('includes/header.php');
+    include('../config/authentication.php');
+    include('../includes/header.php');
 ?>
 
 <?php
@@ -29,7 +29,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                include('dbcon.php');
+                                include('../config/dbcon.php');
                                 $users = $auth->listUsers();
 
                                 foreach ($users as $user) {
@@ -50,5 +50,5 @@
 </div>  
 
 <?php
-    include('includes/footer.php');
+    include('../includes/footer.php');
 ?>

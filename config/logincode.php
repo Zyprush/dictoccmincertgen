@@ -22,7 +22,7 @@ if(isset($_POST['signin_btn'])){
                 $_SESSION['idTokenString'] = $idTokenString;
 
                 $_SESSION['status'] = "Signed Up!";
-                header('location: dashboard.php');
+                header('location: ../pages/dashboard.php');
                 exit();
             } catch (FailedToVerifyToken $e) {
                 echo 'The token is invalid: '.$e->getMessage();
@@ -30,19 +30,19 @@ if(isset($_POST['signin_btn'])){
 
         } catch (Exception $e){
             $_SESSION['status'] = "Incorrect password!";
-            header('location: signin.php');
+            header('location: ../pages/signin.php');
             exit();
         }
         
     } catch (\Kreait\Firebase\Exception\Auth\UserNotFound $e) {    
         $_SESSION['status'] = "Invalid Email!.";
-        header('location: signin.php');
+        header('location: ../pages/signin.php');
         exit();
     }
 
 } else {
     $_SESSION['status'] = "Error! Try Again.";
-    header('location: signin.php');
+    header('location: ../pages/signin.php');
     exit();
 }
 

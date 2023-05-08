@@ -18,7 +18,7 @@ if(isset($_SESSION['veryfied_user_id'])){
 
 }else{
     $_SESSION['status'] = "Login to access this page";
-    header('location: signin.php');
+    header('location: pages/signin.php');
     exit();
 }
 

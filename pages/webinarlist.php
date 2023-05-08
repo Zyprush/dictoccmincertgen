@@ -1,6 +1,6 @@
 <?php
-    include('authentication.php');
-    include('includes/header.php');
+    include('../config/authentication.php');
+    include('../includes/header.php');
 ?>
 
 <?php
@@ -21,7 +21,7 @@
     <div class="col-md-6 text-right">
       <div>Total Webinars:
         <?php
-          include('dbcon.php');
+          include('../config/dbcon.php');
           $ref_table = 'webinars';
           $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();
           echo $total_count;
@@ -30,18 +30,19 @@
     </div>
     <div class="card-body">
       <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Date</th>
-            <th scope="col">Link</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th scope="col">Webinar ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Date</th>
+          <th scope="col">Link</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
         <tbody id="webinar-list-body">
           <!-- Data fetched from Realtime Database will be added here -->
           <?php
-            include ('dbcon.php');
+            include ('../config/dbcon.php');
 
             $ref_table = 'webinars';
             $fetchdata = $database->getReference($ref_table)->getValue();
@@ -50,6 +51,7 @@
               foreach($fetchdata as $key => $row){
           ?>
           <tr>
+            <td><?=$row['webinar_id']?></td>
             <td><?=$row['webinar_title']?></td>
             <td><?=$row['webinar_date']?></td>
             <td><?=$row['webinar_link']?></td>
@@ -62,7 +64,7 @@
                   <a href="edit-webinar.php?id=<?=$key;?>" class="dropdown-item">
                     Edit <i class="fas fa-edit fa-lg text-primary"></i>
                   </a>
-                  <form action="code.php" method="POST">
+                  <form action="../config/code.php" method="POST">
                     <button type="submit" name="delete_btn" value="<?=$key;?>" class="dropdown-item">
                       Delete <i class="fas fa-trash-alt fa-lg text-danger"></i>
                     </button>
@@ -94,6 +96,7 @@
     </div>
   </div>
 </div>
+
 <script>
 $(document).ready(function(){
   $(".dropdown-toggle").on("click", function(){
@@ -101,6 +104,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 <?php
-    include('includes/footer.php');
+    include('../includes/footer.php');
 ?>
