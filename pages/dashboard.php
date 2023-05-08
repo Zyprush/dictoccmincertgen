@@ -31,8 +31,23 @@
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                     <i class="bi bi-people fs-1 mb-3"></i>
-                    <h5 class="card-title mb-0">Participants</h5>
-                    <p class="card-text text-center display-4 mt-2">Null</p>
+                    <h5 class="card-title mb-0">Total Participants</h5>
+                    <p class="card-text text-center display-4 mt-2">
+                        <?php
+                        include('../config/dbcon.php');
+                        $ref_table = 'participants';
+                        $total_count = 0;
+                        $fetchdata = $database->getReference($ref_table)->getValue();
+
+                        if (!empty($fetchdata)) {
+                            foreach ($fetchdata as $webinar) {
+                                $total_count += count($webinar);
+                            }
+                        }
+
+                        echo $total_count;
+                        ?>
+                    </p>
                 </div>
             </div>
         </div>
