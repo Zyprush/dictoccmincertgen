@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="..pages/dashboard.php">
+        <a class="navbar-brand d-flex align-items-center" href="../pages/dashboard.php">
             <img src="../assets/img/logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
             <span class="ml-2">DICT Cert Gen</span>
         </a>

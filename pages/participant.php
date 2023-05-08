@@ -3,20 +3,13 @@
     include('../includes/header.php');
 ?>
 
-<?php
-  if(isset($_SESSION['status'])){
-   echo "<h5 class='alert alert-success'>".($_SESSION['status'])."</h5>";
-   unset($_SESSION['status']);
-  }
-?>
-
 <div class="container">
   <div class="card">
     <div class="card-header">
       Participant Management
     </div>
     <div class="card-body">
-      <table class="table table-hover">
+      <table id="participant-list" class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Webinar ID</th>
@@ -72,3 +65,9 @@
 <?php
     include('../includes/footer.php');
 ?>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#participant-list').DataTable();
+  } );
+</script>
