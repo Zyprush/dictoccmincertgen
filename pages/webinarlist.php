@@ -26,6 +26,7 @@
             <th scope="col">Title</th>
             <th scope="col">Date</th>
             <th scope="col">Link</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +42,25 @@
             <td><?= $row['webinar_title'] ?></td>
             <td><?= $row['webinar_date'] ?></td>
             <td><?= $row['webinar_link'] ?></td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a href="edit-webinar.php?id=<?= $key ?>" class="dropdown-item"><i class="fas fa-edit fa-lg text-primary"></i>
+                  </a>
+                  <form action="../config/code.php" method="POST">
+                    <button type="submit" name="delete_btn" value="<?= $key ?>" class="dropdown-item"><i class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </button>
+                  </form>
+                  <a href="<?= $row['webinar_link'] ?>" class="dropdown-item"><i class="fas fa-external-link-alt fa-lg text-success"></i>
+                  </a>
+                  <a href="#" class="dropdown-item"><i class="fas fa-envelope fa-lg text-info"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
           </tr>
           <?php
               }
