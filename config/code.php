@@ -31,6 +31,17 @@ if(isset($_POST['delete_btn'])){
     $del_id = $_POST['delete_btn'];
 
     $ref_table = 'webinars/'.$del_id;
+
+    // delete participants of the webinar
+    $ref_participants = 'participants';
+    $query = $database->getReference($ref_participants)->orderByChild('webinar_id')->equalTo($del_id);
+    $participants = $query->getValue();
+    foreach($participants as $key => $participant){
+        $participant_id = $key;
+        $database->getReference($ref_participants.'/'.$participant_id)->remove();
+    }
+
+    // delete webinar
     $deletequery_result = $database->getReference($ref_table)->remove();
 
     if($deletequery_result) {
