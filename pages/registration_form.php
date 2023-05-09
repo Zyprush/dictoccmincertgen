@@ -1,6 +1,12 @@
     <?php
         include('../includes/header.php');
 
+        if (!isset($_GET['webinar_id'])) {
+            // Redirect the user to the webinar list page
+            header('location: 404.php');
+            exit();
+        }
+
         // Get the webinar_id parameter from the query string
         $webinar_id = $_GET['webinar_id'];
     ?>
