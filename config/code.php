@@ -30,21 +30,15 @@ if(isset($_POST['signup_btn'])){
 if(isset($_POST['delete_btn'])){
     $del_id = $_POST['delete_btn'];
 
-    $ref_table = 'webinars/'.$del_id;
+    // Remove participants node
+    $participant_ref = 'participants/'.$del_id;
+    $database->getReference($participant_ref)->remove();
 
-    // delete participants of the webinar
-    $ref_participants = 'participants';
-    $query = $database->getReference($ref_participants)->orderByChild('webinar_id')->equalTo($del_id);
-    $participants = $query->getValue();
-    foreach($participants as $key => $participant){
-        $participant_id = $key;
-        $database->getReference($ref_participants.'/'.$participant_id)->remove();
-    }
+    // Remove webinar node
+    $webinar_ref = 'webinars/'.$del_id;
+    $delete_webinar_result = $database->getReference($webinar_ref)->remove();
 
-    // delete webinar
-    $deletequery_result = $database->getReference($ref_table)->remove();
-
-    if($deletequery_result) {
+    if($delete_webinar_result) {
         $_SESSION['status'] = "Webinar Successfully Deleted!";
         header('location: ../pages/webinarlist.php');
     } else {
@@ -86,10 +80,7 @@ if(isset($_POST['save_webinar']))
     $registration_link = $_POST['registration_link'];
     $assessment_link = $_POST['assessment_link'];
     
-    //$webinar_id = $_POST['webinar_id'];
-    
     $postData = [
-        'webinar_id' => $webinar_id,
         'webinar_title' => $webinar_title,
         'webinar_date' => $webinar_date,
         'webinar_link' => $webinar_link,
@@ -97,8 +88,8 @@ if(isset($_POST['save_webinar']))
         'assessment_link' => $assessment_link
     ];
 
-    $ref_table = "webinars";
-    $postRef_result = $database->getReference($ref_table)->push($postData);
+    $ref_table = "webinars/".$webinar_id;
+    $postRef_result = $database->getReference($ref_table)->set($postData);
 
     if($postRef_result) {
         $_SESSION['status'] = "Webinar Successfully Added!";
@@ -109,5 +100,6 @@ if(isset($_POST['save_webinar']))
         header('location: ../pages/dashboard.php');
     }
 }
+
 
 ?>

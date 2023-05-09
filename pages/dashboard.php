@@ -86,10 +86,10 @@
                             $fetchdata = $database->getReference($ref_table)->getValue();
 
                             if($fetchdata > 0) {
-                            foreach($fetchdata as $key => $row){
+                            foreach($fetchdata as $webinar_id => $row){
                         ?>
                         <tr>
-                            <td><?=$row['webinar_id']?></td>
+                            <td><?=$webinar_id?></td>
                             <td><?=$row['webinar_title']?></td>
                             <td><?=$row['webinar_date']?></td>
                         </tr>
