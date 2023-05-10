@@ -39,15 +39,6 @@
 
                 <div class="row">
                     <div class="col-sm-6 mb-3">
-                        <button type="button" class="btn btn-secondary btn-block">Generate registration form link</button>
-                    </div>
-                    <div class="col-sm-6 mb-3">
-                        <button type="button" class="btn btn-secondary btn-block">Generate assessment form link</button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 mb-3">
                         <button type="submit" class="btn btn-primary btn-block" name="update_webinar">Update</button>
                     </div>
                     <div class="col-sm-6 mb-3">

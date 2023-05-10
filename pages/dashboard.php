@@ -65,7 +65,6 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title mb-0">Webinar List</h5>
                     <div class="card-body">
 
 <table class="table table-hover">

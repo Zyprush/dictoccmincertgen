@@ -10,7 +10,7 @@
   }
 ?>
 
-<div class="container">
+<div class="container-fluid">
   <div class="card">
     <div class="card-header">
       Webinar List
@@ -25,7 +25,9 @@
             <th scope="col">Webinar ID</th>
             <th scope="col">Title</th>
             <th scope="col">Date</th>
-            <th scope="col">Link</th>
+            <th scope="col">Webinar Link</th>
+            <th scope="col">Registration Link</th>
+            <th scope="col">Assessment Link</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -47,20 +49,24 @@
                     <td><?=$row['webinar_title']?></td>
                     <td><?=$row['webinar_date']?></td>
                     <td><?=$row['webinar_link']?></td>
+                    <td><?=$row['registration_link']?></td>
+                    <td><?=$row['assessment_link']?></td>
                     <td>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a href="edit-webinar.php?id=<?=$key?>" class="dropdown-item"><i class="fas fa-edit fa-lg text-primary"></i></a>
-                                <form action="../config/code.php" method="POST">
-                                    <button type="submit" name="delete_btn" value="<?=$key?>" class="dropdown-item"><i class="fas fa-trash-alt fa-lg text-danger"></i></button>
-                                </form>
-                                <a href="<?=$row['webinar_link']?>" class="dropdown-item"><i class="fas fa-external-link-alt fa-lg text-success"></i></a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-envelope fa-lg text-info"></i></a>
-                            </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-secondary">
+                          Send Certificates
+                        </button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a href="edit-webinar.php?id=<?=$key?>" class="dropdown-item"><i class="fas fa-edit fa-lg text-primary"></i> Edit</a>
+                          <form action="../config/code.php" method="POST">
+                            <button type="submit" name="delete_btn" value="<?=$key?>" class="dropdown-item"><i class="fas fa-trash-alt fa-lg text-danger"></i> Delete</button>
+                          </form>
+                          <a href="#" class="dropdown-item"><i class="fas fa-external-link-alt fa-lg text-success"></i> View Links </a>
                         </div>
+                      </div>
                     </td>
                 </tr>
                 <?php
@@ -68,7 +74,7 @@
             } else {
           ?>
           <tr>
-            <td colspan="4">
+            <td colspan="7">
               No Record Found
             </td>
           </tr>

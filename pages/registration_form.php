@@ -11,7 +11,7 @@
         $webinar_id = $_GET['webinar_id'];
     ?>
 
-    <div class="container">
+    <div class="container" style="max-width: 500px;">
         <div class="card shadow">
             <div class="card-header">
                 <h1 class="my-4">Registration Form</h1>
