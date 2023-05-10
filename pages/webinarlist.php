@@ -53,7 +53,7 @@
                     <td><?=$row['assessment_link']?></td>
                     <td>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-secondary">
+                        <button type="button" class="btn btn-secondary" onclick="location.href='send_certificates.php?id=<?=$key?>'">
                           Send Certificates
                         </button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

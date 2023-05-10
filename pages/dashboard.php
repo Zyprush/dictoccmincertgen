@@ -66,53 +66,50 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Webinar ID</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Event Date</th>
+                                    <th scope="col">Participants</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="webinar-list-body">
+                                <?php
+                                    include ('../config/dbcon.php');
+                                    $ref_table = 'webinars';
+                                    $webinars = $database->getReference($ref_table)->getValue();
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Webinar ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Event Date</th>
-            <th scope="col">Participants</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody id="webinar-list-body">
-        <?php
-            include ('../config/dbcon.php');
-            $ref_table = 'webinars';
-            $webinars = $database->getReference($ref_table)->getValue();
-
-            if ($webinars) {
-                foreach ($webinars as $webinar_id => $webinar_data) {
-                    $participants_count = 0;
-                    $ref_table_participants = 'participants/' . $webinar_id;
-                    $participants_data = $database->getReference($ref_table_participants)->getValue();
-                    if ($participants_data) {
-                        $participants_count = count($participants_data);
-                    }
-        ?>
-                    <tr>
-                        <td><?= $webinar_id ?></td>
-                        <td><?= $webinar_data['webinar_title'] ?></td>
-                        <td><?= $webinar_data['webinar_date'] ?></td>
-                        <td><?= $participants_count ?></td>
-                        <td class="text-danger">Pending</td>
-                    </tr>
-        <?php
-                }
-            } else {
-        ?>
-            <tr>
-                <td colspan="5">No Record Found</td>
-            </tr>
-        <?php
-            }
-        ?>
-    </tbody>
-</table>
-
-
+                                    if ($webinars) {
+                                        foreach ($webinars as $webinar_id => $webinar_data) {
+                                            $participants_count = 0;
+                                            $ref_table_participants = 'participants/' . $webinar_id;
+                                            $participants_data = $database->getReference($ref_table_participants)->getValue();
+                                            if ($participants_data) {
+                                                $participants_count = count($participants_data);
+                                            }
+                                             ?>
+                                            <tr>
+                                                <td><?= $webinar_id ?></td>
+                                                <td><?= $webinar_data['webinar_title'] ?></td>
+                                                <td><?= $webinar_data['webinar_date'] ?></td>
+                                                <td><?= $participants_count ?></td>
+                                                <td class="text-danger">Pending</td>
+                                            </tr>
+                                <?php
+                                        }
+                                    } else {
+                                ?>
+                                    <tr>
+                                        <td colspan="5">No Record Found</td>
+                                    </tr>
+                                <?php
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
