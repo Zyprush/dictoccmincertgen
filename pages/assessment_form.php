@@ -587,24 +587,24 @@
                         <h3>VI. IN GENERAL, HOW WOULD YOU RATE THIS COURSE / TRAINING / SEMINAR</h3>
                         <p class="form-check form-check-inline">Poor</p>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question17" id="question17-1" value="1">
-                          <label class="form-check-label" for="question17-1">1</label>
+                          <input class="form-check-input" type="radio" name="question18" id="question18-1" value="1">
+                          <label class="form-check-label" for="question18-1">1</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question17" id="question17-2" value="2">
-                          <label class="form-check-label" for="question17-2">2</label>
+                          <input class="form-check-input" type="radio" name="question18" id="question18-2" value="2">
+                          <label class="form-check-label" for="question18-2">2</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question17" id="question17-3" value="3">
-                          <label class="form-check-label" for="question17-3">3</label>
+                          <input class="form-check-input" type="radio" name="question18" id="question18-3" value="3">
+                          <label class="form-check-label" for="question18-3">3</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question17" id="question17-4" value="4">
-                          <label class="form-check-label" for="question17-4">4</label>
+                          <input class="form-check-input" type="radio" name="question18" id="question18-4" value="4">
+                          <label class="form-check-label" for="question18-4">4</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question17" id="question17-5" value="5">
-                          <label class="form-check-label" for="question17-5">5</label>
+                          <input class="form-check-input" type="radio" name="question18" id="question18-5" value="5">
+                          <label class="form-check-label" for="question18-5">5</label>
                         </div>
                         <p class="form-check form-check-inline">Excellent</p>
                       </div>
@@ -613,8 +613,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question18">1. What did you find most useful his course / training / seminar?</label>
-                            <input type="text" class="form-control" id="question18" name="question18" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="most_useful">1. What did you find most useful his course / training / seminar?</label>
+                            <input type="text" class="form-control" id="most_useful" name="most_useful" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -622,8 +622,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question19">2. What did you find least useful in this course / training / seminar?</label>
-                            <input type="text" class="form-control" id="question19" name="question19" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="least_useful">2. What did you find least useful in this course / training / seminar?</label>
+                            <input type="text" class="form-control" id="least_useful" name="least_useful" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -631,8 +631,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question20">3. On which topics, if any, would you rather have spent more time?</label>
-                            <input type="text" class="form-control" id="question20" name="question20" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="spent_more">3. On which topics, if any, would you rather have spent more time?</label>
+                            <input type="text" class="form-control" id="spent_more" name="spent_more" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -640,8 +640,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question21">4. On which topics, if any, would you rather have spent less time?</label>
-                            <input type="text" class="form-control" id="question21" name="question21" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="spent_less">4. On which topics, if any, would you rather have spent less time?</label>
+                            <input type="text" class="form-control" id="spent_less" name="spent_less" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -649,8 +649,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question22">5. What advice can you give to improve the future conduct of this course / training / seminar?</label>
-                            <input type="text" class="form-control" id="question22" name="question22" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="improve_conduct">5. What advice can you give to improve the future conduct of this course / training / seminar?</label>
+                            <input type="text" class="form-control" id="improve_conduct" name="improve_conduct" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -658,8 +658,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question23">6. Could you recommend this course / training / seminar to your colleagues?</label>
-                            <input type="text" class="form-control" id="question23" name="question23" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="recommend">6. Could you recommend this course / training / seminar to your colleagues?</label>
+                            <input type="text" class="form-control" id="recommend" name="recommend" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -667,8 +667,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question24">7. Please list three (3) things that you intend to do as a result of your participation in this course / training / seminar</label>
-                            <input type="text" class="form-control" id="question24" name="question24" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="result_participation">7. Please list three (3) things that you intend to do as a result of your participation in this course / training / seminar</label>
+                            <input type="text" class="form-control" id="result_participation" name="result_participation" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -676,8 +676,8 @@
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question25">8. Comments and / or Suggestions.</label>
-                            <input type="text" class="form-control" id="question25" name="question25" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="comments">8. Comments and / or Suggestions.</label>
+                            <input type="text" class="form-control" id="comments" name="comments" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
@@ -693,8 +693,167 @@
 
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                        <h3>I . MASTERY OF THE SUBJECT MATTER</h3>
+                        <h3>I. MASTERY OF THE SUBJECT MATTER</h3>
                         <p>1. Knowledge about the subject matter</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question19" id="question19-1" value="1">
+                          <label class="form-check-label" for="question19-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question19" id="question19-2" value="2">
+                          <label class="form-check-label" for="question19-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question19" id="question19-3" value="3">
+                          <label class="form-check-label" for="question19-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question19" id="question19-4" value="4">
+                          <label class="form-check-label" for="question19-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question19" id="question19-5" value="5">
+                          <label class="form-check-label" for="question19-5">5</label>
+                        </div>
+
+                        <p>2. Presents topics in a well-organized manner</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question20" id="question20-1" value="1">
+                          <label class="form-check-label" for="question20-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question20" id="question20-2" value="2">
+                          <label class="form-check-label" for="question20-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question20" id="question20-3" value="3">
+                          <label class="form-check-label" for="question20-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question20" id="question20-4" value="4">
+                          <label class="form-check-label" for="question20-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question20" id="question20-5" value="5">
+                          <label class="form-check-label" for="question20-5">5</label>
+                        </div>
+
+                        <p>3. Injects current developments relevant to the course / training</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question21" id="question21-1" value="1">
+                          <label class="form-check-label" for="question21-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question21" id="question21-2" value="2">
+                          <label class="form-check-label" for="question21-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question21" id="question21-3" value="3">
+                          <label class="form-check-label" for="question21-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question21" id="question21-4" value="4">
+                          <label class="form-check-label" for="question21-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question21" id="question21-5" value="5">
+                          <label class="form-check-label" for="question21-5">5</label>
+                        </div>
+
+                        <p>4. Uses notes wisely</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question22" id="question22-1" value="1">
+                          <label class="form-check-label" for="question22-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question22" id="question22-2" value="2">
+                          <label class="form-check-label" for="question22-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question22" id="question22-3" value="3">
+                          <label class="form-check-label" for="question22-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question22" id="question22-4" value="4">
+                          <label class="form-check-label" for="question22-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question22" id="question22-5" value="5">
+                          <label class="form-check-label" for="question22-5">5</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="container">
+                      <div class="form-group shadow p-3 mb-5 bg-white rounded border">
+                        <h3>II. INSTRUCTIONAL METHODOLOGY</h3>
+                        <p>1. Able to explain theories and concepts clearly</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question23" id="question23-1" value="1">
+                          <label class="form-check-label" for="question23-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question23"_1 id="question23-2" value="2">
+                          <label class="form-check-label" for="question23-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question23" id="question23-3" value="3">
+                          <label class="form-check-label" for="question23-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question23" id="question23-4" value="4">
+                          <label class="form-check-label" for="question23-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question23" id="question23-5" value="5">
+                          <label class="form-check-label" for="question23-5">5</label>
+                        </div>
+
+                        <p>2. Gives adequate exercises / assignments</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question24" id="question24-1" value="1">
+                          <label class="form-check-label" for="question24-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question24" id="question24-2" value="2">
+                          <label class="form-check-label" for="question24-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question24" id="question24-3" value="3">
+                          <label class="form-check-label" for="question24-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question24" id="question24-4" value="4">
+                          <label class="form-check-label" for="question24-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question24" id="question24-5" value="5">
+                          <label class="form-check-label" for="question24-5">5</label>
+                        </div>
+
+                        <p>3. Utilizes instructional materials effectively</p>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question25" id="question25-1" value="1">
+                          <label class="form-check-label" for="question25-1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question25" id="question25-2" value="2">
+                          <label class="form-check-label" for="question25-2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question25" id="question25-3" value="3">
+                          <label class="form-check-label" for="question25-3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question25" id="question25-4" value="4">
+                          <label class="form-check-label" for="question25-4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="question25" id="question25-5" value="5">
+                          <label class="form-check-label" for="question25-5">5</label>
+                        </div>
+
+                        <p>4. Encourages participants to raise questions</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question26" id="question26-1" value="1">
                           <label class="form-check-label" for="question26-1">1</label>
@@ -716,7 +875,7 @@
                           <label class="form-check-label" for="question26-5">5</label>
                         </div>
 
-                        <p>2. Presents topics in a well-organized manner</p>
+                        <p>5. Makes use of time efficiently</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question27" id="question27-1" value="1">
                           <label class="form-check-label" for="question27-1">1</label>
@@ -737,8 +896,13 @@
                           <input class="form-check-input" type="radio" name="question27" id="question27-5" value="5">
                           <label class="form-check-label" for="question27-5">5</label>
                         </div>
+                      </div>
+                    </div>
 
-                        <p>3. Injects current developments relevant to the course / training</p>
+                    <div class="container">
+                      <div class="form-group shadow p-3 mb-5 bg-white rounded border">
+                        <h3>III. COMMUNICATIONS SKILLS</h3>
+                        <p>1. Projects a clear and audible voice</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question28" id="question28-1" value="1">
                           <label class="form-check-label" for="question28-1">1</label>
@@ -760,7 +924,7 @@
                           <label class="form-check-label" for="question28-5">5</label>
                         </div>
 
-                        <p>4. Uses notes wisely</p>
+                        <p>2. Expresses his / her ideas clearly, fluently, and spontaneously</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question29" id="question29-1" value="1">
                           <label class="form-check-label" for="question29-1">1</label>
@@ -786,96 +950,8 @@
 
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                        <h3>II . INSTRUCTIONAL METHODOLOGY</h3>
-                        <p>1. Able to explain theories and concepts clearly</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question26" id="question26-1" value="1">
-                          <label class="form-check-label" for="question26-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question26" id="question26-2" value="2">
-                          <label class="form-check-label" for="question26-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question26" id="question26-3" value="3">
-                          <label class="form-check-label" for="question26-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question26" id="question26-4" value="4">
-                          <label class="form-check-label" for="question26-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question26" id="question26-5" value="5">
-                          <label class="form-check-label" for="question26-5">5</label>
-                        </div>
-
-                        <p>2. Gives adequate exercises / assignments</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question27" id="question27-1" value="1">
-                          <label class="form-check-label" for="question27-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question27" id="question27-2" value="2">
-                          <label class="form-check-label" for="question27-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question27" id="question27-3" value="3">
-                          <label class="form-check-label" for="question27-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question27" id="question27-4" value="4">
-                          <label class="form-check-label" for="question27-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question27" id="question27-5" value="5">
-                          <label class="form-check-label" for="question27-5">5</label>
-                        </div>
-
-                        <p>3. Utilizes instructional materials effectively</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question28" id="question28-1" value="1">
-                          <label class="form-check-label" for="question28-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question28" id="question28-2" value="2">
-                          <label class="form-check-label" for="question28-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question28" id="question28-3" value="3">
-                          <label class="form-check-label" for="question28-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question28" id="question28-4" value="4">
-                          <label class="form-check-label" for="question28-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question28" id="question28-5" value="5">
-                          <label class="form-check-label" for="question28-5">5</label>
-                        </div>
-
-                        <p>4. Encourages participants to raise questions</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question29" id="question29-1" value="1">
-                          <label class="form-check-label" for="question29-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question29" id="question29-2" value="2">
-                          <label class="form-check-label" for="question29-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question29" id="question29-3" value="3">
-                          <label class="form-check-label" for="question29-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question29" id="question29-4" value="4">
-                          <label class="form-check-label" for="question29-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question29" id="question29-5" value="5">
-                          <label class="form-check-label" for="question29-5">5</label>
-                        </div>
-
-                        <p>5. Makes use of time efficiently</p>
+                        <h3>IV. CLASS / CLASSROOM MANAGEMENT</h3>
+                        <p>1. Able to inspire and maintain the participant’s interest</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question30" id="question30-1" value="1">
                           <label class="form-check-label" for="question30-1">1</label>
@@ -896,20 +972,15 @@
                           <input class="form-check-input" type="radio" name="question30" id="question30-5" value="5">
                           <label class="form-check-label" for="question30-5">5</label>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="container">
-                      <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                        <h3>III. COMMUNICATIONS SKILLS</h3>
-                        <p>1. Projects a clear and audible voice</p>
+                        <p>2. Willingness to help in the participant’s course / training related problems</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question31" id="question31-1" value="1">
                           <label class="form-check-label" for="question31-1">1</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question31" id="question31-2" value="2">
-                          <label class="form-check-label" for="question26-2">2</label>
+                          <label class="form-check-label" for="question31-2">2</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question31" id="question31-3" value="3">
@@ -924,7 +995,7 @@
                           <label class="form-check-label" for="question31-5">5</label>
                         </div>
 
-                        <p>2. Expresses his / her ideas clearly, fluently, and spontaneously</p>
+                        <p>3. Open to criticism and gives / accepts alternative</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question32" id="question32-1" value="1">
                           <label class="form-check-label" for="question32-1">1</label>
@@ -945,13 +1016,8 @@
                           <input class="form-check-input" type="radio" name="question32" id="question32-5" value="5">
                           <label class="form-check-label" for="question32-5">5</label>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="container">
-                      <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                        <h3>IV. CLASS / CLASSROOM MANAGEMENT</h3>
-                        <p>1. Able to inspire and maintain the participant’s interest</p>
+                        <p>4. Able to maintain class / classroom discipline and control</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question33" id="question33-1" value="1">
                           <label class="form-check-label" for="question33-1">1</label>
@@ -972,8 +1038,13 @@
                           <input class="form-check-input" type="radio" name="question33" id="question33-5" value="5">
                           <label class="form-check-label" for="question33-5">5</label>
                         </div>
+                      </div>
+                    </div>
 
-                        <p>2. Willingness to help in the participant’s course / training related problems</p>
+                    <div class="container">
+                      <div class="form-group shadow p-3 mb-5 bg-white rounded border">
+                        <h3>V. PERSONAL QUALITIES</h3>
+                        <p>1. Follows the time duration (class hours)</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question34" id="question34-1" value="1">
                           <label class="form-check-label" for="question34-1">1</label>
@@ -983,7 +1054,7 @@
                           <label class="form-check-label" for="question34-2">2</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question34" id="question34-3" value="3">
+                          <input class="form-check-input" type="radio" name="question34" id="question3\4-3" value="3">
                           <label class="form-check-label" for="question34-3">3</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -995,7 +1066,7 @@
                           <label class="form-check-label" for="question34-5">5</label>
                         </div>
 
-                        <p>3. Open to criticism and gives / accepts alternative</p>
+                        <p>2. Dresses neatly and appropriately</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question35" id="question35-1" value="1">
                           <label class="form-check-label" for="question35-1">1</label>
@@ -1017,7 +1088,7 @@
                           <label class="form-check-label" for="question35-5">5</label>
                         </div>
 
-                        <p>4. Able to maintain class / classroom discipline and control</p>
+                        <p>3. Courteous in answering the participant’s questions / queries</p>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="question36" id="question36-1" value="1">
                           <label class="form-check-label" for="question36-1">1</label>
@@ -1038,15 +1109,10 @@
                           <input class="form-check-input" type="radio" name="question36" id="question36-5" value="5">
                           <label class="form-check-label" for="question36-5">5</label>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="container">
-                      <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                        <h3>V. PERSONAL QUALITIES</h3>
-                        <p>1. Follows the time duration (class hours)</p>
+                        <p>4. Projects image of authority</p>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question37" id="question37-1" value="1">
+                          <input class="form-check-input" type="radio" name="questio37" id="question37-1" value="1">
                           <label class="form-check-label" for="question37-1">1</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -1065,80 +1131,14 @@
                           <input class="form-check-input" type="radio" name="question37" id="question37-5" value="5">
                           <label class="form-check-label" for="question37-5">5</label>
                         </div>
-
-                        <p>2. Dresses neatly and appropriately</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question38" id="question38-1" value="1">
-                          <label class="form-check-label" for="question38-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question38" id="question38-2" value="2">
-                          <label class="form-check-label" for="question38-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question38" id="question38-3" value="3">
-                          <label class="form-check-label" for="question38-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question38" id="question38-4" value="4">
-                          <label class="form-check-label" for="question38-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question38" id="question38-5" value="5">
-                          <label class="form-check-label" for="question38-5">5</label>
-                        </div>
-
-                        <p>3. Courteous in answering the participant’s questions / queries</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question39" id="question39-1" value="1">
-                          <label class="form-check-label" for="question39-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question39" id="question39-2" value="2">
-                          <label class="form-check-label" for="question39-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question39" id="question39-3" value="3">
-                          <label class="form-check-label" for="question39-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question39" id="question39-4" value="4">
-                          <label class="form-check-label" for="question39-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question39" id="question39-5" value="5">
-                          <label class="form-check-label" for="question35-5">5</label>
-                        </div>
-
-                        <p>4. Projects image of authority</p>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question40" id="question40-1" value="1">
-                          <label class="form-check-label" for="question40-1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question40" id="question40-2" value="2">
-                          <label class="form-check-label" for="question40-2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question40" id="question40-3" value="3">
-                          <label class="form-check-label" for="question40-3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question40" id="question40-4" value="4">
-                          <label class="form-check-label" for="question40-4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="question40" id="question40-5" value="5">
-                          <label class="form-check-label" for="question40-5">5</label>
-                        </div>
                       </div>
                     </div>
 
                     <div class="container">
                       <div class="form-group shadow p-3 mb-5 bg-white rounded border">
                         <div class="form-group">
-                            <label for="question41">OTHER COMMENTS</label>
-                            <input type="text" class="form-control" id="question41" name="question41" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
+                            <label for="other_comment">OTHER COMMENTS</label>
+                            <input type="text" class="form-control" id="other_comment" name="other_comment" placeholder="Your Answer" required style="border: none; border-bottom: 1px solid black;">
                         </div>
                       </div>
                     </div>
