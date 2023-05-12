@@ -6,117 +6,111 @@
 <div class="container my-5">
     <div class="row mb-5">
         <div class="col-md-12 text-center">
-            Welcome,
-        <p class="lead">Here's your dashboard overview.</p>
+            <h1>
+                Welcome,
+            </h1>
+            <h3>
+                Here's your dashboard overview.
+            </h3>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-4 mb-3">
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <i class="bi bi-calendar-date fs-1 mb-3"></i>
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
                     <h5 class="card-title mb-0">Total Webinars</h5>
-                    <p class="card-text text-center display-4 mt-2">
-                        <?php
-                        include('../config/dbcon.php');
-                        $ref_table = 'webinars';
-                        $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();
-                        echo $total_count;
-                        ?>
-                    </p>
+                    <p class="card-text text-center display-4 mt-2" id="webinar-count"></p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <i class="bi bi-people fs-1 mb-3"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i>
                     <h5 class="card-title mb-0">Total Participants</h5>
-                    <p class="card-text text-center display-4 mt-2">
-                        <?php
-                        include('../config/dbcon.php');
-                        $ref_table = 'participants';
-                        $total_count = 0;
-                        $fetchdata = $database->getReference($ref_table)->getValue();
-
-                        if (!empty($fetchdata)) {
-                            foreach ($fetchdata as $webinar) {
-                                $total_count += count($webinar);
-                            }
-                        }
-
-                        echo $total_count;
-                        ?>
-                    </p>
+                    <p class="card-text text-center display-4 mt-2" id="participant-count"></p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <i class="bi bi-calendar-event fs-1 mb-3"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i>
                     <h5 class="card-title mb-0">Pending Webinars</h5>
-                    <p class="card-text text-center display-4 mt-2">Null</p>
+                    <p class="card-text text-center display-4 mt-2" id="pending-count"></p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Webinar ID</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Event Date</th>
-                                    <th scope="col">Participants</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="webinar-list-body">
-                                <?php
-                                    include ('../config/dbcon.php');
-                                    $ref_table = 'webinars';
-                                    $webinars = $database->getReference($ref_table)->getValue();
 
-                                    if ($webinars) {
-                                        foreach ($webinars as $webinar_id => $webinar_data) {
-                                            $participants_count = 0;
-                                            $ref_table_participants = 'participants/' . $webinar_id;
-                                            $participants_data = $database->getReference($ref_table_participants)->getValue();
-                                            if ($participants_data) {
-                                                $participants_count = count($participants_data);
-                                            }
-                                             ?>
-                                            <tr>
-                                                <td><?= $webinar_id ?></td>
-                                                <td><?= $webinar_data['webinar_title'] ?></td>
-                                                <td><?= $webinar_data['webinar_date'] ?></td>
-                                                <td><?= $participants_count ?></td>
-                                                <td class="text-danger">Pending</td>
-                                            </tr>
-                                <?php
-                                        }
-                                    } else {
-                                ?>
-                                    <tr>
-                                        <td colspan="5">No Record Found</td>
-                                    </tr>
-                                <?php
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="col-mb-12">
+        <div class="card">
+            <div class="card-body">
+                <table id="dashboard-table" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Webinar ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Event Date</th>
+                            <th scope="col">Participants</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
-        </div>
+        </div>  
     </div>
 </div>
 
 <?php
     include('../includes/footer.php');
 ?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+
+<script>
+    //console.log("document ready!");
+    $(document).ready(function() {
+    $('#dashboard-table').DataTable({
+        "ajax": "../config/fetch_dashboard.php",
+        "columns": [
+        { "data": "webinar_id" },
+        { "data": "webinar_title" },
+        { "data": "webinar_date" },
+        { "data": "participants_count" },
+        {
+            "data": "status",
+            "render": function(data, type, row) {
+                if (data == 0) {
+                    return '<span class="text-danger">Pending</span>';
+                } else {
+                    return '<span class="text-success">Completed</span>';
+                }
+            }
+        }
+        ]
+    });
+    });
+    // Fetch the total webinar count
+    fetch('../config/get_total_dashboard.php?type=webinar')
+        .then(response => response.text())
+        .then(data => document.getElementById('webinar-count').textContent = data)
+        .catch(error => console.error(error));
+
+    // Fetch the total participant count
+    fetch('../config/get_total_dashboard.php?type=participant')
+        .then(response => response.text())
+        .then(data => document.getElementById('participant-count').textContent = data)
+        .catch(error => console.error(error));
+
+    // Fetch the total pending count
+    fetch('../config/get_total_dashboard.php?type=pending')
+        .then(response => response.text())
+        .then(data => document.getElementById('pending-count').textContent = data)
+        .catch(error => console.error(error));
+    
+</script>

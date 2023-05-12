@@ -34,6 +34,10 @@ if(isset($_POST['delete_btn'])){
     $participant_ref = 'participants/'.$del_id;
     $database->getReference($participant_ref)->remove();
 
+    // Remove assessments node
+    $assessment_ref = 'assessments/'.$del_id;
+    $database->getReference($assessment_ref)->remove();
+
     // Remove webinar node
     $webinar_ref = 'webinars/'.$del_id;
     $delete_webinar_result = $database->getReference($webinar_ref)->remove();
@@ -79,13 +83,15 @@ if(isset($_POST['save_webinar']))
     $webinar_link = $_POST['webinar_link'];
     $registration_link = $_POST['registration_link'];
     $assessment_link = $_POST['assessment_link'];
+    $status = $_POST['status'];
     
     $postData = [
         'webinar_title' => $webinar_title,
         'webinar_date' => $webinar_date,
         'webinar_link' => $webinar_link,
         'registration_link' => $registration_link,
-        'assessment_link' => $assessment_link
+        'assessment_link' => $assessment_link,
+        'status' => $status
     ];
 
     $ref_table = "webinars/".$webinar_id;

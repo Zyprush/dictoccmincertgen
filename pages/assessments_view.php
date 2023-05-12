@@ -41,7 +41,7 @@
   $(document).ready(function() {
     var table = $('#attendees-table').DataTable({
       ajax: {
-        url: '../config/fetch_attendees.php?id=<?=$webinar_id?>',
+        url: '../config/fetch_assessments.php?id=<?=$webinar_id?>',
         dataSrc: ''
       },
       select: {
@@ -55,8 +55,26 @@
       order: [[1, 'asc']]
     });
 
-    $('#select-all-btn').click(function() {
+    // Select all button
+    $('#select-all-btn').on('click', function() {
       table.rows().select();
+    });
+
+    // Deselect all button
+    $('#deselect-all').on('click', function() {
+      table.rows().deselect();
+    });
+
+    // Generate certificates button
+    $('#generate-certificates-btn').on('click', function() {
+      var selectedRows = table.rows({ selected: true }).data().toArray();
+      var selectedIds = selectedRows.map(row => row.id).join(',');
+      var selectedData = selectedRows.map(row => { return { name: row.certificate_name, email: row.certificate_email } });
+      var form = $('<form action="certificates_gen.php" method="post"></form>');
+      form.append('<input type="hidden" name="selectedIds" value="' + selectedIds + '">');
+      form.append('<input type="hidden" name="selectedData" value="' + JSON.stringify(selectedData) + '">');
+      $('body').append(form);
+      form.submit();
     });
 
     table.on('select deselect', function () {
