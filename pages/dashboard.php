@@ -54,7 +54,8 @@
                             <th scope="col">Webinar ID</th>
                             <th scope="col">Title</th>
                             <th scope="col">Event Date</th>
-                            <th scope="col">Participants</th>
+                            <th scope="col">Registered</th>
+                            <th scope="col">Respondent</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -82,6 +83,7 @@
         { "data": "webinar_title" },
         { "data": "webinar_date" },
         { "data": "participants_count" },
+        { "data": "assessments_count" },
         {
             "data": "status",
             "render": function(data, type, row) {

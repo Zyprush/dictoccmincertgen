@@ -13,15 +13,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/dashboard.php">Dashboard</a>
                 </li>
-                <<li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="webinarManagementDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Webinar Management</a>
                     <div class="dropdown-menu" aria-labelledby="webinarManagementDropdown">
                         <a class="dropdown-item" href="../pages/addWebinar.php">Add Webinar</a>
                         <a class="dropdown-item" href="../pages/webinarlist.php">Webinar List</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/participant.php">Participant Management</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="participantManagementDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Participant Management</a>
+                    <div class="dropdown-menu" aria-labelledby="participantManagementDropdown">
+                        <a class="dropdown-item" href="../pages/participant.php">Registered</a>
+                        <a class="dropdown-item" href="../pages/respondent.php">Respondent</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../config/logout.php">Logout</a>

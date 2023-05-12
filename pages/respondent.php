@@ -6,20 +6,15 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      Registered Attendee
+      Assessment Respondents
     </div>
     <div class="card-body">
-      <table id="participant-list" class="table table-hover">
+      <table id="respondents-list" class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Webinar ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Student ID</th>
-          <th scope="col">School</th>
-          <th scope="col">Organization</th>
-          <th scope="col">Program</th>
-          <th scope="col">Position</th>
+          <th scope="col">Certificate Name</th>
+          <th scope="col">Certificate Email</th>
         </tr>
       </thead>
         <tbody id="webinar-list-body">
@@ -40,17 +35,12 @@
 
 <script>
   $(document).ready(function () {
-    $('#participant-list').DataTable({
-      "ajax": "../config/fetch_participants.php",
+    $('#respondents-list').DataTable({
+      "ajax": "../config/fetch_respondents.php",
       "columns": [
         {"data": "webinar_id"},
-        {"data": "name"},
-        {"data": "email"},
-        {"data": "student_id"},
-        {"data": "school"},
-        {"data": "organization"},
-        {"data": "program"},
-        {"data": "position"}
+        {"data": "certificate_name"},
+        {"data": "certificate_email"}
       ]
     });
   });

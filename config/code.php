@@ -100,10 +100,10 @@ if(isset($_POST['save_webinar']))
     if($postRef_result) {
         $_SESSION['status'] = "Webinar Successfully Added!";
         // redirect to registration page with webinar_id parameter
-        header('location: ../pages/dashboard.php');
+        header('location: ../pages/webinarlist.php');
     } else {
         $_SESSION['status'] = "Webinar is NOT Added!";
-        header('location: ../pages/dashboard.php');
+        header('location: ../pages/webinarlist.php');
     }
 }
 

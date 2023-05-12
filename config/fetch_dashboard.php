@@ -13,11 +13,22 @@ if ($webinars) {
         if ($participants_data) {
             $participants_count = count($participants_data);
         }
+
+        //assessment counting ...
+        $assessments_count = 0;
+        $ref_table_assessments = 'assessments/' . $webinar_id;
+        $assessments_data = $database->getReference($ref_table_assessments)->getValue();
+
+        if ($assessments_data) {
+            $assessments_count = count($assessments_data);
+        }
+
         $data[] = array(
             "webinar_id" => $webinar_id,
             "webinar_title" => $webinar_data['webinar_title'],
             "webinar_date" => $webinar_data['webinar_date'],
             "participants_count" => $participants_count,
+            "assessments_count" => $assessments_count,
             "status" => $webinar_data['status']
         );
     }
