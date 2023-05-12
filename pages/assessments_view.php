@@ -67,15 +67,22 @@
 
     // Generate certificates button
     $('#generate-certificates-btn').on('click', function() {
-      var selectedRows = table.rows({ selected: true }).data().toArray();
-      var selectedIds = selectedRows.map(row => row.id).join(',');
-      var selectedData = selectedRows.map(row => { return { name: row.certificate_name, email: row.certificate_email } });
-      var form = $('<form action="certificates_gen.php" method="post"></form>');
-      form.append('<input type="hidden" name="selectedIds" value="' + selectedIds + '">');
-      form.append('<input type="hidden" name="selectedData" value="' + JSON.stringify(selectedData) + '">');
-      $('body').append(form);
-      form.submit();
+      // Get the selected rows data
+      var selectedRowsData = table.rows({ selected: true }).data().toArray();
+      
+      // Create an array of selected attendees' names and email addresses
+      var selectedAttendees = [];
+      selectedRowsData.forEach(function(rowData) {
+        selectedAttendees.push({name: rowData.certificate_name, email: rowData.certificate_email});
+      });
+      
+      // Build the URL for certificates_gen.php with the selected attendees' names and email addresses, and the webinar ID as parameters
+      var url = 'certificates_gen.php?id=' + encodeURIComponent('<?php echo $webinar_id; ?>') + '&attendees=' + encodeURIComponent(JSON.stringify(selectedAttendees));
+      
+      // Navigate to the new URL
+      window.location.href = url;
     });
+
 
     table.on('select deselect', function () {
       var selectedRows = table.rows({ selected: true }).count();

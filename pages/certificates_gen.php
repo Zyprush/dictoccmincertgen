@@ -1,11 +1,19 @@
 <?php
-    if(isset($_GET['name']) && isset($_GET['email'])){
-        $name = $_GET['name'];
-        $email = $_GET['email'];
+    include('../config/authentication.php');
+    include('../includes/header.php');
+    // Get the webinar ID and selected attendees' name and email from the URL parameters
+    $webinar_id = $_GET['id'];
+    $selectedAttendees = json_decode($_GET['attendees']);
+?>
+
+<div>
+    <ul>
+        <?php foreach ($selectedAttendees as $attendee) { ?>
+            <li><?php echo $attendee->name . ' - ' . $attendee->email; ?></li>
+        <?php } ?>
+    </ul>
+</div>
         
-        // display the name and email
-        echo "Name: $name <br>Email: $email";
-    }else{
-        echo "No data was received.";
-    }
+<?php
+  include('../includes/footer.php');
 ?>
