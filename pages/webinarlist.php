@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-right">
-                        <button id="btn-generate-certificate" class="btn btn-secondary btn-sm disabled">Generate Certificates</button>
+                        <button id="btn-view-assessments" class="btn btn-secondary btn-sm disabled">View Response</button>
                         <button id="btn-edit-webinar" class="btn btn-secondary btn-sm disabled">Edit</button>
                         <button id="btn-delete-webinar" class="btn btn-secondary btn-sm disabled">Delete</button>
                         <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">View Links</button>
@@ -86,22 +86,22 @@
         table.on('select', function (e, dt, type, indexes) {
             var selectedRows = table.rows({ selected: true }).count();
             if (selectedRows === 1) {
-                $('#btn-generate-certificate, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').removeClass('disabled');
+                $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').removeClass('disabled');
             } else {
-                $('#btn-generate-certificate, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').addClass('disabled');
+                $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').addClass('disabled');
             }
         });
 
         // Clear button state on deselect
         table.on('deselect', function (e, dt, type, indexes) {
-            $('#btn-generate-certificate, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').addClass('disabled');
+            $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').addClass('disabled');
         });
 
         // Add button click handlers
-        $('#btn-generate-certificate').on('click', function() {
+        $('#btn-view-assessments').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.id;
-            window.location.href = 'certificates_gen.php?id=' + webinarID;
+            window.location.href = 'assessments_view.php?id=' + webinarID;
         });
 
         $('#btn-edit-webinar').on('click', function() {
