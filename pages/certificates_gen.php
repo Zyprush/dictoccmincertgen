@@ -19,7 +19,7 @@
         // Check if the certificates directory exists, if not create it
         $folderPath = '../certificates/' . $webinar_id;
         if (!file_exists($folderPath)) {
-        mkdir($folderPath, 0777, true);
+          mkdir($folderPath, 0777, true);
         }
 
         // Get the template file
@@ -38,7 +38,7 @@
           // Use the imported page as the template
           $pdf->useTemplate($tplIdx);
 
-          // Replace <<Name>> tag with attendee's name
+          // Add the name
           $pdf->SetFont('Arial', 'B', 34);
           $pdf->SetXY(100, 102);
           $pdf->Cell(0, 0, htmlspecialchars($attendee->certificate_name, ENT_QUOTES));
@@ -56,7 +56,16 @@
           $pdf = new Fpdi();
         }
 
-        echo '<h1>Certificates generated successfully.</h1>'; 
+        $completedCertificates = array();
+        foreach ($selectedAttendees as $attendee) {
+          $certificate = array(
+            'name' => $attendee->certificate_name,
+            'email' => $attendee->certificate_email,
+            'path' => $folderPath . '/' . str_replace(' ', '_', htmlspecialchars($attendee->certificate_email, ENT_QUOTES)) . '.pdf'
+          );
+          $completedCertificates[] = $certificate;
+        }
+
       } else {
         echo '<p>No attendees selected.</p>';
       }
@@ -68,6 +77,83 @@
   }
 ?>
 
-<?php
-    include('../includes/footer.php');
-?>
+<?php include('../includes/footer.php'); ?>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Completed Certificates
+      <button class="btn btn-secondary btn-sm float-right" id="email-certificates-btn" disabled>
+        Email Certificates
+        <i class="fas fa-cog"></i>
+      </button>
+      <button class="btn btn-secondary btn-sm float-right mr-2" id="select-all-btn" onclick="toggleSelectAll()">
+        Select All
+      </button>
+    </div>
+    <div class="card-body">
+      <form id="#" method="#" action="#">
+        <input type="hidden" id="#" name="#" value="">
+      </form>
+      <table class="table table-hover" id="certificatesTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($completedCertificates as $certificate) { ?>
+              <tr>
+                <td><?php echo htmlspecialchars($certificate['name'], ENT_QUOTES); ?></td>
+                <td><?php echo htmlspecialchars($certificate['email'], ENT_QUOTES); ?></td>
+                <td><a href="<?php echo $certificate['path']; ?>" target="_blank">View</a></td>
+              </tr>
+            <?php } ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+
+<script>
+  var selectAll = false;
+  var table;
+
+  function toggleSelectAll() {
+    selectAll = !selectAll;
+    if (selectAll) {
+      table.rows().select();
+      $('#select-all-btn').text('Deselect All');
+    } else {
+      table.rows().deselect();
+      $('#select-all-btn').text('Select All');
+    }
+    toggleEmailButton();
+  }
+
+  function toggleEmailButton() {
+    var selectedRows = table.rows({ selected: true }).count();
+    if (selectedRows > 0) {
+      $('#email-certificates-btn').prop('disabled', false);
+    } else {
+      $('#email-certificates-btn').prop('disabled', true);
+    }
+  }
+
+  $(document).ready(function() {
+    table = $('#certificatesTable').DataTable({
+      // Set your DataTables options here
+      select: true
+    });
+
+    table.on('select deselect', function() {
+      toggleEmailButton();
+    });
+  });
+</script>
