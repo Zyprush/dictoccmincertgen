@@ -18,6 +18,9 @@
       </button>
     </div>
     <div class="card-body">
+      <form id="certificates-form" method="POST" action="certificates_gen.php">
+        <input type="hidden" id="attendees-input" name="attendees" value="">
+      </form>
       <table class="table table-hover" id="attendees-table">
         <thead>
           <tr>
@@ -57,36 +60,31 @@
 
     // Select all button
     $('#select-all-btn').on('click', function() {
-      table.rows().select();
+      if ($(this).text() === 'Select All') {
+        table.rows().select();
+        $(this).text('Deselect All');
+      } else {
+        table.rows().deselect();
+        $(this).text('Select All');
+      }
     });
 
-    // Deselect all button
-    $('#deselect-all').on('click', function() {
-      table.rows().deselect();
+    // Enable/disable the Generate Certificates button
+    table.on('select deselect', function () {
+      var selectedRows = table.rows({ selected: true }).count();
+      $('#generate-certificates-btn').prop('disabled', !selectedRows);
+
+      // Update the hidden input field with the selected attendees' data
+      var selectedAttendees = table.rows({ selected: true }).data().toArray();
+      var attendeesJson = JSON.stringify(selectedAttendees);
+      $('#attendees-input').val(attendeesJson);
     });
 
     // Generate certificates button
     $('#generate-certificates-btn').on('click', function() {
-      // Get the selected rows data
-      var selectedRowsData = table.rows({ selected: true }).data().toArray();
-      
-      // Create an array of selected attendees' names and email addresses
-      var selectedAttendees = [];
-      selectedRowsData.forEach(function(rowData) {
-        selectedAttendees.push({name: rowData.certificate_name, email: rowData.certificate_email});
-      });
-      
-      // Build the URL for certificates_gen.php with the selected attendees' names and email addresses, and the webinar ID as parameters
-      var url = 'certificates_gen.php?id=' + encodeURIComponent('<?php echo $webinar_id; ?>') + '&attendees=' + encodeURIComponent(JSON.stringify(selectedAttendees));
-      
-      // Navigate to the new URL
-      window.location.href = url;
+      // Submit the form with the selected attendees' data
+      $('#certificates-form').submit();
     });
 
-
-    table.on('select deselect', function () {
-      var selectedRows = table.rows({ selected: true }).count();
-      $('#generate-certificates-btn').prop('disabled', !selectedRows);
-    });
   });
 </script>
