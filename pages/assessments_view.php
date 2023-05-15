@@ -18,7 +18,7 @@
       </button>
     </div>
     <div class="card-body">
-      <form id="certificates-form" method="POST" action="certificates_gen.php">
+      <form id="certificates-form" method="POST" action="certificates_gen.php?id=<?= $webinar_id ?>">
         <input type="hidden" id="attendees-input" name="attendees" value="">
       </form>
       <table class="table table-hover" id="attendees-table">

@@ -1,11 +1,11 @@
 <?php
   include('../config/authentication.php');
   include('../includes/header.php');
-  require_once '../PHPPresentation-develop/src/PhpOffice/PhpPresentation/Autoloader.php';
-  \PhpOffice\PhpPresentation\Autoloader::register();
+  require('../vendor/autoload.php');
 
-  use PhpOffice\PhpPresentation\PhpPresentation;
-  use PhpOffice\PhpPresentation\IOFactory;
+  $webinar_id = $_GET['id'];
+
+  use setasign\Fpdi\Fpdi;
 
   try {
     // Check if the selected attendees data was passed in the POST request
@@ -15,38 +15,48 @@
 
       // Check if selected attendees data is not null
       if ($selectedAttendees != null) {
+        
         // Check if the certificates directory exists, if not create it
-        if (!file_exists('../certificates')) {
-          mkdir('../certificates', 0777, true);
+        $folderPath = '../certificates/' . $webinar_id;
+        if (!file_exists($folderPath)) {
+        mkdir($folderPath, 0777, true);
         }
 
         // Get the template file
-        $template = '../assets/templates/cert-template.pptx';
+        $template = '../assets/templates/cert-template.pdf';
+
+        // Create a new FPDI object
+        $pdf = new Fpdi();
 
         foreach ($selectedAttendees as $attendee) {
-          // Load the PowerPoint template
-          $pptx = IOFactory::load($template);
+          // Add a new page
+          $pdf->AddPage('L');
+          // Set the source file
+          $pdf->setSourceFile($template);
+          // Import the first page of the template
+          $tplIdx = $pdf->importPage(1);
+          // Use the imported page as the template
+          $pdf->useTemplate($tplIdx);
 
-          // Find and replace the <<Name>> tag with the attendee's name
-          $slides = $pptx->getAllSlides();
-          foreach ($slides as $slide) {
-            $shapeCollection = $slide->getShapeCollection();
-            foreach ($shapeCollection as $shape) {
-              if ($shape instanceof \PhpOffice\PhpPresentation\Slide\Shape\RichText) {
-                $shape->createTextRun(str_replace('<<Name>>', $attendee->certificate_name, $shape->getText()));
-              }
-            }
-          }
+          // Replace <<Name>> tag with attendee's name
+          $pdf->SetFont('Arial', 'B', 34);
+          $pdf->SetXY(100, 102);
+          $pdf->Cell(0, 0, htmlspecialchars($attendee->certificate_name, ENT_QUOTES));
+
+          // Get the modified PDF template as a string
+          $output = $pdf->Output('', 'S');
 
           // Set the filename as the attendee's email address
-          $filename = '../certificates/' . str_replace(' ', '_', htmlspecialchars($attendee->certificate_email, ENT_QUOTES)) . '.pdf';
+          $filename = $folderPath . '/' . str_replace(' ', '_', htmlspecialchars($attendee->certificate_email, ENT_QUOTES)) . '.pdf';
 
-          // Save the modified PowerPoint slide as PDF
-          $pdfWriter = IOFactory::createWriter($pptx, 'PDF');
-          $pdfWriter->save($filename);
+          // Output the modified PDF template to the file
+          file_put_contents($filename, $output);
 
-          echo '<p>Certificates generated successfully.</p>'; 
+          // Reset the FPDI object for the next iteration
+          $pdf = new Fpdi();
         }
+
+        echo '<h1>Certificates generated successfully.</h1>'; 
       } else {
         echo '<p>No attendees selected.</p>';
       }
@@ -56,6 +66,8 @@
   } catch (Exception $e) {
     echo "Error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES);
   }
+?>
 
-  include('../includes/footer.php');
+<?php
+    include('../includes/footer.php');
 ?>
