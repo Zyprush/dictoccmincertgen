@@ -13,7 +13,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
+    <style>
+      body{
+        background-color: #EFEFEF;
+      }
+    </style>
+
     <title>Webinar CertGen</title>
+
   </head>
   <body>
     <?php include('navbar.php'); ?>

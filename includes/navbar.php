@@ -28,7 +28,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../config/logout.php">Logout</a>
+                    <a class="nav-link text-danger" href="../config/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

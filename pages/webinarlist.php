@@ -24,7 +24,7 @@
                         <button id="btn-delete-webinar" class="btn btn-secondary btn-sm disabled">Delete</button>
                         <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">View Links</button>
                         <a href="addWebinar.php" class="btn btn-primary btn-sm">
-                            Add Webinar
+                            <i class="fas fa-plus"></i>
                         </a>
                     </div>
                 </div>
