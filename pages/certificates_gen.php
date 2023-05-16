@@ -78,6 +78,28 @@
 ?>
 
 <?php include('../includes/footer.php'); ?>
+<div class="card-body">
+  <form id="email-form" method="post" action="../config/emailed.php">
+
+    <!-- Add the selected attendees as a hidden field -->
+    <input type="hidden" name="selectedAttendees" value='<?php echo json_encode($selectedAttendees); ?>'>
+
+    <!-- Add the completed certificates as a hidden field -->
+    <input type="hidden" name="completedCertificates" value='<?php echo json_encode($completedCertificates); ?>'>
+
+    <!-- Add the folder path as a hidden field -->
+    <input type="hidden" name="folderPath" value='<?php echo $folderPath; ?>'>
+
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <input type="text" class="form-control" id="subject" name="subject" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea class="form-control" id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Email</button>
+  </form>
 
 <div class="container">
   <div class="card">
@@ -115,6 +137,8 @@
       </table>
     </div>
   </div>
+</div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
