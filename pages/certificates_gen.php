@@ -23,7 +23,7 @@
         }
 
         // Get the template file
-        $template = '../assets/templates/cert-template.pdf';
+        $template = '../certificates-temp/certgen-temp.pdf';
 
         // Create a new FPDI object
         $pdf = new Fpdi();
