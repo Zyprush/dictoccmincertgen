@@ -5,6 +5,9 @@
   $webinar_id = $_GET['id'];
 ?>
 
+<link rel="stylesheet" href="../assets/css/upload-pdf.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-McqAQkE3/jmxjF0spsMrhbdG4Pf8R5My4XU6f+B76RtQ8ODozGW+wRzYoB8zT7B30WY8WOy9zKBwa0c07Tj8dQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <div class="container">
   <div class="card">
     <div class="card-header">
@@ -13,7 +16,7 @@
         Generate Certificates
         <i class="fas fa-cog"></i>
       </button>
-      <button class="btn btn-secondary btn-sm float-right mr-2" id="select-all-btn">
+      <button class="btn btn-primary btn-sm float-right mr-2" id="select-all-btn">
         Select All
       </button>
     </div>
@@ -29,7 +32,8 @@
             <label for="pdf-file">Upload PDF:</label>
             <input type="file" class="form-control-file" id="pdf-file" name="pdfFile">
           </div>
-          <button type="submit" class="btn btn-primary">Save PDF</button>
+          <button type="submit" class="btn btn-primary">Start</button>
+          <span class="close-icon">&times;</span>
         </form>
       </div>
 
@@ -86,7 +90,15 @@
     // Enable/disable the Generate Certificates button
     table.on('select deselect', function () {
       var selectedRows = table.rows({ selected: true }).count();
-      $('#generate-certificates-btn').prop('disabled', !selectedRows);
+      var generateBtn = $('#generate-certificates-btn');
+
+      if (selectedRows > 0) {
+        generateBtn.removeClass('btn-secondary').addClass('btn-primary');
+        generateBtn.prop('disabled', false);
+      } else {
+        generateBtn.removeClass('btn-primary').addClass('btn-secondary');
+        generateBtn.prop('disabled', true);
+      }
 
       // Update the hidden input field with the selected attendees' data
       var selectedAttendees = table.rows({ selected: true }).data().toArray();
@@ -98,6 +110,7 @@
     $('#generate-certificates-btn').on('click', function() {
       // Display the PDF upload form
       $('#upload-form').show();
+      document.getElementById('upload-form').style.display = 'flex';
     });
 
     // Handle PDF file upload
@@ -125,5 +138,16 @@
         }
       });
     });
+    // Hide the upload form
+    function hideUploadForm() {
+      document.getElementById('upload-form').style.display = 'none';
+    }
+
+    // Attach event listener to the close icon
+    document.querySelector('#upload-form .close-icon').addEventListener('click', function (event) {
+      event.preventDefault();
+      hideUploadForm();
+    });
+
    }); 
 </script>

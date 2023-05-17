@@ -3,13 +3,6 @@
     include('../includes/header.php');
 ?>
 
-<?php
-    if(isset($_SESSION['status'])){
-        echo "<h5 class='alert alert-success'>" . ($_SESSION['status']) . "</h5>";
-        unset($_SESSION['status']);
-    }
-?>
-
 <div class="container">
     <div class="card">
         <div class="card-header">
@@ -19,10 +12,18 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-right">
-                        <button id="btn-view-assessments" class="btn btn-secondary btn-sm disabled">View Response</button>
-                        <button id="btn-edit-webinar" class="btn btn-secondary btn-sm disabled">Edit</button>
-                        <button id="btn-delete-webinar" class="btn btn-secondary btn-sm disabled">Delete</button>
-                        <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">View Links</button>
+                        <button id="btn-view-assessments" class="btn btn-secondary btn-sm disabled">
+                            View Response
+                        </button>
+                        <button id="btn-edit-webinar" class="btn btn-secondary btn-sm disabled">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button id="btn-delete-webinar" class="btn btn-secondary btn-sm disabled">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
                         <a href="addWebinar.php" class="btn btn-primary btn-sm">
                             <i class="fas fa-plus"></i>
                         </a>
@@ -86,15 +87,19 @@
         table.on('select', function (e, dt, type, indexes) {
             var selectedRows = table.rows({ selected: true }).count();
             if (selectedRows === 1) {
-                $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').removeClass('disabled');
-            } else {
-                $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').addClass('disabled');
-            }
+                $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links')
+                .removeClass('disabled')
+                .removeClass('btn-secondary')
+                .addClass('btn-primary');
+            } 
         });
 
         // Clear button state on deselect
         table.on('deselect', function (e, dt, type, indexes) {
-            $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links').addClass('disabled');
+            $('#btn-view-assessments, #btn-edit-webinar, #btn-delete-webinar, #btn-view-links')
+                .addClass('disabled')
+                .removeClass('btn-primary')
+                .addClass('btn-secondary');
         });
 
         // Add button click handlers
