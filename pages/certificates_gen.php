@@ -95,6 +95,9 @@
     <!-- Add the folder path as a hidden field -->
     <input type="hidden" name="folderPath" value='<?php echo $folderPath; ?>'>
 
+    <!-- Add the folder path as a hidden field -->
+    <input type="hidden" name="webinar_id" value='<?php echo $webinar_id; ?>'>
+
     <div class="form-group">
       <label for="subject">Subject:</label>
       <input type="text" class="form-control" id="subject" name="subject" required>

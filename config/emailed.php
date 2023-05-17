@@ -14,6 +14,8 @@ $selectedAttendees = json_decode($_POST['selectedAttendees']);
 $completedCertificates = json_decode($_POST['completedCertificates']);
 $folderPath = $_POST['folderPath'];
 
+$webinar_id = $_POST['webinar_id'];
+
 // Get form inputs
 $subject = $_POST['subject'];
 $message = $_POST['message'];
@@ -69,6 +71,11 @@ if (file_exists($folderPath)) {
     echo 'Error deleting folder: ' . $folderPath;
   }
 }
+
+include('dbcon.php');
+// Update the status value to 1
+$webinarRef = $database->getReference('webinars/' . $webinar_id . '/status');
+$webinarRef->set(1);
 
 // Function to delete a folder and its contents recursively
 function deleteFolder($folder) {
