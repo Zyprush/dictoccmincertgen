@@ -3,9 +3,10 @@ require '../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
 // Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 // Get variables
@@ -32,6 +33,7 @@ $mail->setFrom('bausahanz@gmail.com', 'hanz');
 
 // Send separate email to each recipient with their respective certificate
 foreach ($selectedAttendees as $attendee) {
+
   $email = $attendee->certificate_email;
   $name = $attendee->certificate_name;
   $certificatePath = $folderPath . '/' . str_replace(' ', '_', htmlspecialchars($email, ENT_QUOTES)) . '.pdf';
@@ -54,6 +56,36 @@ foreach ($selectedAttendees as $attendee) {
   } catch (Exception $e) {
     echo 'Error sending email to ' . $email . ': ' . $mail->ErrorInfo;
   }
+
+  // Hide the loading overlay and redirect the user to a new page
+  echo '<script>hideLoadingOverlay(); window.location.href = "../pages/webinarlist.php";</script>';
+
+}
+
+// Delete the folder and its contents
+if (file_exists($folderPath)) {
+  $success = deleteFolder($folderPath);
+  if (!$success) {
+    echo 'Error deleting folder: ' . $folderPath;
+  }
+}
+
+// Function to delete a folder and its contents recursively
+function deleteFolder($folder) {
+  if (!is_dir($folder)) {
+    return false;
+  }
+
+  $files = glob($folder . '/*');
+  foreach ($files as $file) {
+    if (is_dir($file)) {
+      deleteFolder($file);
+    } else {
+      unlink($file);
+    }
+  }
+
+  return rmdir($folder);
 }
 
 $_SESSION['status'] = "Email Sent!";

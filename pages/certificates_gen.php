@@ -76,8 +76,13 @@
     echo "Error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES);
   }
 ?>
+<link rel="stylesheet" href="../assets/css/loading.css">
 
-<?php include('../includes/footer.php'); ?>
+<!-- Loading overlay -->
+<div id="loading-overlay">
+  <div class="loading-spinner"></div>
+</div>
+
 <div class="card-body">
   <form id="email-form" method="post" action="../config/emailed.php">
 
@@ -140,6 +145,10 @@
 </div>
 
 </div>
+
+<script src="../assets/js/loading.js"></script>
+
+<?php include('../includes/footer.php'); ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
