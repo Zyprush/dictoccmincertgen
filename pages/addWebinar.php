@@ -13,7 +13,7 @@
       <h3 class="my-4">Webinar Details</h3>
     </div>
     <div class="card-body">
-      <form action="../config/code.php" method="POST">
+      <form action="../config/code.php" method="POST" onsubmit="return validateForm()">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input type="text" class="form-control" id="webinar_title" name="webinar_title" required>
@@ -96,7 +96,22 @@
     assessmentLinkDiv.style.display = 'block';
   });
 
+  function validateForm() {
+        var registrationLink = document.getElementById('registration_link').value;
+        var assessmentLink = document.getElementById('assessment_link').value;
+
+        if (registrationLink === '' || assessmentLink === '') {
+            alert('Registration link and assessment link are required!');
+            return false; // Prevent form submission
+        }
+
+        return true; // Proceed with form submission
+    }
+
 </script>
+
+
+
 
 <?php
     include('../includes/footer.php');
