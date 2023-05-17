@@ -7,17 +7,18 @@
     <div class="row mb-5">
         <div class="col-md-12 text-center">
             <h1>
-                Welcome,
+                Welcome, Admin!
             </h1>
-            <h3>
-                Here's your dashboard overview.
-            </h3>
+            <h4>
+                Explore the power and control at your fingertips. Manage, analyze, and optimize with ease.
+            </h4>
         </div>
     </div>
 
+
     <div class="row">
         <div class="col-md-4 mb-3">
-            <div class="card h-100">
+            <div class="card h-100 border shadow" style="border-radius: 20px;">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                     <h5 class="card-title mb-0">Total Webinars</h5>
                     <div class="d-flex align-items-center">
@@ -28,7 +29,7 @@
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <div class="card h-100">
+            <div class="card h-100 border shadow" style="border-radius: 20px;">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                     <h5 class="card-title mb-0">Total Participants</h5>    
                     <div class="d-flex align-items-center">
@@ -39,7 +40,7 @@
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <div class="card h-100">
+            <div class="card h-100 border shadow" style="border-radius: 20px;">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                     <h5 class="card-title mb-0">Pending Webinars</h5>
                     <div class="d-flex align-items-center">
@@ -52,7 +53,7 @@
     </div>
 
     <div class="col-mb-12">
-        <div class="card">
+        <div class="card border shadow" style="border-radius: 20px;">
             <div class="card-body">
                 <table id="dashboard-table" class="table table-hover">
                     <thead>
