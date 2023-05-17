@@ -23,15 +23,15 @@ $message = $_POST['message'];
 // Set SMTP settings
 $mail = new PHPMailer();
 $mail->isSMTP();
-$mail->Host = 'smtp.sendgrid.net';
+$mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
-$mail->Username = 'apikey';
-$mail->Password = $_ENV['SENDGRID_API_KEY'];
+$mail->Username = 'certgendict@gmail.com';
+$mail->Password = $_ENV['PASS_KEY'];
 
 // Set sender
-$mail->setFrom('bausahanz@gmail.com', 'hanz');
+$mail->setFrom('certgendict@gmail.com', 'DICT');
 
 // Send separate email to each recipient with their respective certificate
 foreach ($selectedAttendees as $attendee) {
