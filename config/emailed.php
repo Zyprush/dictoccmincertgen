@@ -21,7 +21,7 @@ $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = 'apikey';
-$mail->Password = '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';
+$mail->Password = $_ENV['SENDGRID_API_KEY'];
 
 // Set sender
 $mail->setFrom('certgendict@gmail.com', 'Jake');
