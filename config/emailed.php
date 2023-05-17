@@ -4,6 +4,10 @@ require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // Get variables
 $selectedAttendees = json_decode($_POST['selectedAttendees']);
 $completedCertificates = json_decode($_POST['completedCertificates']);
@@ -24,7 +28,7 @@ $mail->Username = 'apikey';
 $mail->Password = $_ENV['SENDGRID_API_KEY'];
 
 // Set sender
-$mail->setFrom('certgendict@gmail.com', 'Jake');
+$mail->setFrom('bausahanz@gmail.com', 'hanz');
 
 // Send separate email to each recipient with their respective certificate
 foreach ($selectedAttendees as $attendee) {
