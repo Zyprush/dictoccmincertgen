@@ -1,3 +1,24 @@
+<?php
+  // Determine the current page
+  $currentPage = basename($_SERVER['PHP_SELF']);
+
+  // Set the default title
+  $pageTitle = "DICT Certification";
+
+  // Update the title based on the current page
+  if ($currentPage === 'dashboard.php') {
+    $pageTitle = "Home | DICT Certification";
+  } elseif ($currentPage === 'webinarlist.php') {
+    $pageTitle = "Webinar List | DICT Certification";
+  } elseif ($currentPage === 'addWebinar.php') {
+    $pageTitle = "Add webinar | DICT Certification";
+  } elseif ($currentPage === 'participant.php') {
+    $pageTitle = "Registered | DICT Certification";
+  } elseif ($currentPage === 'respondent.php') {
+    $pageTitle = "Respondents | DICT Certification";
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,7 +41,7 @@
       }
     </style>
 
-    <title>Webinar CertGen</title>
+    <title><?php echo $pageTitle; ?></title>
 
   </head>
   <body>

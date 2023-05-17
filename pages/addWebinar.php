@@ -9,7 +9,6 @@
 <div class="container">
   <div class="card shadow">
     <div class="card-header">
-      <h1 class="my-4">Add Webinar Event</h1>
       <h3 class="my-4">Webinar Details</h3>
     </div>
     <div class="card-body">
