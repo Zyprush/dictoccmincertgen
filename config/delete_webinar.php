@@ -24,6 +24,6 @@ if(isset($_POST['id'])) {
     }
 }
 
-header('Location: pages/webinarlist.php');
+header('Location: ../pages/webinarlist.php');
 exit;
 ?>

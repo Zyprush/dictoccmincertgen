@@ -4,49 +4,49 @@
 ?>
 
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-sm-6">
-                    Webinar List
-                </div>
-                <div class="col-sm-6">
-                    <div class="float-right">
-                        <button id="btn-view-assessments" class="btn btn-secondary btn-sm disabled">
-                            View Response
-                        </button>
-                        <button id="btn-edit-webinar" class="btn btn-secondary btn-sm disabled">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button id="btn-delete-webinar" class="btn btn-secondary btn-sm disabled">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                        <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">
-                            <i class="fas fa-external-link-alt"></i>
-                        </button>
-                        <a href="addWebinar.php" class="btn btn-primary btn-sm">
-                            <i class="fas fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <div class="card border shadow rounded">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-6">
+          Webinar List
         </div>
-        <div class="card-body">
-            <table id="webinar-table" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Webinar ID</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Respondent</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="col-sm-6">
+          <div class="float-right">
+            <button id="btn-view-assessments" class="btn btn-secondary btn-sm disabled">
+              View Response
+            </button>
+            <button id="btn-edit-webinar" class="btn btn-secondary btn-sm disabled">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button id="btn-delete-webinar" class="btn btn-secondary btn-sm disabled">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">
+              <i class="fas fa-eye"></i>
+            </button>
+            <a href="addWebinar.php" class="btn btn-primary btn-sm">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="card-body">
+      <table id="webinar-table" class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Webinar ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Respondent</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <?php
@@ -124,7 +124,8 @@
                     method: 'POST',
                     data: {id: webinarID},
                     success: function(data) {
-                        table.ajax.reload(null, false).draw(true);
+                        // Remove the selected row from the table
+                        table.row({ selected: true }).remove().draw();
                     },
                     error: function(xhr, status, error) {
                         console.log(xhr.responseText);
