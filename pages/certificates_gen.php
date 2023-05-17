@@ -76,6 +76,7 @@
     echo "Error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES);
   }
 ?>
+
 <link rel="stylesheet" href="../assets/css/loading.css">
 
 <!-- Loading overlay -->
