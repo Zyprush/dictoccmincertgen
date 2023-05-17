@@ -96,5 +96,5 @@ function deleteFolder($folder) {
 }
 
 $_SESSION['status'] = "Email Sent!";
-header('location: ../pages/webinarlist.php');
+header('location: ../pages/dashboard.php');
 ?>

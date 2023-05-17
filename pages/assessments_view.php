@@ -29,10 +29,10 @@
       <div id="upload-form" style="display: none;">
         <form id="pdf-upload-form" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="pdf-file">Upload PDF:</label>
+            <label for="pdf-file">Upload PDF Template:</label>
             <input type="file" class="form-control-file" id="pdf-file" name="pdfFile">
           </div>
-          <button type="submit" class="btn btn-primary">Start</button>
+            <button type="submit" class="btn btn-primary btn-block">Genarate Certificates</button>
           <span class="close-icon">&times;</span>
         </form>
       </div>
