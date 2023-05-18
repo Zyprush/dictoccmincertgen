@@ -83,7 +83,7 @@
 <div id="loading-overlay">
   <div class="loading-spinner"></div>
 </div>
-
+  
 <div style="display: none;" id="email-message">
   <div class="card border shadow custom-card-width">
     <div class="card-header">
