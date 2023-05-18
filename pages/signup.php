@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('includes/header-2.0.php');
+    include('../includes/header-2.0.php');
     if (isset($_SESSION['veryfied_user_id'])) {
         // Redirect to another page (e.g., dashboard)
         header('Location: dashboard.php');

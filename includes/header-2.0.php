@@ -33,7 +33,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mx-auto">
     <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
+    <a class="navbar-brand d-flex align-items-center" href="../pages/signin.php">
       <img src="../assets/img/logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
       <span class="ml-2">DICT Certification</span>
     </a>
