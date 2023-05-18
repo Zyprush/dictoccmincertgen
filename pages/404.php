@@ -13,7 +13,7 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mx-auto">
     <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
+    <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
       <img src="../assets/img/logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
       <span class="ml-2">DICT Cert Gen</span>
     </a>
@@ -34,13 +34,42 @@
 </nav>
 
 <div class="container">
-  <h1 class="text-center mt-5">Error 404</h1>
-  <p>Sorry, the page you were looking for could not be found.</p>
+  <h1 class="text-center mt-5" id="typing-text"></h1>
+  <p class="text-center mt-5" id="typing-text-p"></p>
 </div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    // Add the text you want to display
+    var text = "Error 404";
+    var parag = "Sorry, the page you were looking for could not be found.";
+    var index = 0;
+    var index1 = 0;
+    var speed = 50; // Adjust the typing speed (in milliseconds)
+    
+
+    function typeText() {
+        if (index < text.length) {
+            document.getElementById("typing-text").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeText, speed);
+            
+        }else if (index1 < parag.length) {
+              document.getElementById("typing-text-p").innerHTML += parag.charAt(index1);
+              index1++;
+              setTimeout(typeText, speed);
+            }
+       
+    }
+
+    // Start typing when the page loads
+    window.onload = function() {
+        typeText();
+    };
+    </script>
 </body>
 </html>

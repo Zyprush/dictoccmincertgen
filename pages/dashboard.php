@@ -1,13 +1,28 @@
 <?php
     include('../config/authentication.php');
     include('../includes/header.php');
+
+// Retrieve the user ID from the session
+$uid = $_SESSION['veryfied_user_id'];
+
+try {
+    // Get the user by UID
+    $user = $auth->getUser($uid);
+
+    // Get the user's email
+    $displayName = $user->displayName;
+
+    // Use the user's email in your desired way
+} catch (\Kreait\Firebase\Exception\Auth\UserNotFound $e) {
+    echo 'User not found';
+}
 ?>
 
 <div class="container my-5">
     <div class="row mb-5">
         <div class="col-md-12 text-center">
-            <h1>
-                Welcome, Admin!
+            <h1 style = "text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                Welcome, <?php echo $displayName ?> !
             </h1>
             <h4>
                 Explore the power and control at your fingertips. Manage, analyze, and optimize with ease.

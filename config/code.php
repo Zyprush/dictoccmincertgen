@@ -18,7 +18,7 @@ if(isset($_POST['signup_btn'])){
 
     if($createdUser){
         $_SESSION['status'] = "Sign up successfully!";
-        header('location: ../pages/signup.php');
+        header('location: ../pages/signin.php');
         exit();
     } else {
         $_SESSION['status'] = "Sign up is not successfully!";

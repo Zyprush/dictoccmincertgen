@@ -1,6 +1,11 @@
 <?php
     session_start();
     //include('includes/header.php');
+    if (isset($_SESSION['veryfied_user_id'])) {
+        // Redirect to another page (e.g., dashboard)
+        header('Location: dashboard.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
