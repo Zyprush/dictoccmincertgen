@@ -1,4 +1,4 @@
-#upload-form {
+#email-message {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,18 +11,29 @@
     z-index: 9999;
   }
 
-  #upload-form form {
+  #email-message #email-form {
     position: relative;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
+    max-width: 900px; /* Adjust the value as needed */
+    width: 100%;
   }
 
-  #upload-form .close-icon {
+  #email-message #email-form textarea {
+    height: 200px; /* Adjust the value as needed */
+  }
+
+  #email-message .close-icon {
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
     font-size: 20px;
     color: #888;
     cursor: pointer;
+  }
+
+  .custom-card-width {
+    max-width: 900px; /* Adjust the value as needed */
+    width: 100%;
   }

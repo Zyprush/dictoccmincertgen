@@ -25,18 +25,43 @@
         <input type="hidden" id="attendees-input" name="attendees" value="">
       </form>
 
-      <!-- Form for uploading PDF file -->
-      <div id="upload-form" style="display: none;">
-        <form id="pdf-upload-form" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="pdf-file">Upload PDF Template:</label>
-            <input type="file" class="form-control-file" id="pdf-file" name="pdfFile">
-          </div>
-            <button type="submit" class="btn btn-primary btn-block">Genarate Certificates</button>
-          <span class="close-icon">&times;</span>
-        </form>
+<div id="upload-form" style="display: none;">
+  <form id="pdf-upload-form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="pdf-file">Upload PDF Template:</label>
+      <div class="drag-area">
+        <div class="drag-text">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <h3>Drag and drop your file here</h3>
+        </div>
+        <input type="file" class="form-control-file" id="pdf-file" name="pdfFile">
       </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Generate Certificates</button>
+    <a href="../certificates-temp/alignment_guide.jpg" class="btn btn-secondary btn-block" download>Download Alignment Guide</a>
+    <span class="close-icon">&times;</span>
+  </form>
+</div>
 
+<style>
+  .drag-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .drag-text {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  .drag-text i {
+    font-size: 48px;
+    color: #ccc;
+  }
+</style>
 
       <table class="table table-hover" id="attendees-table">
         <thead>

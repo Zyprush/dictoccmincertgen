@@ -76,20 +76,19 @@
     echo "Error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES);
   }
 ?>
-
 <link rel="stylesheet" href="../assets/css/loading.css">
+<link rel="stylesheet" href="../assets/css/emailsending.css">
 
 <!-- Loading overlay -->
 <div id="loading-overlay">
   <div class="loading-spinner"></div>
 </div>
 
-<div class="card-body">
-
-<div class="container">
-  <div class="card border shadow">
+<div style="display: none;" id="email-message">
+  <div class="card border shadow custom-card-width">
     <div class="card-header">
-      Email Content
+      Email Message
+      <span class="close-icon">&times;</span>
     </div>
     <div class="card-body">
       <form id="email-form" method="post" action="../config/emailed.php">
@@ -113,8 +112,50 @@
           <label for="message">Message:</label>
           <textarea class="form-control" id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Send Email</button>
+        <button type="submit" class="btn btn-primary btn-block" id="submit-email">
+          Send Email
+        </button>
+        
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="card-body">
+<div class="container">
+  <div class="card border shadow">
+    <div class="card-header">
+      Completed Certificates
+      <button class="btn btn-secondary btn-sm float-right" id="email-certificates-btn" disabled>
+        Email Certificates
+        <i class="fas fa-cog"></i>
+      </button>
+      <button class="btn btn-secondary btn-sm float-right mr-2" id="select-all-btn" onclick="toggleSelectAll()">
+        Select All
+      </button>
+    </div>
+    <div class="card-body">
+      <form id="#" method="#" action="#">
+        <input type="hidden" id="#" name="#" value="">
+      </form>
+      <table class="table table-hover" id="certificatesTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($completedCertificates as $certificate) { ?>
+              <tr>
+                <td><?php echo htmlspecialchars($certificate['name'], ENT_QUOTES); ?></td>
+                <td><?php echo htmlspecialchars($certificate['email'], ENT_QUOTES); ?></td>
+                <td><a href="<?php echo $certificate['path']; ?>" target="_blank">View</a></td>
+              </tr>
+            <?php } ?>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -124,3 +165,64 @@
 <script src="../assets/js/loading.js"></script>
 
 <?php include('../includes/footer.php'); ?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+
+<script>
+  var selectAll = false;
+  var table;
+
+  function toggleSelectAll() {
+    selectAll = !selectAll;
+    if (selectAll) {
+      table.rows().select();
+      $('#select-all-btn').text('Deselect All');
+    } else {
+      table.rows().deselect();
+      $('#select-all-btn').text('Select All');
+    }
+    toggleEmailButton();
+  }
+
+  function toggleEmailButton() {
+    var selectedRows = table.rows({ selected: true }).count();
+    if (selectedRows > 0) {
+      $('#email-certificates-btn').prop('disabled', false);
+    } else {
+      $('#email-certificates-btn').prop('disabled', true);
+    }
+  }
+
+  $(document).ready(function() {
+    table = $('#certificatesTable').DataTable({
+      // Set your DataTables options here
+      select: true
+    });
+
+    table.on('select deselect', function() {
+      toggleEmailButton();
+    });
+  });
+
+  //Email certificates button
+  $('#email-certificates-btn').on('click', function() {
+      // Display the PDF upload form
+      $('#email-message').show();
+      document.getElementById('email-message').style.display = 'flex';
+    });
+  // Hide the upload form
+  function hideUploadForm() {
+      document.getElementById('email-message').style.display = 'none';
+    }
+
+    // Attach event listener to the close icon
+    document.querySelector('#email-message .close-icon').addEventListener('click', function (event) {
+      event.preventDefault();
+      hideUploadForm();
+    });
+    $('#submit-email').on('click', function() {
+      hideUploadForm();
+    });
+</script>
