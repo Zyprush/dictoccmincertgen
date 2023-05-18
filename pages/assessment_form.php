@@ -11,11 +11,22 @@
         $webinar_id = $_GET['webinar_id'];
     ?>
 
-    <div class="container" style="max-width: 900px;">
-        <div class="card shadow">
-            <div class="card-header">
-                <h1 class="my-4">Assessment Form</h1>
+    <div class="container" style="max-width: 900px; margin-top:10px; margin-bottom: 10px;">
+        <div class="card" style="background-color: #8191A6;">
+
+        <div class="card-header" style="background-color: white;">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <img src="../assets/img/logo.png" alt="logo" style="width: 200px; height: 200px;">
             </div>
+            <div class="col">
+              <h3 class="mb-0" style="color: #3E5F8C;">REPUBLIC OF THE PHILIPPINES</h3>
+              <hr class="my-2" style="border-color: #3E5F8C; border-width: 2px;">
+              <h3 class="mb-0" style="color: #3E5F8C;">DEPARTMENT OF INFORMATION AND COMMUNICATIONS TECHNOLOGY</h3>
+            </div>
+          </div>
+        </div>
+
             <div class="card-body">
                 <form method="POST" action="../config/submit_assessment.php">
                     <!-- Add a hidden input field for webinar_id -->
@@ -26,70 +37,76 @@
                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                       <li data-target="#myCarousel" data-slide-to="1"></li>
                       <li data-target="#myCarousel" data-slide-to="2"></li>
-                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li> 
                       <li data-target="#myCarousel" data-slide-to="4"></li>
                     </ol>
                     
                     <div class="carousel-inner">
                      <div class="carousel-item active" id="slide1">
+
                         <div class="container">
-                          <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                            <h1>IMPORTANT! </h1>
-                            <div class="form-group">
-                              <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                              <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                          </div>
-                        </div>
-                      
-    
-                        <div class="container">
-                          <div class="form-group shadow p-3 mb-5 bg-white rounded border">
+                          <div class="form-group p-3 mb-5 bg-white rounded border">
                             <h1>Evaluation Form</h1>
                             <p>
-                              Thank you for attending our webinar /course / training.  For you to be able to receive your e-certificate you must complete this Evaluation Form.  If there are any other completion requirements make sure you have also submitted them. You will receive an email with the link where you can download your e-certificates.
-                              For Premium and Free webinars: Your certificates may be downloaded from a link provided by an email from ilcdb_training4@dict.gov.ph or ilcdb.registrar@dict.gov.ph 4-6 weeks after the webinar.
-                              For EDP Eligibility courses: Your certificates should be claimed personally at the Registrar's Office.  Please email the Registrar to know it the certificates are available at ilcdb.registrar@dict.gov.ph. If the Registrar's Office confirmed that your certificates are available, CLAIMING days for your certificates are TUESDAYS AND THURSDAY 9:00 AM until 12:00 NN ONLY.
+                              Thank you for attending our webinar /course / training.  For you to be able to receive your e-certificate you must complete this Evaluation Form.  If there are any other completion requirements make sure you have also submitted them. You will receive an email with the link where you can download your e-certificates. <br> <br>
+                              For Premium and Free webinars: Your certificates may be downloaded from a link provided by an email from <a href="mailto:ilcdb_training4@dict.gov.ph">ilcdb_training4@dict.gov.ph</a> or <a href="mailto:ilcdb.registrar@dict.gov.ph">ilcdb.registrar@dict.gov.ph</a> 4-6 weeks after the webinar. <br> <br>
+                              For EDP Eligibility courses: Your certificates should be claimed personally at the Registrar's Office.  Please email the Registrar to know it the certificates are available at <a href="ilcdb.registrar@dict.gov.ph">ilcdb.registrar@dict.gov.ph</a> . If the Registrar's Office confirmed that your certificates are available, CLAIMING days for your certificates are TUESDAYS AND THURSDAY 9:00 AM until 12:00 NN ONLY.
                             </p>
                           </div>
                         </div>
 
                         <div class="container">
-                          <div class="form-group shadow p-3 mb-5 bg-white rounded border">
+                          <div class="form-group p-3 mb-5 bg-white rounded border">
                             <h3>Important:</h3><br>
                             <p>
-                              Per Section 2(Declaration of Policy) of the Data Privacy Act of 2012, it is the policy of the State to protect the fundamental human right of privacy, of communication while ensuring free flow of information to promote innovation and growth. The State recognizes the vital role of information and communications technology in nation-building and its inherent obligation to ensure that personal information in information and communications systems in the government and in the private sector are secured and protected.
-                              As such, information collected from this form shall be held in strict confidence and shall only be used solely for records keeping purposes.
-                              Falsification of any of the given information will automatically bar applicant from any ILCDB Course.
+                              Per Section 2(Declaration of Policy) of the Data Privacy Act of 2012, it is the policy of the State to protect the fundamental human right of privacy, of communication while ensuring free flow of information to promote innovation and growth. The State recognizes the vital role of information and communications technology in nation-building and its inherent obligation to ensure that personal information in information and communications systems in the government and in the private sector are secured and protected. <br> <br>
+                              As such, information collected from this form shall be held in strict confidence and shall only be used solely for records keeping purposes. <br> <br>
+                              Falsification of any of the given information will automatically bar applicant from any ILCDB Course. <br> <br>
                               Participants should attend 100% of the session to receive a certificate.
                             </p>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="agreement" required>
-                              <label class="form-check-label" for="defaultCheck1">
+                              <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="agreement" style="width: 1.25em; height: 1.25em;" required>
+                              <label class="form-check-label" for="defaultCheck1" style="margin-left: 10px;">
                                 I agree
                               </label>
                             </div>
                           </div>
                         </div>
-                        <button id="nextBtn1" class="btn btn-primary">Next</button>
+
+                        <div class="container">
+                            <div class="form-group">
+                              <label for="email" class="text-white">
+                                <i class="fas fa-envelope text-white"></i> Email:
+                              </label>
+                              <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <button id="nextBtn1" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
+
                       </div>
+
 
                       <div class="carousel-item" id="slide2">
                         <div class="container">
-                          <div class="form-group shadow p-3 mb-5 bg-white rounded border">
+                          <div class="form-group p-3 mb-5 bg-white rounded border">
                             <h3>
-                            TITLE OF TRAINING / WEBINAR / COURSE
+                              <?php
+                                include ('../config/dbcon.php');
+                                $webinar_id = $_GET['webinar_id'];
+                                $ref_title = 'webinars/'.$webinar_id.'/webinar_title';
+                                $title = $database->getReference($ref_title)->getValue();
+                                echo $title;
+                              ?>
                             </h3>
                             <p>
-                            ICT LITERACY AND COMPETENCY DEVELOPMENT BUREAU (ILCDBu) <br>
-                            Thank you for your participation in this training / webinar / course on [title].  We would appreciate your feedback and welcome any additional comments that you may have. Your response will be used to enhance our training / webinar / course and ensure that we meet your future needs. Please provide your response to the questions listed below by clicking your choice from the options provided. We value your responses to this evaluation questions.
-                            <br>
-                            [Duration]; [Time]
+                            ICT LITERACY AND COMPETENCY DEVELOPMENT BUREAU (ILCDBu) <br><br>
+                            Thank you for your participation in this training / webinar / course on <?php echo $title?>.  We would appreciate your feedback and welcome any additional comments that you may have. Your response will be used to enhance our training / webinar / course and ensure that we meet your future needs. Please provide your response to the questions listed below by clicking your choice from the options provided. We value your responses to this evaluation questions.
                             </p>
                           </div>
                         </div>
-                        <button id="backBtn2" class="btn btn-primary">Back</button>
-                        <button id="nextBtn2" class="btn btn-primary">Next</button>
+                        <button id="backBtn2" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button id="nextBtn2" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
                       </div>
 
                       <div class="carousel-item" id="slide3">
@@ -157,7 +174,7 @@
                         <div class="form-group">
                           <label for="gender">gender:</label>
                           <select class="form-control" id="gender" name="gender" required>
-                            <option value="" selected disabled>Select age range</option>
+                            <option value="" selected disabled>Select Gender</option>
                             <option value="MALE">MALE</option>
                             <option value="FEMALE">FEMALE</option>
                             <option value="PREFER NOT TO ANSWER">PREFER NOT TO ANSWER</option>
@@ -186,8 +203,8 @@
                           </label>
                           <input type="text" class="form-control" id="certificate_email" name="certificate_email" required>
                         </div>
-                        <button id="backBtn3" class="btn btn-primary">Back</button>
-                        <button id="nextBtn3" class="btn btn-primary">Next</button>
+                        <button id="backBtn3" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button id="nextBtn3" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
                       </div>
 
                       <div class="carousel-item" id="slide4">
@@ -704,8 +721,8 @@
                             </div>
                           </div>
                         </div>
-                        <button id="backBtn4" class="btn btn-primary">Back</button>
-                        <button id="nextBtn4" class="btn btn-primary">Next</button>
+                        <button id="backBtn4" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button id="nextBtn4" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
                       </div>
 
                       <div class="carousel-item" id="slide5">
@@ -1178,8 +1195,8 @@
                             </p>
                           </div>
                         </div>
-                        <button id="backBtn5" class="btn btn-primary">Back</button>
-                        <button type="submitBtn" class="btn btn-primary" id="submitBtn" name="assessment_btn"><i class="fas fa-paper-plane" hidden></i> Submit </button>
+                        <button id="backBtn5" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button type="submitBtn" class="btn" id="submitBtn" name="assessment_btn" style="background-color: #3E5F8C; color: white;"><i class="fas fa-paper-plane" hidden></i> Submit </button>
                       </div>    
 
                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

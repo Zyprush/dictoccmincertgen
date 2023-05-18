@@ -35,7 +35,7 @@
     <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="../assets/img/logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
-      <span class="ml-2">DICT Cert Gen</span>
+      <span class="ml-2">DICT Certification</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
