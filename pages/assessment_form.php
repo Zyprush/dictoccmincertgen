@@ -1,5 +1,5 @@
 <?php
-        include('../includes/header.php');
+        include('../includes/header-2.0.php');
 
         if (!isset($_GET['webinar_id'])) {
             // Redirect the user to the webinar list page
