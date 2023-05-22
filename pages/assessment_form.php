@@ -728,7 +728,7 @@
                       <div class="carousel-item" id="slide5">
                         <div class="container">
                           <div class="form-group shadow p-3 mb-5 bg-white rounded border">
-                            <h3>RESOURCE PERSON / TRAINER EVALUATION - [Name of Resource Person]</h3>
+                            <h3>RESOURCE PERSON / TRAINER EVALUATION</h3>
                             <p>
                             Instruction: Please rate each item below based on a 5-1 scale (5 being the highest and 1 the lowest) 
                             </p>

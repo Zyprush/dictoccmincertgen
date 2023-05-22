@@ -1,28 +1,13 @@
 <?php
     include('../config/authentication.php');
     include('../includes/header.php');
-
-// Retrieve the user ID from the session
-$uid = $_SESSION['veryfied_user_id'];
-
-try {
-    // Get the user by UID
-    $user = $auth->getUser($uid);
-
-    // Get the user's email
-    $displayName = $user->displayName;
-
-    // Use the user's email in your desired way
-} catch (\Kreait\Firebase\Exception\Auth\UserNotFound $e) {
-    echo 'User not found';
-}
 ?>
 
 <div class="container my-5">
     <div class="row mb-5">
         <div class="col-md-12 text-center">
-            <h1 style = "text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                Welcome, <?php echo $displayName ?> !
+            <h1 id="welcome-heading">
+                Welcome, loading...
             </h1>
             <h4>
                 Explore the power and control at your fingertips. Manage, analyze, and optimize with ease.
@@ -95,29 +80,30 @@ try {
 <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 
 <script>
-    //console.log("document ready!");
     $(document).ready(function() {
-    $('#dashboard-table').DataTable({
+    var table = $('#dashboard-table').DataTable({
         "ajax": "../config/fetch_dashboard.php",
         "columns": [
-        { "data": "webinar_id" },
-        { "data": "webinar_title" },
-        { "data": "webinar_date" },
-        { "data": "participants_count" },
-        { "data": "assessments_count" },
-        {
-            "data": "status",
-            "render": function(data, type, row) {
-                if (data == 0) {
-                    return '<span class="text-danger">Pending</span>';
-                } else {
-                    return '<span class="text-success">Completed</span>';
+            { "data": "webinar_id" },
+            { "data": "webinar_title" },
+            { "data": "webinar_date" },
+            { "data": "participants_count" },
+            { "data": "assessments_count" },
+            {
+                "data": "status",
+                "render": function(data, type, row) {
+                    if (data == 0) {
+                        return '<span class="text-danger">Pending</span>';
+                    } else {
+                        return '<span class="text-success">Completed</span>';
+                    }
                 }
             }
-        }
         ]
     });
-    });
+});
+
+
     // Fetch the total webinar count
     fetch('../config/get_total_dashboard.php?type=webinar')
         .then(response => response.text())
@@ -136,5 +122,19 @@ try {
         .then(data => document.getElementById('pending-count').textContent = data)
         .catch(error => console.error(error));
     
+    // Use AJAX to fetch the display name from auth-fetch.php
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../config/auth_fetch.php', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.displayName) {
+                document.getElementById('welcome-heading').textContent = 'Welcome, ' + response.displayName + '!';
+            } else {
+                console.error('Error: ' + response.error);
+            }
+        }
+    };
+    xhr.send();
 </script>
   
