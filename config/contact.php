@@ -35,7 +35,8 @@ $mail->Body = $message;
 // Send the email
 try {
     $mail->send();
-    echo 'Sent email to ' . $receiver_email;
+    //echo 'Sent email to ' . $receiver_email;
+    header('location: ../pages/contact.php');
   } catch (Exception $e) {
     echo 'Error sending email to ' . $receiver_email . ': ' . $receiver_email->ErrorInfo;
   }
