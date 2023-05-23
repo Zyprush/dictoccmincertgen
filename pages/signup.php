@@ -19,7 +19,7 @@
             <h1 class="text-center">Sign Up</h1>
         </div>
         <div class="card-body">
-            <form action="../config/code.php" method="POST">
+            <form action="../config/send_email.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="fname" required>
