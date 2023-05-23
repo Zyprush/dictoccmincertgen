@@ -3,16 +3,16 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <h1 class="mt-5">About Us</h1>
-      <p>Welcome to our website!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a urna vitae metus convallis pellentesque at non ex. Cras ac convallis odio. Etiam eget tortor quam. Sed cursus, magna id dignissim semper, velit neque convallis eros, ac volutpat massa sem et dolor. Nulla interdum libero vitae tortor fringilla, at posuere est vestibulum.</p>
+      <h1 class="mt-5"><i class="fas fa-cogs fa-lg"></i>About Us</h1>
+      <p class="lead">Welcome to our dynamic website!</p>
+      <p>
+      <i class="fas fa-shield-alt fa-lg"></i> We are the official platform of the Department of Information and Communications Technology (DICT), dedicated to providing an innovative solution for all your certificate needs. With our cutting-edge certificate generator, sending email certificates, and efficient webinar management, we offer a seamless experience that combines convenience and creativity. Whether you're commemorating achievements or facilitating professional growth, our platform empowers you to effortlessly create, distribute, and manage certificates with utmost ease. Join us on this exciting journey as we revolutionize the way you recognize accomplishments and harness the power of technology in the world of certificates.
+      </p>
       
-      <h2 class="mt-5">Our Developer</h2>
-      <p>The website was developed by Jake Denver Alberio and Hanz Bausa, skilled web developers passionate about creating user-friendly and visually appealing websites.</p>
+      <h2 class="mt-5"><i class="fas fa-code fa-lg"></i> Our Developer</h2>
+      <p class="lead">Meet our Developer!</p>
+      <p><i class="fas fa-user fa-lg"></i> The website was developed by <b>Jake Denver Alberio</b> and <b>Hanz Bausa</b> , skilled web developers passionate about creating user-friendly and visually appealing websites.</p>
       
-      <h2 class="mt-5">Our Company</h2>
-      <p>Our company, ABC Corp, is a leading provider of innovative solutions in the field of technology. We strive to deliver high-quality products and services that exceed customer expectations.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat lectus et metus semper, ut ultrices elit feugiat. Quisque luctus dignissim lacus, a scelerisque enim faucibus et. Vivamus in lacinia sem. Integer at erat ipsum. Sed ullamcorper turpis justo, et dignissim tellus fringilla et. Etiam condimentum dui non semper pharetra. Praesent elementum elementum augue sed ullamcorper. Morbi nec lacinia purus, sed consequat mauris. Aliquam vitae neque nec velit lacinia hendrerit.</p>
     </div>
   </div>
 </div>
