@@ -3,7 +3,7 @@
     include('../includes/header.php');
 ?>
 
-<div class="container my-5">
+<div class="container my-1">
 
     <div class="row mb-2">
         <div class="col-md-12 text-center" >
