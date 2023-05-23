@@ -33,6 +33,7 @@ if (isset($_GET['code'])) {
             $createdUser = $auth->createUser($userProperties);
 
             if ($createdUser) {
+                $verificationCodesRef->getChild($verificationCodeId)->remove();
                 $_SESSION['status'] = "Sign up successful!";
                 header('location: ../pages/signin.php');
                 exit();
