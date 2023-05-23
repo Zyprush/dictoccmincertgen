@@ -16,7 +16,6 @@ class ComposerStaticInit2e82d36e25cba3bba6a8d489cabd8099
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
-        '79f66bc0a1900f77abe4a9a299057a0a' => __DIR__ . '/..' . '/starkbank/ecdsa/src/ellipticcurve.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
     );
@@ -33,12 +32,6 @@ class ComposerStaticInit2e82d36e25cba3bba6a8d489cabd8099
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'StellaMaris\\Clock\\' => 18,
-            'SendGrid\\Stats\\' => 15,
-            'SendGrid\\Mail\\' => 14,
-            'SendGrid\\Helper\\' => 16,
-            'SendGrid\\EventWebhook\\' => 22,
-            'SendGrid\\Contacts\\' => 18,
-            'SendGrid\\' => 9,
         ),
         'R' => 
         array (
@@ -128,30 +121,6 @@ class ComposerStaticInit2e82d36e25cba3bba6a8d489cabd8099
         'StellaMaris\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/stella-maris/clock/src',
-        ),
-        'SendGrid\\Stats\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/stats',
-        ),
-        'SendGrid\\Mail\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/mail',
-        ),
-        'SendGrid\\Helper\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/helper',
-        ),
-        'SendGrid\\EventWebhook\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/eventwebhook',
-        ),
-        'SendGrid\\Contacts\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/contacts',
-        ),
-        'SendGrid\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
         ),
         'Rize\\' => 
         array (
@@ -286,14 +255,11 @@ class ComposerStaticInit2e82d36e25cba3bba6a8d489cabd8099
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'BaseSendGridClientInterface' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/BaseSendGridClientInterface.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
-        'SendGrid' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
-        'TwilioEmail' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/TwilioEmail.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );

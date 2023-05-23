@@ -16,8 +16,12 @@
         Generate Certificates
         <i class="fas fa-cog"></i>
       </button>
+      
       <button class="btn btn-primary btn-sm float-right mr-2" id="select-all-btn">
         Select All
+      </button>
+      <button class="btn btn-primary btn-sm float-right mr-2" id="general-btn">
+        General Responses
       </button>
     </div>
     <div class="card-body">
@@ -174,5 +178,12 @@
       hideUploadForm();
     });
 
-   }); 
+    document.getElementById("general-btn").addEventListener("click", function() {
+    var webinarId = "<?php echo $webinar_id; ?>";
+    var url = "assessment_responses.php?id=" + webinarId;
+    window.open(url, "_blank");
+    });
+
+   });
+   
 </script>
