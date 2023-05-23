@@ -3,9 +3,10 @@
     include('../includes/header.php');
 ?>
 
-<div class="container my-1">
-    <div class="row mb-5">
-        <div class="col-md-12 text-center">
+<div class="container my-5">
+
+    <div class="row mb-2">
+        <div class="col-md-12 text-center" >
             <h1 id="welcome-heading">
                 Welcome, loading...
             </h1>

@@ -1,0 +1,81 @@
+.color-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.red {
+    background-color: #FF0000;
+}
+
+.orange {
+    background-color: #FFA500;
+}
+
+.yellow {
+    background-color: #FFFF00;
+}
+
+.yellowgreen {
+    background-color: #9ACD32;
+}
+
+.green {
+    background-color: #008000;
+}
+
+.evaluation-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.evaluation-circle h4 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.evaluation-circle p {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.container-no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.list-inline-item span {
+    margin-bottom: -5px;
+}
+.swiper-container {
+    overflow: hidden; /* Hide the vertical scrollbar */
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+        z-index: 1;
+}
+.swiper-button-next,
+    .swiper-button-prev {
+        margin-top: 50px; /* Adjust the margin value to move the arrows closer */
+        margin-left: 320px;
+        margin-right: 320px;
+    }
+
+.comment-container {
+    margin-bottom: 20px;
+}
