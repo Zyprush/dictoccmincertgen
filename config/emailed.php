@@ -31,7 +31,7 @@ $mail->Username = 'certgendict@gmail.com';
 $mail->Password = $_ENV['PASS_KEY'];
 
 // Set sender
-$mail->setFrom('certgendict@gmail.com', 'DICT');
+$mail->setFrom('certgendict@gmail.com', 'DICT - Certificate');
 
 // Send separate email to each recipient with their respective certificate
 foreach ($selectedAttendees as $attendee) {
@@ -72,10 +72,20 @@ if (file_exists($folderPath)) {
   }
 }
 
-include('dbcon.php');
-// Update the status value to 1
-$webinarRef = $database->getReference('webinars/' . $webinar_id . '/status');
-$webinarRef->set(1);
+include('dbconfig.php');
+
+// Prepare the SQL query
+$sql = "UPDATE webinars SET status = 1 WHERE webinar_id = '$webinar_id'";
+
+// Execute the query
+if ($conn->query($sql) === TRUE) {
+    echo "Status updated successfully";
+} else {
+    echo "Error updating status: " . $conn->error;
+}
+
+// Close the database connection
+$conn->close();
 
 // Function to delete a folder and its contents recursively
 function deleteFolder($folder) {

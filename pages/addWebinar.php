@@ -2,7 +2,8 @@
   include('../config/authentication.php');
   include('../includes/header.php');
 
-  $webinar_id = uniqid();
+  $webinar_id = str_pad(mt_rand(1, 9999999999), 10, '0', STR_PAD_LEFT);
+  
   echo '<script>var webinar_id = "' . $webinar_id . '";</script>';
 ?>
 
@@ -12,7 +13,7 @@
       <h3 class="my-4">Webinar Details</h3>
     </div>
     <div class="card-body">
-      <form action="../config/code.php" method="POST" onsubmit="return validateForm()">
+      <form action="../config/add-webinar.php" method="POST" onsubmit="return validateForm()">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input type="text" class="form-control" id="webinar_title" name="webinar_title" required>

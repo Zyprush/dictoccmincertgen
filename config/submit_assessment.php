@@ -1,17 +1,80 @@
 <?php
 session_start();
-include ('dbcon.php');
+require_once('dbconfig.php');
+
+// Check if "assessments" table exists, and create it if necessary
+$tableExists = $conn->query("SHOW TABLES LIKE 'assessments'");
+if ($tableExists->num_rows == 0) {
+    $createTableQuery = "CREATE TABLE assessments (
+        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+        webinar_id INT(11),
+        email VARCHAR(255),
+        agreement VARCHAR(255),
+        l_name VARCHAR(255),
+        f_name VARCHAR(255),
+        m_name VARCHAR(255),
+        e_name VARCHAR(255),
+        province VARCHAR(255),
+        region VARCHAR(255),
+        age INT(11),
+        gender VARCHAR(255),
+        citizenship VARCHAR(255),
+        certificate_name VARCHAR(255),
+        certificate_email VARCHAR(255),
+        question1 VARCHAR(255),
+        question2 VARCHAR(255),
+        question3 VARCHAR(255),
+        question4 VARCHAR(255),
+        question5 VARCHAR(255),
+        question6 VARCHAR(255),
+        question7 VARCHAR(255),
+        question8 VARCHAR(255),
+        question9 VARCHAR(255),
+        question10 VARCHAR(255),
+        question11 VARCHAR(255),
+        question12 VARCHAR(255),
+        question13 VARCHAR(255),
+        question14 VARCHAR(255),
+        question15 VARCHAR(255),
+        question16 VARCHAR(255),
+        question17 VARCHAR(255),
+        question18 VARCHAR(255),
+        most_useful VARCHAR(255),
+        least_useful VARCHAR(255),
+        spent_more VARCHAR(255),
+        spent_less VARCHAR(255),
+        improve_conduct VARCHAR(255),
+        recommend VARCHAR(255),
+        result_participation VARCHAR(255),
+        comments VARCHAR(255),
+        question19 VARCHAR(255),
+        question20 VARCHAR(255),
+        question21 VARCHAR(255),
+        question22 VARCHAR(255),
+        question23 VARCHAR(255),
+        question24 VARCHAR(255),
+        question25 VARCHAR(255),
+        question26 VARCHAR(255),
+        question27 VARCHAR(255),
+        question28 VARCHAR(255),
+        question29 VARCHAR(255),
+        question30 VARCHAR(255),
+        question31 VARCHAR(255),
+        question32 VARCHAR(255),
+        question33 VARCHAR(255),
+        question34 VARCHAR(255),
+        question35 VARCHAR(255),
+        question36 VARCHAR(255),
+        question37 VARCHAR(255),
+        other_comment VARCHAR(255)
+    )";
+    $conn->query($createTableQuery);
+}
 
 if(isset($_POST['assessment_btn'])){
-
-    // Define Firebase database references
-    $assessmentsRef = $database->getReference('assessments');
         
     // Retrieve webinar_id from query string
     $webinarId = $_POST['webinar_id'];
-
-    // Create a new database reference for the specific webinar node
-    $webinarRef = $assessmentsRef->getChild($webinarId);
 
     // Get form data
     $email = $_POST['email'];
@@ -115,84 +178,136 @@ if(isset($_POST['assessment_btn'])){
     //OTHER COMMENTS
     $other_comment = $_POST['other_comment'];
 
+    // Prepare the insert statement
+    $query = "INSERT INTO assessments (
+        webinar_id, 
+        email, agreement, 
+        l_name, 
+        f_name, 
+        m_name, 
+        e_name, 
+        province, 
+        region, 
+        age, 
+        gender, 
+        citizenship, 
+        certificate_name, 
+        certificate_email, 
+        question1, 
+        question2, 
+        question3, 
+        question4,
+        question5,
+        question6,
+        question7,
+        question8,
+        question9,
+        question10,
+        question11,
+        question12,
+        question13,
+        question14,
+        question15,
+        question16,
+        question17,
+        question18,
+        question19,
+        question20,
+        question21,
+        question22,
+        question23,
+        question24,
+        question25,
+        question26,
+        question27,
+        question28,
+        question29,
+        question30,
+        question31,
+        question32,
+        question33,
+        question34,
+        question35,
+        question36,
+        question37,
+        most_useful,
+        least_useful,
+        spent_more,
+        spent_less,
+        improve_conduct,
+        recommend,
+        result_participation,
+        other_comment,
+        comments
+        ) 
+              VALUES ('$webinarId', 
+              '$email', 
+              '$agreement', 
+              '$l_name', 
+              '$f_name', 
+              '$m_name', 
+              '$e_name', 
+              '$province', 
+              '$region', 
+              '$age', 
+              '$gender', 
+              '$citizenship', 
+              '$certificate_name', 
+              '$certificate_email', 
+              '$question1', 
+              '$question2', 
+              '$question3',
+              '$question4',
+              '$question5',
+              '$question6',
+              '$question7',
+              '$question8',
+              '$question9',
+              '$question10',
+              '$question11',
+              '$question12',
+              '$question13',
+              '$question14',
+              '$question15',
+              '$question16',
+              '$question17',
+              '$question18',
+              '$question19',
+              '$question20',
+              '$question21',
+              '$question22',
+              '$question23',
+              '$question24',
+              '$question25',
+              '$question26',
+              '$question27',
+              '$question28',
+              '$question29',
+              '$question30',
+              '$question31',
+              '$question32',
+              '$question33',
+              '$question34',
+              '$question35',
+              '$question36',
+              '$question37',
+              '$most_useful',
+              '$least_useful',
+              '$spent_more',
+              '$spent_less',
+              '$improve_conduct',
+              '$recommend',
+              '$result_participation',
+              '$comments',
+              '$other_comment')";
 
-
-    // Generate unique identifier for new assessment data
-    $assessmentId = uniqid();
-
-    // Create a new database reference for the registration data under the webinar node
-    $assessmentsRef = $webinarRef->getChild($assessmentId);
-
-    // Set the value of the new database reference to the registration data
-    $assessmentsRef->set([
-        
-        'email' => $email,
-        'agreement' => $agreement,
-        'l_name' => $l_name,
-        'f_name' => $f_name,
-        'm_name' => $m_name,
-        'e_name' => $e_name,
-
-        'province' => $province,
-        'region' => $region,
-        'age' => $age,
-        'gender' => $gender,
-        'citizenship' => $citizenship,
-        'certificate_name' => $certificate_name,
-        'certificate_email' => $certificate_email,
-        'question1' => $question1,
-        'question2' => $question2,
-        'question3' => $question3,
-        'question4' => $question4,
-        'question5' => $question5,
-        'question6' => $question6,
-        'question7' => $question7,
-        'question8' => $question8,
-        'question9' => $question9,
-        'question10' => $question10,
-        'question11' => $question11,
-        'question12' => $question12,
-        'question13' => $question13,
-        'question14' => $question14,
-        'question15' => $question15,
-        'question16' => $question16,
-        'question17' => $question17,
-        'question18' => $question18,
-        'most_useful' => $most_useful,
-        'least_useful' => $least_useful,
-        'spent_more' => $spent_more,
-        'spent_less' => $spent_less,
-        'improve_conduct' => $improve_conduct,
-        'recommend' => $recommend,
-        'result_participation' => $result_participation,
-        'comments' => $comments,
-        'question19' => $question19,
-        'question20' => $question20,
-        'question20_1' => $question20_1,
-        'question21' => $question21,
-        'question22' => $question22,
-        'question23' => $question23,
-        'question24' => $question24,
-        'question25' => $question25,
-        'question26' => $question26,
-        'question27' => $question27,
-        'question28' => $question28,
-        'question29' => $question29,
-        'question30' => $question30,
-        'question31' => $question31,
-        'question32' => $question32,
-        'question33' => $question33,
-        'question34' => $question34,
-        'question35' => $question35,
-        'question36' => $question36,
-        'question37' => $question37,
-        'other_comment' => $other_comment,
-        
-
-    ]);
-    
-    // Redirect to registration success page
-    header('Location: ../pages/assessment_success.php');
-    exit();
+    if ($conn->query($query) === TRUE) {
+        // Redirect to success page
+        header('Location: ../pages/assessment_success.php');
+        exit();
+    } else {
+        // Handle insert error
+        echo "Error: " . $query . "<br>" . $db->error;
+    }
 }
 ?>

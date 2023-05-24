@@ -1,18 +1,8 @@
 <?php
 session_start();
-include ('dbcon.php');
+include('dbconfig.php');
 
-if(isset($_POST['register_btn'])){
-
-    // Define Firebase database references
-    $participantsRef = $database->getReference('participants');
-        
-    // Retrieve webinar_id from query string
-    $webinarId = $_POST['webinar_id'];
-
-    // Create a new database reference for the specific webinar node
-    $webinarRef = $participantsRef->getChild($webinarId);
-
+if (isset($_POST['register_btn'])) {
     // Get form data
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -21,24 +11,27 @@ if(isset($_POST['register_btn'])){
     $organization = $_POST['organization'];
     $program = $_POST['program'];
     $position = $_POST['position'];
+    $webinarId = $_POST['webinar_id'];
 
-    // Generate unique identifier for new registration data
-    $registrationId = uniqid();
+    // Create "participants" table if it doesn't exist
+    $createTableQuery = "CREATE TABLE IF NOT EXISTS participants (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        webinar_id INT,
+        name VARCHAR(255),
+        email VARCHAR(255),
+        student_id VARCHAR(255),
+        school VARCHAR(255),
+        organization VARCHAR(255),
+        program VARCHAR(255),
+        position VARCHAR(255)
+    )";
+    $conn->query($createTableQuery);
 
-    // Create a new database reference for the registration data under the webinar node
-    $registrationRef = $webinarRef->getChild($registrationId);
+    // Insert the registration data into the "participants" table
+    $insertQuery = "INSERT INTO participants (webinar_id, name, email, student_id, school, organization, program, position)
+                    VALUES ('$webinarId', '$name', '$email', '$studentId', '$school', '$organization', '$program', '$position')";
+    $conn->query($insertQuery);
 
-    // Set the value of the new database reference to the registration data
-    $registrationRef->set([
-        'name' => $name,
-        'email' => $email,
-        'student_id' => $studentId,
-        'school' => $school,
-        'organization' => $organization,
-        'program' => $program,
-        'position' => $position
-    ]);
-    
     // Redirect to registration success page
     header('Location: ../pages/registration_success.php');
     exit();

@@ -4,6 +4,12 @@
 ?>
 
 <div class="container">
+        <?php
+            if(isset($_SESSION['status'])){
+                echo "<h5 class='alert alert-success'>".($_SESSION['status'])."</h5>";
+                unset($_SESSION['status']);
+            }
+        ?>
   <div class="card border shadow rounded">
     <div class="card-header">
       <div class="row">
@@ -38,7 +44,6 @@
             <th scope="col">Webinar ID</th>
             <th scope="col">Title</th>
             <th scope="col">Date</th>
-            <th scope="col">Respondent</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
@@ -56,20 +61,21 @@
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 <script>
-    $(document).ready(function () {
-        var table = $('#webinar-table').DataTable({
-            "ajax":{
-                "url":"../config/fetch_webinars.php",
-                "type":"POST"
-            },
-            "columns": [
-                { "data": "id" },
-                { "data": "title" },
-                { "data": "date" },
-                { "data": "participants_count" },
-                { 
-                  "data": "status", 
-                  "render": function(data, type, row) {
+
+$(document).ready(function() {
+      // Initialize DataTables
+      var table = $('#webinar-table').DataTable({
+        ajax: {
+          url: '../config/fetch_webinars.php',
+          dataSrc: ''
+        },
+        columns: [
+          { data: 'webinar_id' },
+          { data: 'webinar_title' },
+          { data: 'webinar_date' },
+          { 
+            "data": "status", 
+            "render": function(data, type, row) {
                 if (data == 0) {
                     return '<span class="text-danger">Pending</span>';
                 } else {
@@ -81,7 +87,7 @@
             select: {
             style: 'single'
             },
-        });
+      });
 
         // Set button state based on row selection
         table.on('select', function (e, dt, type, indexes) {
@@ -105,19 +111,19 @@
         // Add button click handlers
         $('#btn-view-assessments').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
-            var webinarID = selectedRowData.id;
+            var webinarID = selectedRowData.webinar_id;
             window.location.href = 'assessments_view.php?id=' + webinarID;
         });
 
         $('#btn-edit-webinar').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
-            var webinarID = selectedRowData.id;
+            var webinarID = selectedRowData.webinar_id;
             window.location.href = 'edit-webinar.php?id=' + webinarID;
         });
 
         $('#btn-delete-webinar').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
-            var webinarID = selectedRowData.id;
+            var webinarID = selectedRowData.webinar_id;
             if (confirm('Are you sure you want to delete this webinar?')) {
                 $.ajax({
                     url: '../config/delete_webinar.php',
@@ -136,7 +142,7 @@
 
         $('#btn-view-links').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
-            var webinarID = selectedRowData.id;
+            var webinarID = selectedRowData.webinar_id;
             window.location.href = 'viewLinks.php?id=' + webinarID;
         });
     });

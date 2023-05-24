@@ -51,29 +51,6 @@ if(isset($_POST['delete_btn'])){
     }
 }
 
-if(isset($_POST['update_webinar'])){
-
-    $key = $_POST['key'];
-    $webinar_title = $_POST['webinar_title'];
-    $webinar_date = $_POST['webinar_date'];
-    $webinar_link = $_POST['webinar_link'];
-
-    $updateData = [
-        'webinar_title' => $webinar_title,
-        'webinar_date' => $webinar_date,
-        'webinar_link' => $webinar_link,
-    ];
-    $ref_table = 'webinars/'.$key;
-    $updatequery_result = $database->getReference($ref_table)->update($updateData);
-
-    if($updatequery_result) {
-        $_SESSION['status'] = "Webinar Successfully Updated!";
-        header('location: ../pages/webinarlist.php');
-    } else {
-        $_SESSION['status'] = "Webinar is NOT updated!";
-        header('location: ../pages/webinarlist.php');
-    }
-}
 
 if(isset($_POST['save_webinar']))
 {

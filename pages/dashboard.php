@@ -4,6 +4,12 @@
 ?>
 
 <div class="container my-1">
+        <?php
+            if(isset($_SESSION['status'])){
+                echo "<h5 class='alert alert-success'>".($_SESSION['status'])."</h5>";
+                unset($_SESSION['status']);
+            }
+        ?>
 
     <div class="row mb-2">
         <div class="col-md-12 text-center" >
@@ -124,19 +130,5 @@
         .then(data => document.getElementById('pending-count').textContent = data)
         .catch(error => console.error(error));
     
-    // Use AJAX to fetch the display name from auth-fetch.php
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../config/auth_fetch.php', true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.displayName) {
-                document.getElementById('welcome-heading').textContent = 'Welcome, ' + response.displayName + '!';
-            } else {
-                console.error('Error: ' + response.error);
-            }
-        }
-    };
-    xhr.send();
 </script>
   
