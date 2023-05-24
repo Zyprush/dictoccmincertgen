@@ -2,7 +2,7 @@
     session_start();
 
     include('../includes/header-2.0.php');
-    if (isset($_SESSION['veryfied_user_id'])) {
+    if (isset($_SESSION['logged_in'])) {
         // Redirect to another page (e.g., dashboard)
         header('Location: dashboard.php');
         exit();
@@ -21,7 +21,7 @@
             <h1 class="text-center">Sign In</h1>
         </div>
         <div class="card-body">
-            <form action="../config/logincode.php" method="POST">
+            <form action="../config/dblogin.php" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="email" name="email" required>
@@ -30,7 +30,7 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" name="signin_btn">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </form>
         </div>
         <div class="card-footer">

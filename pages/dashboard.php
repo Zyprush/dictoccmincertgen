@@ -7,9 +7,10 @@
 
     <div class="row mb-2">
         <div class="col-md-12 text-center" >
-            <h1 id="welcome-heading">
-                Welcome, loading...
+            <h1>
+            <?php  echo "Welcome, $name!"; ?>
             </h1>
+            
             <h4>
                 Explore the power and control at your fingertips. Manage, analyze, and optimize with ease.
             </h4>

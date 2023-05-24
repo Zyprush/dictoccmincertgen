@@ -1,15 +1,14 @@
 <?php
+// Start the session
 session_start();
 
-unset($_SESSION['veryfied_user_id']);
-unset($_SESSION['idTokenString']);
+// Destroy the session variables
+unset($_SESSION['logged_in']);
+unset($_SESSION['id']);
+unset($_SESSION['username']);
 
-if(isset($_SESSION['expiry_status'])){
-    $_SESSION['status'] = "Session Expired!";
-} else {
-    $_SESSION['status'] = "Logged out successfully!";
-}
-header('location: ../pages/signin.php');
+// Redirect to the signin page
+$_SESSION['status'] = "Logged out successfully!";
+header('Location: ../pages/signin.php');
 exit();
-
 ?>
