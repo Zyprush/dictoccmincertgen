@@ -18,8 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
   // Check if the user already exists
-  $query = "SELECT * FROM certgen_users WHERE email = '$email'";
-  $result = $db->query($query);
+  $query = "SELECT * FROM certgen_users WHERE email = ?";
+  $stmt = $conn->prepare($query);
+  $stmt->bind_param('s', $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
   if ($result && $result->num_rows > 0) {
         // User already registered
@@ -28,8 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
   } else {
     // Insert the user into the database
-    $insertQuery = "INSERT INTO certgen_users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
-    $insertResult = $db->query($insertQuery);
+    $insertQuery = "INSERT INTO certgen_users (name, email, password) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($insertQuery);
+    $stmt->bind_param('sss', $name, $email, $hashedPassword);
+    $insertResult = $stmt->execute();
 
     if ($insertResult) {
         // Registration successful

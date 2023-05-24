@@ -1,27 +1,30 @@
 <?php
 
-include('../config/dbcon.php');
+include('dbconfig.php');
 
 $ref_table = 'participants';
-$fetchdata = $database->getReference($ref_table)->getValue();
+$query = "SELECT * FROM $ref_table";
+$result = $conn->query($query);
 
 $data = array();
 
-if (!empty($fetchdata)) {
-  foreach ($fetchdata as $webinar_id => $webinar) {
-    foreach ($webinar as $registration_id => $registration) {
-      $data[] = array(
-        'webinar_id' => $webinar_id,
-        'name' => $registration['name'],
-        'email' => $registration['email'],
-        'student_id' => $registration['student_id'],
-        'school' => $registration['school'],
-        'organization' => $registration['organization'],
-        'program' => $registration['program'],
-        'position' => $registration['position']
-      );
-    }
+if ($result && $result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $data[] = array(
+      'webinar_id' => $row['webinar_id'],
+      'name' => $row['name'],
+      'email' => $row['email'],
+      'student_id' => $row['student_id'],
+      'school' => $row['school'],
+      'organization' => $row['organization'],
+      'program' => $row['program'],
+      'position' => $row['position']
+    );
   }
 }
 
 echo json_encode(array('data' => $data));
+
+$conn->close();
+
+?>

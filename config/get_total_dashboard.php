@@ -1,39 +1,44 @@
 <?php
 
-include('dbcon.php');
+include('dbconfig.php');
 
 $type = $_GET['type'];
 
 if ($type == 'webinar') {
-  $ref_table = 'webinars';
-  $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();
-  echo $total_count;
-} else if ($type == 'participant') {
-  $ref_table = 'participants';
-  $total_count = 0;
-  $fetchdata = $database->getReference($ref_table)->getValue();
+  $query = "SELECT COUNT(*) AS total_count FROM webinars";
+  $result = $conn->query($query);
 
-  if (!empty($fetchdata)) {
-    foreach ($fetchdata as $webinar) {
-      $total_count += count($webinar);
-    }
-  } 
-
-  echo $total_count;
-} else if ($type == 'pending') {
-  $ref_table = 'webinars';
-  $pending_count = 0;
-  $webinars = $database->getReference($ref_table)->getValue();
-
-  if (!empty($webinars)) {
-    foreach ($webinars as $webinar) {
-      if ($webinar['status'] == 0) {
-        $pending_count++;
-      }
-    }
+  if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $total_count = $row['total_count'];
+    echo $total_count;
+  } else {
+    echo 0;
   }
+} else if ($type == 'participant') {
+  $query = "SELECT COUNT(*) AS total_count FROM participants";
+  $result = $conn->query($query);
 
-  echo $pending_count;
+  if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $total_count = $row['total_count'];
+    echo $total_count;
+  } else {
+    echo 0;
+  }
+} else if ($type == 'pending') {
+  $query = "SELECT COUNT(*) AS pending_count FROM webinars WHERE status = 0";
+  $result = $conn->query($query);
+
+  if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $pending_count = $row['pending_count'];
+    echo $pending_count;
+  } else {
+    echo 0;
+  }
 }
+
+$conn->close();
 
 ?>

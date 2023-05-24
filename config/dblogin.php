@@ -17,9 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  // Query the database for the user
-  $query = "SELECT * FROM certgen_users WHERE email = '$email'";
-  $result = $db->query($query);
+  // Prepare the query to prevent SQL injection
+  $query = "SELECT * FROM certgen_users WHERE email = ?";
+  $stmt = $conn->prepare($query);
+  $stmt->bind_param('s', $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
   // Check if the user exists and the password is correct
   if ($result && $result->num_rows > 0) {
