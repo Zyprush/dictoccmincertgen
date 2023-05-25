@@ -9,11 +9,17 @@
 ?>
 <div class="container my-5">
     <div class="card mx-auto shadow" style="max-width: 400px;">
+        <?php
+            if(isset($_SESSION['status'])){
+                echo "<h5 class='alert alert-success'>".($_SESSION['status'])."</h5>";
+                unset($_SESSION['status']);
+            }
+        ?>
         <div class="card-header">
             <h1 class="text-center">Sign Up</h1>
         </div>
         <div class="card-body">
-            <form action="../config/dbsignup.php" method="POST">
+            <form action="../config/send_email_function.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" required>
