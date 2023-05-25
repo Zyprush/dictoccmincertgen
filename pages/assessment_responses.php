@@ -1,8 +1,8 @@
 <?php
 include('../config/authentication.php');
 include('../includes/header.php');
-include('../config/general_response.php');
-include('../config/comments.php');
+include('../config/general_response_function.php');
+include('../config/comments_function.php');
 ?> 
 <link
   rel="stylesheet"
@@ -138,7 +138,7 @@ include('../config/comments.php');
                             <?php
                             $carouselItems = array(); // Array to store carousel items
 
-                            foreach ($fetchdata as $assessment) :
+                            foreach ($result as $assessment) :
                                 $certificate_name = $assessment['certificate_name'];
 
                                 ob_start(); // Start output buffering
