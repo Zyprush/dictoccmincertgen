@@ -2,7 +2,7 @@
   include('../config/authentication.php');
   include('../includes/header.php');
 
-  $webinar_id = str_pad(mt_rand(1, 9999999999), 10, '0', STR_PAD_LEFT);
+  $webinar_id = uniqid();
   
   echo '<script>var webinar_id = "' . $webinar_id . '";</script>';
 ?>

@@ -10,7 +10,7 @@ $result = $conn->query($checkTableQuery);
 if ($result->num_rows == 0) {
   // Table does not exist, create it
   $createTableQuery = "CREATE TABLE webinars (
-    webinar_id INT PRIMARY KEY,
+    webinar_id VARCHAR(255) PRIMARY KEY,
     webinar_title VARCHAR(255) NOT NULL,
     webinar_date DATE NOT NULL,
     webinar_link VARCHAR(255) NOT NULL,
@@ -47,7 +47,7 @@ if (isset($_POST['save_webinar'])) {
   if ($result) {
     // Webinar successfully added
     $_SESSION['status'] = "Webinar Successfully Added!";
-    header('Location: ../pages/dashboard.php');
+    header('Location: ../pages/webinarlist.php');
     exit();
   } else {
     // Failed to add webinar

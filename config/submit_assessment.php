@@ -7,7 +7,7 @@ $tableExists = $conn->query("SHOW TABLES LIKE 'assessments'");
 if ($tableExists->num_rows == 0) {
     $createTableQuery = "CREATE TABLE assessments (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
-        webinar_id INT(11),
+        webinar_id VARCHAR(255),
         email VARCHAR(255),
         agreement VARCHAR(255),
         l_name VARCHAR(255),

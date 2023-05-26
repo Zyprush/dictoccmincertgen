@@ -16,7 +16,7 @@ if (isset($_POST['register_btn'])) {
     // Create "participants" table if it doesn't exist
     $createTableQuery = "CREATE TABLE IF NOT EXISTS participants (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        webinar_id INT,
+        webinar_id VARCHAR(255),
         name VARCHAR(255),
         email VARCHAR(255),
         student_id VARCHAR(255),
