@@ -33,7 +33,7 @@
                     <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
 
                   <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <ol class="carousel-indicators">
+                    <ol class="carousel-indicators" hidden>
                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                       <li data-target="#myCarousel" data-slide-to="1"></li>
                       <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <button id="nextBtn1" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
+                        <button type="button" id="nextBtn1" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
 
                       </div>
 
@@ -105,8 +105,8 @@
                             </p>
                           </div>
                         </div>
-                        <button id="backBtn2" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
-                        <button id="nextBtn2" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
+                        <button type="button" id="backBtn2" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button type="button" id="nextBtn2" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
                       </div>
 
                       <div class="carousel-item" id="slide3">
@@ -721,8 +721,8 @@
                             </div>
                           </div>
                         </div>
-                        <button id="backBtn4" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
-                        <button id="nextBtn4" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
+                        <button type="button" id="backBtn4" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button type="button" id="nextBtn4" class="btn" style="background-color: #3E5F8C; color: white;">Next</button>
                       </div>
 
                       <div class="carousel-item" id="slide5">
@@ -1195,8 +1195,8 @@
                             </p>
                           </div>
                         </div>
-                        <button id="backBtn5" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
-                        <button type="submitBtn" class="btn" id="submitBtn" name="assessment_btn" style="background-color: #3E5F8C; color: white;"><i class="fas fa-paper-plane" hidden></i> Submit </button>
+                        <button type="button" id="backBtn5" class="btn" style="background-color: #3E5F8C; color: white;">Back</button>
+                        <button type="submit" class="btn" id="submitBtn" name="assessment_btn" style="background-color: #3E5F8C; color: white;"><i class="fas fa-paper-plane" hidden></i> Submit </button>
                       </div>    
 
                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

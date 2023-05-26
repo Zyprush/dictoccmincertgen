@@ -176,8 +176,8 @@ include('../config/comments_function.php');
 </div>
 
 <!-- Navigation arrows -->
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
+<div class="swiper-button-next" hidden></div>
+<div class="swiper-button-prev" hidden></div>
 
 <link rel="stylesheet" href="../assets/css/assessment_response.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
