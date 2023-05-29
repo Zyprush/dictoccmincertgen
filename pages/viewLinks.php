@@ -5,9 +5,13 @@
 
 <div class="container">
     <div class="card shadow">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="col-sm-6"> Webinar Details </div>
+            <button type="button" class="btn btn-danger" onclick="window.location.href='webinarlist.php'">
+                <i class="bi bi-arrow-left"></i> Back
+            </button>
+        </div>
         <div class="card-body">
-            <h1 class="my-4">Links Details</h1>
-
             <?php
                 require_once '../config/dbconfig.php';
                 if (isset($_GET['id'])){
@@ -22,24 +26,34 @@
                         ?>
 
                         <div class="mb-3">
-                            <label for="webinar" class="form-label">Webinar Link: </label>
-                            <a href="<?=$row['webinar_link'];?>" target="_blank"><?=$row['webinar_link'];?></a>
+                            <label for="webinar" class="form-label">Webinar Link:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="<?= $row['webinar_link']; ?>" readonly>
+                                <button class="btn btn-primary" type="button" onclick="window.open('<?= $row['webinar_link']; ?>', '_blank')">
+                                    <i class="bi bi-link-45deg"></i> Open
+                                </button>
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="registration" class="form-label">Registration Link: </label>
-                            <a href="<?=$row['registration_link'];?>" target="_blank"><?=$row['registration_link'];?></a>
+                            <label for="registration" class="form-label">Registration Link:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="<?= $row['registration_link']; ?>" readonly>
+                                <button class="btn btn-primary" type="button" onclick="window.open('<?= $row['registration_link']; ?>', '_blank')">
+                                    <i class="bi bi-link-45deg"></i> Open
+                                </button>
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="link" class="form-label">Assessment link:</label>
-                            <a href="<?=$row['assessment_link'];?>" target="_blank"><?=$row['assessment_link'];?></a>
+                            <label for="link" class="form-label">Assessment Link:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="<?= $row['assessment_link']; ?>" readonly>
+                                <button class="btn btn-primary" type="button" onclick="window.open('<?= $row['assessment_link']; ?>', '_blank')">
+                                    <i class="bi bi-link-45deg"></i> Open
+                                </button>
+                            </div>
                         </div>
-
-                        <div class="col-sm-6 mb-3">
-                            <button type="button" class="btn btn-danger" onclick="window.location.href='webinarlist.php'"> Back </button>
-                        </div>
-
                     <?php
                     } else {
                         $_SESSION['status'] = "Invalid ID";

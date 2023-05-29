@@ -88,18 +88,21 @@
 <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 
 <script>
-    $(document).ready(function() {
+   $(document).ready(function() {
     var table = $('#dashboard-table').DataTable({
-        "ajax": "../config/fetch_dashboard.php",
-        "columns": [
-            { "data": "webinar_id" },
-            { "data": "webinar_title" },
-            { "data": "webinar_date" },
-            { "data": "participants_count" },
-            { "data": "assessments_count" },
+        ajax: {
+            url: '../config/fetch_dashboard.php',
+            dataSrc: 'data' // Specify the key for the data array in the JSON response
+        },
+        columns: [
+            { data: 'webinar_id' },
+            { data: 'webinar_title' },
+            { data: 'webinar_date' },
+            { data: 'participants_count' },
+            { data: 'assessments_count' },
             {
-                "data": "status",
-                "render": function(data, type, row) {
+                data: 'status',
+                render: function(data, type, row) {
                     if (data == 0) {
                         return '<span class="text-danger">Pending</span>';
                     } else {
@@ -107,9 +110,13 @@
                     }
                 }
             }
-        ]
+        ],
+            select: {
+            style: 'single'
+            },
     });
 });
+
 
 
     // Fetch the total webinar count
