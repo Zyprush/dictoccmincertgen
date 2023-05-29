@@ -44,6 +44,7 @@
             <th scope="col">Webinar ID</th>
             <th scope="col">Title</th>
             <th scope="col">Event Date</th>
+            <th scope="col">Responses</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
@@ -73,6 +74,7 @@ $(document).ready(function() {
           { data: 'webinar_id' },
           { data: 'webinar_title' },
           { data: 'webinar_date' },
+          { data: 'assessment_count' },
           { 
             "data": "status", 
             "render": function(data, type, row) {

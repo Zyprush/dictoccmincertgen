@@ -1,5 +1,6 @@
 <?php
 require '../vendor/autoload.php';
+session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -32,6 +33,9 @@ $mail->Password = $_ENV['PASS_KEY'];
 
 // Set sender
 $mail->setFrom('certgendict@gmail.com', 'DICT - Certificate');
+
+// Enable SMTP keep-alive
+$mail->SMTPKeepAlive = true;
 
 // Send separate email to each recipient with their respective certificate
 foreach ($selectedAttendees as $attendee) {
@@ -105,6 +109,6 @@ function deleteFolder($folder) {
   return rmdir($folder);
 }
 
-$_SESSION['status'] = "Email Sent!";
+$_SESSION['status'] = "Email Successfully Sent!";
 header('location: ../pages/dashboard.php');
 ?>

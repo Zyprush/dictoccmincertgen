@@ -1,9 +1,8 @@
 <?php
-include('dbconfig.php');
+require_once 'dbconfig.php';
 
 $webinar_id = $_GET['id'];
-//$ref_table_assessments = 'assessments_' . $webinar_id; // Assuming each webinar has its own assessments table
-$query = "SELECT * FROM assessments Where webinar_id = $webinar_id";
+$query = "SELECT * FROM assessments WHERE webinar_id = '$webinar_id'";
 $result = mysqli_query($conn, $query);
 
 $relevance_scores = array(); // Array to store scores for "Relevance of training" category

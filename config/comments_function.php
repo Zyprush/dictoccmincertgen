@@ -2,8 +2,7 @@
 include('dbconfig.php');
 
 $webinar_id = $_GET['id'];
-//$ref_table_assessments = 'assessments_' . $webinar_id;
-$sql = "SELECT * FROM assessments Where webinar_id = $webinar_id";
+$sql = "SELECT * FROM assessments Where webinar_id = '$webinar_id'";
 $result = $conn->query($sql);
 
 $questions = array(
