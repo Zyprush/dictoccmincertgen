@@ -126,7 +126,7 @@
 
                                         <p>
                                             ICT LITERACY AND COMPETENCY DEVELOPMENT BUREAU (ILCDBu) <br><br>
-                                            Thank you for your participation in this training / webinar / course on TITLE.  We would appreciate your feedback and welcome any additional comments that you may have. Your response will be used to enhance our training / webinar / course and ensure that we meet your future needs. Please provide your response to the questions listed below by clicking your choice from the options provided. We value your responses to this evaluation questions.
+                                            Thank you for your participation in this training / webinar / course on <?php echo $title; ?>.  We would appreciate your feedback and welcome any additional comments that you may have. Your response will be used to enhance our training / webinar / course and ensure that we meet your future needs. Please provide your response to the questions listed below by clicking your choice from the options provided. We value your responses to this evaluation questions.
                                         </p>
                                     </div>
                                 </div>
@@ -1246,46 +1246,46 @@
 
 <script>
 
-  $(document).ready(function() {
-      // Initialize the carousel
-      $('#myCarousel').carousel();
+$(document).ready(function() {
+    // Initialize the carousel
+    $('#myCarousel').carousel();
 
-      // Handle next button click
-      $('.nextBtn').click(function() {
-          var currentSlideId = $('.carousel-item.active').attr('id');
-    
-    if (currentSlideId === 'slide1') {
-      // Slide 1 input validation
-      if ($("#email").val() === "" || !$("#defaultCheck1").is(":checked")) {
-        return;
-      }
-    } else if (currentSlideId === 'slide3') {
-      // Slide 2 input validation
-      if ($("#l_name").val() === "" || $("#f_name").val() === "" || $("#province").val() === "" || $("#region option:selected").val() === "" || $("#age option:selected").val() === "" || $("#gender option:selected").val() === "" || $("#citizenship").val() === "" || $("#certificate_name").val() === "" || $("#certificate_email").val() === "") {
-        return;
-      }
-    } else if (currentSlideId === 'slide4') {
-      // Slide 3 input validation
-      var questions = ["question1", "question2", "question3", "question4", "question5", "question6", "question7", "question8", "question9", "question10", "question11", "question12", "question13", "question14", "question15", "question16", "question17", "question18"];
+    // Handle next button click
+    $('.nextBtn').click(function() {
+        var currentSlideId = $('.carousel-item.active').attr('id');
+  
+  if (currentSlideId === 'slide1') {
+    // Slide 1 input validation
+    if ($("#email").val() === "" || !$("#defaultCheck1").is(":checked")) {
+      return;
+    }
+  } else if (currentSlideId === 'slide3') {
+    // Slide 2 input validation
+    if ($("#l_name").val() === "" || $("#f_name").val() === "" || $("#province").val() === "" || $("#region option:selected").val() === "" || $("#age option:selected").val() === "" || $("#gender option:selected").val() === "" || $("#citizenship").val() === "" || $("#certificate_name").val() === "" || $("#certificate_email").val() === "") {
+      return;
+    }
+  } else if (currentSlideId === 'slide4') {
+    // Slide 3 input validation
+    var questions = ["question1", "question2", "question3", "question4", "question5", "question6", "question7", "question8", "question9", "question10", "question11", "question12", "question13", "question14", "question15", "question16", "question17", "question18"];
 
-      for (var i = 0; i < questions.length; i++) {
-        if ($('input[name="' + questions[i] + '"]:checked').length === 0) {
-          return;
-        }
-      }
-      if ($("#most_useful").val() === "" || $("#least_useful").val() === "" || $("#spent_more").val() === "" || $("#spent_less").val() === "" || $("#improve_conduct").val() === "" || $("#recommend").val() === "" || $("#result_participation").val() === "" || $("#comments").val() === "") {
+    for (var i = 0; i < questions.length; i++) {
+      if ($('input[name="' + questions[i] + '"]:checked').length === 0) {
         return;
       }
     }
+    if ($("#most_useful").val() === "" || $("#least_useful").val() === "" || $("#spent_more").val() === "" || $("#spent_less").val() === "" || $("#improve_conduct").val() === "" || $("#recommend").val() === "" || $("#result_participation").val() === "" || $("#comments").val() === "") {
+      return;
+    }
+  }
 
-    $('#myCarousel').carousel('next');
-      });
+  $('#myCarousel').carousel('next');
+    });
 
-      // Handle back button click
-      $('.backBtn').click(function() {
-        // Move to the previous slide
-        $('#myCarousel').carousel('prev');
-      });
+    // Handle back button click
+    $('.backBtn').click(function() {
+      // Move to the previous slide
+      $('#myCarousel').carousel('prev');
+    });
   });
 
 </script>
