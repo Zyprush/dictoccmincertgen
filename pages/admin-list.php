@@ -18,11 +18,11 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-right">
-                    <button id="btn-add-whitelisted" class="btn btn-primary btn-sm">
+                    <button id="btn-add-whitelisted" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_userModal" <?php if ($role === 0) echo ' disabled'; ?>>
                         <i class="fas fa-plus"></i>
                         Add User
                     </button>
-                    <button id="btn-edit-user" class="btn btn-secondary btn-sm disabled">
+                    <button id="btn-edit-user" class="btn btn-secondary btn-sm disabled" data-toggle="modal" data-target="#edit_userModal" <?php if ($role === 0) echo ' disabled'; ?>>
                         <i class="fas fa-pen"></i>
                     </button>
                     <button id="btn-delete-user" class="btn btn-secondary btn-sm disabled">
@@ -48,6 +48,57 @@
     </div>
 </div>
 
+<!-- Modal for add-->
+<div class="modal fade" id="add_userModal" tabindex="-1" role="dialog" aria-labelledby="add_userModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Whitelisted Email</h5>
+      </div>
+      <form action="../config/add-whitelisted.php" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for edit -->
+<div class="modal fade" id="edit_userModal" tabindex="-1" role="dialog" aria-labelledby="edit_userModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
+      </div>
+      <form id="editUserForm" action="../config/edit_user.php" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" readonly>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <?php
     include('../includes/footer.php');
 ?>
@@ -59,6 +110,7 @@
 
 <script>
 $(document).ready(function() {
+    
     var table = $('#adminTable').DataTable({
         ajax: {
             url: '../config/fetch_admins.php',
@@ -97,23 +149,18 @@ $(document).ready(function() {
         }
     });
 
-    // Add User button click event
-    $('#btn-add-whitelisted').on('click', function() {
-        var userRole = <?php echo json_encode($_SESSION['role']); ?>;
-
-        if (userRole === 0) {
-            // Non-admin user, display an error message or take appropriate action
-            alert("You don't have permission to add users.");
-            return;
-        }
-
-        // Show the modal form for adding a user
-        // Add your code to show the modal form here
-    });
-
     // Edit User button click event
     $('#btn-edit-user').on('click', function() {
-        // Add your logic for editing a user here
+
+        var selectedRowData = table.rows({ selected: true }).data()[0];
+        var name = selectedRowData.name;
+        var email = selectedRowData.email;
+
+        // Set the name and email values in the form
+        $('#editUserForm #name').val(name);
+        $('#editUserForm #email').val(email);
+
+        
     });
 
     // Delete User button click event

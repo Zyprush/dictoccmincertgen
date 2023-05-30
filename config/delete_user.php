@@ -6,30 +6,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the user email from the POST data
     $userEmail = $_POST['userEmail'];
 
-    // Prepare the SQL statement to delete the user
-    $sql = "DELETE FROM certgen_users WHERE email = ?";
+    // Check the number of users in the table
+    $countQuery = "SELECT COUNT(*) as userCount FROM certgen_users";
+    $countResult = $conn->query($countQuery);
+    $userCount = $countResult->fetch_assoc()['userCount'];
 
-    // Prepare and bind the parameters
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('s', $userEmail);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Deletion successful
-        $response = array(
-            'success' => true,
-            'message' => 'User deleted successfully',
-        );
-    } else {
-        // Deletion failed
+    if ($userCount <= 1) {
+        // If there is only one user, prevent deletion
         $response = array(
             'success' => false,
-            'message' => 'Failed to delete user',
+            'message' => 'Cannot delete the last user',
         );
-    }
+    } else {
+        // Prepare the SQL statement to delete the user
+        $sql = "DELETE FROM certgen_users WHERE email = ?";
 
-    // Close the statement
-    $stmt->close();
+        // Prepare and bind the parameters
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $userEmail);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Deletion successful
+            $response = array(
+                'success' => true,
+                'message' => 'User deleted successfully',
+            );
+        } else {
+            // Deletion failed
+            $response = array(
+                'success' => false,
+                'message' => 'Failed to delete user',
+            );
+        }
+
+        // Close the statement
+        $stmt->close();
+    }
 
     // Send the response as JSON
     header('Content-Type: application/json');
