@@ -3,12 +3,14 @@
     include('../includes/header.php');
 ?>
 
+
 <?php
     if(isset($_SESSION['status'])){
         echo "<h5 class='alert alert-success'>" . ($_SESSION['status']) . "</h5>";
         unset($_SESSION['status']);
     }
 ?>
+
 
 <div class="container">
     <div class="card border shadow rounded">
@@ -45,11 +47,41 @@
             </table>
         </div>
     </div>
+    <!-- Modal for Add User -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="../config/whitelisted-emails.php" method="post">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <!-- Add any other fields or inputs as needed -->
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+
+
+
+
 
 <?php
     include('../includes/footer.php');
 ?>
+
+
 <!-- Include DataTables JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -85,7 +117,16 @@ $(document).ready(function() {
 
     // Add User button click event
     $('#btn-add-whitelisted').on('click', function() {
-        // Add your logic for adding a user here
+        var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+        if (userRole === 0) {
+            // Non-admin user, display an error message or take appropriate action
+            alert("You don't have permission to add users.");
+            return;
+        }
+
+        // Show the modal form
+        $('#addUserModal').modal('show');
     });
 
     // Edit User button click event
