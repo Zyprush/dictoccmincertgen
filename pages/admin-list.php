@@ -3,14 +3,12 @@
     include('../includes/header.php');
 ?>
 
-
 <?php
     if(isset($_SESSION['status'])){
         echo "<h5 class='alert alert-success'>" . ($_SESSION['status']) . "</h5>";
         unset($_SESSION['status']);
     }
 ?>
-
 
 <div class="container">
     <div class="card border shadow rounded">
@@ -47,40 +45,11 @@
             </table>
         </div>
     </div>
-    <!-- Modal for Add User -->
-<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="../config/whitelisted-emails.php" method="post">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <!-- Add any other fields or inputs as needed -->
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
-        </div>
-    </div>
 </div>
-</div>
-
-
-
-
 
 <?php
     include('../includes/footer.php');
 ?>
-
 
 <!-- Include DataTables JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -125,8 +94,8 @@ $(document).ready(function() {
             return;
         }
 
-        // Show the modal form
-        $('#addUserModal').modal('show');
+        // Show the modal form for adding a user
+        // Add your code to show the modal form here
     });
 
     // Edit User button click event
@@ -136,14 +105,42 @@ $(document).ready(function() {
 
     // Delete User button click event
     $('#btn-delete-user').on('click', function() {
-        // Add your logic for deleting a user here
+        var selectedRowData = table.rows({ selected: true }).data()[0];
+        var userID = selectedRowData.user_id;
+
+        // Show a confirmation dialog before deleting the user
+        if (confirm("Are you sure you want to delete this user?")) {
+            // Send an AJAX request to delete the user
+            $.ajax({
+                url: '../config/delete_user.php',
+                method: 'POST',
+                data: { userID: userID },
+                success: function(response) {
+                    // Handle the response from the server
+                    if (response.success) {
+                        // User deleted successfully
+                        alert('User deleted successfully');
+                        table.ajax.reload(); // Refresh the table data
+                    } else {
+                        // Failed to delete user
+                        alert('Failed to delete user. Please try again.');
+                    }
+                },
+                error: function() {
+                    // Error occurred during the AJAX request
+                    alert('An error occurred while deleting the user. Please try again.');
+                }
+            });
+        }
     });
 
     // Promote User button click event
     $('#btn-promote-user').on('click', function() {
-        // Add your logic for promoting a user here
+        var selectedRowData = table.rows({ selected: true }).data()[0];
+        var userID = selectedRowData.user_id;
+
+        // Perform the promote operation for the user
+        // Add your code to promote the user here
     });
 });
 </script>
-
-
