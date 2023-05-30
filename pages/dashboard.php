@@ -14,7 +14,7 @@
     <div class="row mb-2">
         <div class="col-md-12 text-center" >
             <h1>
-            <?php  echo "Welcome, $name!"; ?>
+            <?php  echo "Welcome, Admin $name!"; ?>
             </h1>
             
             <h4>

@@ -32,8 +32,16 @@
             <a class="dropdown-item" href="../pages/respondent.php">Respondent</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-danger" href="../config/logout.php">Logout</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <?php echo $currentPage === 'admin-list.php' || $currentPage === '#' ? 'active' : ''; ?>" href="#" id="profileManagementDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+            Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="participantManagementDropdown">
+            <a class="dropdown-item" href="#">Edit profile</a>
+            <a class="dropdown-item" href="../pages/admin-list.php">Admin List</a>
+            <a class="dropdown-item text-danger" href="../config/logout.php">Logout</a>
+          </div>
         </li>
       </ul>
     </div>

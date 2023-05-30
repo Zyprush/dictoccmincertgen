@@ -29,7 +29,7 @@
                             <label for="webinar" class="form-label">Webinar Link:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" value="<?= $row['webinar_link']; ?>" readonly>
-                                <button class="btn btn-primary" type="button" onclick="window.open('<?= $row['webinar_link']; ?>', '_blank')">
+                                <button class="btn btn-primary ml-3" type="button" onclick="window.open('<?= $row['webinar_link']; ?>', '_blank')">
                                     <i class="bi bi-link-45deg"></i> Open
                                 </button>
                             </div>
@@ -39,7 +39,7 @@
                             <label for="registration" class="form-label">Registration Link:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" value="<?= $row['registration_link']; ?>" readonly>
-                                <button class="btn btn-primary" type="button" onclick="window.open('<?= $row['registration_link']; ?>', '_blank')">
+                                <button class="btn btn-primary ml-3" type="button" onclick="window.open('<?= $row['registration_link']; ?>', '_blank')">
                                     <i class="bi bi-link-45deg"></i> Open
                                 </button>
                             </div>
@@ -49,7 +49,7 @@
                             <label for="link" class="form-label">Assessment Link:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" value="<?= $row['assessment_link']; ?>" readonly>
-                                <button class="btn btn-primary" type="button" onclick="window.open('<?= $row['assessment_link']; ?>', '_blank')">
+                                <button class="btn btn-primary ml-3" type="button" onclick="window.open('<?= $row['assessment_link']; ?>', '_blank')">
                                     <i class="bi bi-link-45deg"></i> Open
                                 </button>
                             </div>

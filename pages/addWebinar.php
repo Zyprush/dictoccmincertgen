@@ -18,10 +18,10 @@ echo '<script>var webinar_id = "' . $webinar_id . '";</script>';
           
         <div class="float-right">
           <button type="submit" class="btn btn-primary btn-sm" name="save_webinar">
-            <i class="fa fa-plus" aria-hidden="true"></i> Create
+            <i class="bi bi-file-earmark-plus"></i> Create
           </button>
           <button type="button" class="btn btn-danger btn-sm" onclick="window.history.back();">
-            <i class="fas fa-times"></i>
+            <i class="bi bi-x-lg"></i>
           </button>
         </div>
         

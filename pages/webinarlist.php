@@ -18,6 +18,7 @@
         <div class="col-sm-6">
           <div class="float-right">
             <button id="btn-view-assessments" class="btn btn-secondary btn-sm disabled">
+              <i class="bi bi-view-list"></i>
               View Response
             </button>
             <button id="btn-edit-webinar" class="btn btn-secondary btn-sm disabled">
@@ -27,7 +28,7 @@
               <i class="fas fa-trash"></i>
             </button>
             <button id="btn-view-links" class="btn btn-secondary btn-sm disabled">
-              <i class="fas fa-eye"></i>
+              <i class="bi bi-link-45deg"></i>
             </button>
             <a href="addWebinar.php" class="btn btn-primary btn-sm">
               <i class="fas fa-plus"></i>

@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     include('../includes/header-2.0.php');
     if (isset($_SESSION['logged_in'])) {
         // Redirect to another page (e.g., dashboard)
@@ -11,30 +10,42 @@
 
 <div class="container my-5">
     <div class="card mx-auto shadow" style="max-width: 400px;">
-        <?php
-            if(isset($_SESSION['status'])){
-                echo "<h5 class='alert alert-success'>".($_SESSION['status'])."</h5>";
-                unset($_SESSION['status']);
-            }
-        ?>
         <div class="card-header">
-            <h1 class="text-center">Sign In</h1>
+            <?php
+                if(isset($_SESSION['status'])){
+                    if(!empty($_SESSION['status'])){
+                        echo "<h4 class='text-center mt-1 text-danger'>".($_SESSION['status'])."</h4>";
+                        unset($_SESSION['status']);
+                    } else {
+                        echo "<h4 class='text-center mt-1'>Sign-in form</h4>";
+                    }
+                } else {
+                    echo "<h4 class='text-center mt-1'>Sign-in form</h4>";
+                }
+            ?>
         </div>
+        
         <div class="card-body">
             <form action="../config/dblogin.php" method="POST">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                        <input type="email" class="form-control ml-1" id="email" name="email" placeholder="Email address" required>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" class="form-control ml-1" id="password" name="password" placeholder="Password" required>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block">
+                    LOGIN
+                </button>
             </form>
         </div>
         <div class="card-footer">
-            <p class="text-center">Don't have an account? <a href="signup.php">Sign Up</a></p>
+            <p class="text-center m-0">Don't have an account? <a href="signup.php">Sign Up</a></p>
         </div>
     </div>
 </div>
