@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['logged_in'] = true;
         $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
+        $_SESSION['role'] = $user['role'];
 
         // Redirect to the dashboard or any other authorized page
         header('Location: ../pages/dashboard.php');

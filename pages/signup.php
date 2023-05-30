@@ -24,7 +24,7 @@
             ?>
         </div>
         <div class="card-body">
-            <form action="../config/send_email_function.php" method="POST">
+            <form action="../config/dbsignup.php" method="POST">
                 <div class="mb-3">
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-person-fill"></i></span>

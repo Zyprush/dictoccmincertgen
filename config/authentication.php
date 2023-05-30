@@ -12,6 +12,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 // The user is logged in
 $userId = $_SESSION['id'];
 $name = $_SESSION['name'];
+$role = $_SESSION['role'];
 
 // You can perform additional actions here, such as fetching user information from the database or authorizing access to specific resources.
 

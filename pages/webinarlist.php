@@ -119,17 +119,33 @@ $(document).ready(function() {
         $('#btn-edit-webinar').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.webinar_id;
+            var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+            if (userRole === 0) {
+                // Non-admin user, display an error message or take appropriate action
+                alert("You don't have permission to edit webinars. Please ask your Admin.");
+                return;
+            }
+
             window.location.href = 'edit-webinar.php?id=' + webinarID;
         });
 
         $('#btn-delete-webinar').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.webinar_id;
+            var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+            if (userRole === 0) {
+                // Non-admin user, display an error message or take appropriate action
+                alert("You don't have permission to delete webinars. Please ask your Admin.");
+                return;
+            }
+
             if (confirm('Are you sure you want to delete this webinar?')) {
                 $.ajax({
                     url: '../config/delete_webinar.php',
                     method: 'POST',
-                    data: {id: webinarID},
+                    data: { id: webinarID },
                     success: function(data) {
                         // Remove the selected row from the table
                         table.row({ selected: true }).remove().draw();

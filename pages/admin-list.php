@@ -57,7 +57,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#adminTable').DataTable({
+    var table = $('#adminTable').DataTable({
         ajax: {
             url: '../config/fetch_admins.php',
             dataSrc: ''
@@ -66,10 +66,43 @@ $(document).ready(function() {
             { data: 'name' },
             { data: 'email' }
         ],
-            select: {
+        select: {
             style: 'single'
-            },
+        },
+    });
+
+    // Enable/disable and style buttons based on selection
+    $('#adminTable tbody').on('click', 'tr', function() {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+            $('#btn-edit-user, #btn-delete-user, #btn-promote-user').addClass('disabled').removeClass('btn-primary');
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            $('#btn-edit-user, #btn-delete-user, #btn-promote-user').removeClass('disabled').addClass('btn-primary');
+        }
+    });
+
+    // Add User button click event
+    $('#btn-add-whitelisted').on('click', function() {
+        // Add your logic for adding a user here
+    });
+
+    // Edit User button click event
+    $('#btn-edit-user').on('click', function() {
+        // Add your logic for editing a user here
+    });
+
+    // Delete User button click event
+    $('#btn-delete-user').on('click', function() {
+        // Add your logic for deleting a user here
+    });
+
+    // Promote User button click event
+    $('#btn-promote-user').on('click', function() {
+        // Add your logic for promoting a user here
     });
 });
 </script>
+
 

@@ -137,10 +137,19 @@
 
     // Generate certificates button
     $('#generate-certificates-btn').on('click', function() {
-      // Display the PDF upload form
-      $('#upload-form').show();
-      document.getElementById('upload-form').style.display = 'flex';
+    var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+    if (userRole === 0) {
+        // Non-admin user, display an error message or take appropriate action
+        alert("You don't have permission to generate certificates. Please ask your Admin.");
+        return;
+    }
+
+        // Display the PDF upload form
+        $('#upload-form').show();
+        document.getElementById('upload-form').style.display = 'flex';
     });
+
 
     // Handle PDF file upload
     $('#pdf-upload-form').on('submit', function(e) {

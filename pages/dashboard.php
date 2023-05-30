@@ -14,7 +14,7 @@
     <div class="row mb-2">
         <div class="col-md-12 text-center" >
             <h1>
-            <?php  echo "Welcome, Admin $name!"; ?>
+                <?php echo ($role == 1) ? "Welcome, Admin $name!" : "Welcome, $name!"; ?>
             </h1>
             
             <h4>
