@@ -8,84 +8,91 @@ echo '<script>var webinar_id = "' . $webinar_id . '";</script>';
 ?>
 
 <div class="container">
-  <div class="card shadow">
+  <div class="card border shadow rounded">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <div class="col-sm-6">Webinar Details</div>
-      <div>
-      <form action="../config/add-webinar.php" method="POST" onsubmit="return validateForm()">
-        <button type="submit" class="btn btn-primary me-2" name="save_webinar">
-          <i class="fa fa-plus" aria-hidden="true"></i> Create
-        </button>
-        <button type="button" class="btn btn-danger" onclick="window.history.back();">
-          <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
+      <div class="col-sm-12 col-md-6 font-weight-bold">
+        Webinar Details
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <form action="../config/add-webinar.php" method="POST" onsubmit="return validateForm()">
+          
+        <div class="float-right">
+          <button type="submit" class="btn btn-primary btn-sm" name="save_webinar">
+            <i class="fa fa-plus" aria-hidden="true"></i> Create
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="window.history.back();">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
       </div>
     </div>
     <div class="card-body">
-      
-        <div class="mb-3">
+      <div class="row">
+        <div class="col-md-12 mb-3">
           <label for="title" class="form-label">Title</label>
           <input type="text" class="form-control" id="webinar_title" name="webinar_title" required>
         </div>
+      </div>
 
-        <div class="mb-3">
+      <div class="row">
+        <div class="col-md-6 mb-3">
           <label for="date" class="form-label">Date</label>
           <input type="date" class="form-control" id="webinar_date" name="webinar_date" required>
         </div>
-
-        <div class="mb-3">
+        <div class="col-md-6 mb-3">
           <label for="link" class="form-label">Meeting Link</label>
           <input type="url" class="form-control" id="webinar_link" name="webinar_link" required>
         </div>
+      </div>
 
-        <!-- Add a new form for displaying the generated links -->
-        <div class="row">
-          <div class="col-md-6 mb-3">
-              <div class="mb-3">
-                <label for="generated-registration-link" class="form-label">Generated Registration Form Link</label>
-                <input type="url" class="form-control" id="generated-registration-link" readonly>
-              </div>
+      <!-- Add a new form for displaying the generated links -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="mb-3">
+            <label for="generated-registration-link" class="form-label">Generated Registration Form Link</label>
+            <input type="url" class="form-control" id="generated-registration-link" readonly>
           </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="mb-3">
+            <label for="generated-assessment-link" class="form-label">Generated Assessment Form Link</label>
+            <input type="url" class="form-control" id="generated-assessment-link" readonly>
+          </div>
+        </div>
+      </div>
 
-          <div class="col-md-6 mb-3">
-              <div class="mb-3">
-                <label for="generated-assessment-link" class="form-label">Generated Assessment Form Link</label>
-                <input type="url" class="form-control" id="generated-assessment-link" readonly>
-              </div>
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <button type="button" id="generate-registration-link-button" class="btn btn-secondary btn-block">
+            <i class="fas fa-cog"></i>
+            Generate Registration
+          </button>
+          <div id="registration-link" style="display: none;">
+            <input type="hidden" name="registration_link" id="registration_link" value="">
+            <p hidden>Registration form link: <a id="registration-link-url" href=""></a></p>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-6 mb-3">
-            <button type="button" id="generate-registration-link-button" class="btn btn-secondary btn-block">
-              <i class="fas fa-cog"></i>
-              Generate Registration
-            </button>
-            <div id="registration-link" style="display: none;">
-              <input type="hidden" name="registration_link" id="registration_link" value="">
-              <p hidden>Registration form link: <a id="registration-link-url" href=""></a></p>
-            </div>
-          </div>
-
-          <div class="col-sm-6 mb-3">
-            <button type="button" id="generate-assessment-link-button" class="btn btn-secondary btn-block">
-              <i class="fas fa-cog"></i>
-              Generate Assessment</button>
-            <div id="assessment-link" style="display: none;">
-              <input type="hidden" name="assessment_link" id="assessment_link" value="">
-              <p hidden>Assessment form link: <a id="assessment-link-url" href=""></a></p>
-            </div>
+        <div class="col-sm-6 mb-3">
+          <button type="button" id="generate-assessment-link-button" class="btn btn-secondary btn-block">
+            <i class="fas fa-cog"></i>
+            Generate Assessment
+          </button>
+          <div id="assessment-link" style="display: none;">
+            <input type="hidden" name="assessment_link" id="assessment_link" value="">
+            <p hidden>Assessment form link: <a id="assessment-link-url" href=""></a></p>
           </div>
         </div>
+      </div>
 
-        <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
-        <input type="hidden" name="status" id="status" value="0">
-        
-
+      <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
+      <input type="hidden" name="status" id="status" value="0">
       </form>
     </div>
   </div>
 </div>
+
 
 <script>
   // get the button element

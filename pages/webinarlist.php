@@ -11,9 +11,8 @@
             }
         ?>
   <div class="card border shadow rounded">
-    <div class="card-header">
-      <div class="row">
-        <div class="col-sm-6">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="col-sm-12 col-md-6 font-weight-bold">
           Webinar List
         </div>
         <div class="col-sm-6">
@@ -35,7 +34,6 @@
             </a>
           </div>
         </div>
-      </div>
     </div>
     <div class="card-body">
       <table id="webinar-table" class="table table-hover">
