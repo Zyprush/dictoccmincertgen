@@ -3,27 +3,33 @@ include('dbconfig.php'); // Include the database configuration file
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the user ID from the POST data
-    $userID = $_POST['userID'];
+    // Get the user email from the POST data
+    $userEmail = $_POST['userEmail'];
 
     // Prepare the SQL statement to delete the user
-    $sql = "DELETE FROM certgen_users WHERE user_id = ?";
+    $sql = "DELETE FROM certgen_users WHERE email = ?";
 
-    // Prepare and execute the statement
+    // Prepare and bind the parameters
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('i', $userID);
-    $stmt->execute();
+    $stmt->bind_param('s', $userEmail);
 
-    // Check if the deletion was successful
-    $success = ($stmt->affected_rows > 0);
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Deletion successful
+        $response = array(
+            'success' => true,
+            'message' => 'User deleted successfully',
+        );
+    } else {
+        // Deletion failed
+        $response = array(
+            'success' => false,
+            'message' => 'Failed to delete user',
+        );
+    }
 
     // Close the statement
     $stmt->close();
-
-    // Prepare the response data
-    $response = array(
-        'success' => $success,
-    );
 
     // Send the response as JSON
     header('Content-Type: application/json');

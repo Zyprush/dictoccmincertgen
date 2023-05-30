@@ -40,6 +40,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Email ID</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
             </table>
@@ -65,7 +66,19 @@ $(document).ready(function() {
         },
         columns: [
             { data: 'name' },
-            { data: 'email' }
+            { data: 'email' },
+            {
+                data: 'role',
+                render: function(data) {
+                    if (data === '0') {
+                        return 'Normal User';
+                    } else if (data === '1') {
+                        return 'Admin';
+                    } else {
+                        return '';
+                    }
+                }
+            }
         ],
         select: {
             style: 'single'
@@ -106,7 +119,14 @@ $(document).ready(function() {
     // Delete User button click event
     $('#btn-delete-user').on('click', function() {
         var selectedRowData = table.rows({ selected: true }).data()[0];
-        var userID = selectedRowData.user_id;
+        var userEmail = selectedRowData.email;
+        var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+        if (userRole === 0) {
+            // Non-admin user, display an error message or take appropriate action
+            alert("You don't have permission to Delete users. Please ask the Admin.");
+            return;
+        }
 
         // Show a confirmation dialog before deleting the user
         if (confirm("Are you sure you want to delete this user?")) {
@@ -114,7 +134,7 @@ $(document).ready(function() {
             $.ajax({
                 url: '../config/delete_user.php',
                 method: 'POST',
-                data: { userID: userID },
+                data: { userEmail: userEmail },
                 success: function(response) {
                     // Handle the response from the server
                     if (response.success) {
@@ -137,10 +157,38 @@ $(document).ready(function() {
     // Promote User button click event
     $('#btn-promote-user').on('click', function() {
         var selectedRowData = table.rows({ selected: true }).data()[0];
-        var userID = selectedRowData.user_id;
+        var userEmail = selectedRowData.email;
+        var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+        if (userRole === 0) {
+            // Non-admin user, display an error message or take appropriate action
+            alert("You don't have permission to Promote users. Please ask the Admin.");
+            return;
+        }
 
         // Perform the promote operation for the user
-        // Add your code to promote the user here
+        if (confirm("Are you sure you want to promote user with email: " + userEmail + "?")) {
+            $.ajax({
+                url: '../config/promote_user.php',
+                method: 'POST',
+                data: { userEmail: userEmail },
+                success: function(response) {
+                    if (response.success) {
+                        // User promoted successfully
+                        alert('User promoted successfully');
+                        table.ajax.reload(); // Refresh the table data
+                    } else {
+                        // Failed to promote user
+                        alert('Failed to promote user. Please try again.');
+                    }
+                },
+                error: function() {
+                    // Error occurred during the AJAX request
+                    alert('An error occurred while promoting the user. Please try again.');
+                }
+            });
+        }
     });
+
 });
 </script>
