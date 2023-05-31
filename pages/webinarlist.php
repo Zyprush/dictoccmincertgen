@@ -54,6 +54,88 @@
   </div>
 </div>
 
+<!-- Edit webinar dialog -->
+<div class="modal fade" id="editWebinarModal" tabindex="-1" role="dialog" aria-labelledby="editWebinarModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editWebinarModalLabel">Edit Webinar Details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="editWebinarForm" action="../config/update-webinar.php" method="POST">
+        <div class="modal-body">
+          <input type="hidden" name="key" id="webinar_id">
+          <div class="form-group">
+            <label for="webinar_title">Webinar Title:</label>
+            <input type="text" class="form-control" id="webinar_title" name="webinar_title" required>
+          </div>
+          <div class="form-group">
+            <label for="webinar_date">Webinar Date:</label>
+            <input type="date" class="form-control" id="webinar_date" name="webinar_date" required>
+          </div>
+          <div class="form-group">
+            <label for="webinar_link">Webinar Link:</label>
+            <input type="text" class="form-control" id="webinar_link" name="webinar_link" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" name="update_webinar" disabled>Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- View Links dialog -->
+<div class="modal fade" id="viewLinksModal" tabindex="-1" role="dialog" aria-labelledby="viewLinksModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewLinksModalLabel">View Links</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="webinarLink">Webinar Link:</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="webinarLink" readonly>
+            <button class="btn btn-primary ml-3" type="button" id="openWebinarLink">
+              Open
+            </button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="registrationLink">Registration Link:</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="registrationLink" readonly>
+            <button class="btn btn-primary ml-3" type="button" id="openRegistrationLink">
+              Open
+            </button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="assessmentLink">Assessment Link:</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="assessmentLink" readonly>
+            <button class="btn btn-primary ml-3" type="button" id="openAssessmentLink">
+              Open
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <?php
     include('../includes/footer.php');
 ?>
@@ -116,30 +198,65 @@ $(document).ready(function() {
             window.location.href = 'assessments_view.php?id=' + webinarID;
         });
 
+        var originalValues = {}; // Object to store the original values
+
+        // Enable or disable the "Save Changes" button
+        $('input').on('input', function() {
+            var webinarTitle = $('#webinar_title').val();
+            var webinarDate = $('#webinar_date').val();
+            var webinarLink = $('#webinar_link').val();
+
+            // Check if any changes were made
+            if (webinarTitle !== originalValues.title || webinarDate !== originalValues.date || webinarLink !== originalValues.link) {
+                $('button[name="update_webinar"]').prop('disabled', false);
+            } else {
+                $('button[name="update_webinar"]').prop('disabled', true);
+            }
+        });
+
         $('#btn-edit-webinar').on('click', function() {
+            // Get the selected webinar ID
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.webinar_id;
-            var userRole = <?php echo json_encode($_SESSION['role']); ?>;
 
-            if (userRole === 0) {
-                // Non-admin user, display an error message or take appropriate action
-                alert("You don't have permission to edit webinars. Please ask your Admin.");
-                return;
-            }
+            // Fetch the webinar details from the server
+            $.ajax({
+                url: '../config/fetch-webinar-details.php',
+                type: 'GET',
+                data: { id: webinarID },
+                success: function(response) {
+                    // Parse the JSON response
+                    var webinar = JSON.parse(response);
 
-            window.location.href = 'edit-webinar.php?id=' + webinarID;
+                    // Extract the webinar details
+                    var webinarTitle = webinar.webinar_title;
+                    var webinarDate = webinar.webinar_date;
+                    var webinarLink = webinar.webinar_link;
+
+                    // Set the original values
+                    originalValues.title = webinarTitle;
+                    originalValues.date = webinarDate;
+                    originalValues.link = webinarLink;
+
+                    // Set the values in the form
+                    $('#webinar_id').val(webinarID);
+                    $('#webinar_title').val(webinarTitle);
+                    $('#webinar_date').val(webinarDate);
+                    $('#webinar_link').val(webinarLink);
+
+                    // Show the dialog
+                    $('#editWebinarModal').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error response
+                    console.log(error);
+                }
+            });
         });
 
         $('#btn-delete-webinar').on('click', function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.webinar_id;
-            var userRole = <?php echo json_encode($_SESSION['role']); ?>;
-
-            if (userRole === 0) {
-                // Non-admin user, display an error message or take appropriate action
-                alert("You don't have permission to delete webinars. Please ask your Admin.");
-                return;
-            }
 
             if (confirm('Are you sure you want to delete this webinar?')) {
                 $.ajax({
@@ -158,9 +275,55 @@ $(document).ready(function() {
         });
 
         $('#btn-view-links').on('click', function() {
+            // Get the selected webinar ID
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.webinar_id;
-            window.location.href = 'viewLinks.php?id=' + webinarID;
-        });
+
+            // Fetch the links from the server
+            $.ajax({
+              url: '../config/fetch-links.php',
+              type: 'GET',
+              data: { id: webinarID },
+              success: function(response) {
+                // Parse the JSON response
+                var links = JSON.parse(response);
+
+                // Extract the links
+                var webinarLink = links.webinar_link;
+                var registrationLink = links.registration_link;
+                var assessmentLink = links.assessment_link;
+
+                // Set the values in the dialog
+                $('#viewLinksModal #webinarLink').val(webinarLink);
+                $('#viewLinksModal #registrationLink').val(registrationLink);
+                $('#viewLinksModal #assessmentLink').val(assessmentLink);
+
+                // Show the dialog
+                $('#viewLinksModal').modal('show');
+              },
+              error: function(xhr, status, error) {
+                // Handle the error response
+                console.log(error);
+              }
+            });
+          });
+
+          // Open Webinar Link
+          $('#openWebinarLink').on('click', function() {
+            var webinarLink = $('#viewLinksModal #webinarLink').val();
+            window.open(webinarLink, '_blank');
+          });
+
+          // Open Registration Link
+          $('#openRegistrationLink').on('click', function() {
+            var registrationLink = $('#viewLinksModal #registrationLink').val();
+            window.open(registrationLink, '_blank');
+          });
+
+          // Open Assessment Link
+          $('#openAssessmentLink').on('click', function() {
+            var assessmentLink = $('#viewLinksModal #assessmentLink').val();
+            window.open(assessmentLink, '_blank');
+          });
     });
 </script>

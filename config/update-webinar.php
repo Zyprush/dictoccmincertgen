@@ -1,5 +1,5 @@
 <?php
-    include('../config/dbconfig.php');
+    include('dbconfig.php');
     session_start();
 
     if(isset($_POST['update_webinar'])) {
@@ -9,9 +9,11 @@
         $webinar_link = $_POST['webinar_link'];
 
         // Prepare the update query
-        $query = "UPDATE webinars SET webinar_title = '$webinar_title', webinar_date = '$webinar_date', webinar_link = '$webinar_link' WHERE webinar_id = '$webinarID'";
+        $query = "UPDATE webinars SET webinar_title = ?, webinar_date = ?, webinar_link = ? WHERE webinar_id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("sssi", $webinar_title, $webinar_date, $webinar_link, $webinarID);
 
-        if($conn->query($query)) {
+        if($stmt->execute()) {
             $_SESSION['status'] = "Webinar Successfully Updated!";
             header('Location: ../pages/webinarlist.php');
             exit();
