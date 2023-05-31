@@ -10,6 +10,9 @@
     }
 ?>
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <div class="container">
     <div class="card border shadow rounded">
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -18,11 +21,11 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-right">
-                    <button id="btn-add-whitelisted" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_userModal" <?php if ($role === 0) echo ' disabled'; ?>>
+                    <button id="btn-add-whitelisted" class="btn btn-primary btn-sm">
                         <i class="fas fa-plus"></i>
                         Add User
                     </button>
-                    <button id="btn-edit-user" class="btn btn-secondary btn-sm disabled" data-toggle="modal" data-target="#edit_userModal" <?php if ($role === 0) echo ' disabled'; ?>>
+                    <button id="btn-edit-user" class="btn btn-secondary btn-sm disabled">
                         <i class="fas fa-pen"></i>
                     </button>
                     <button id="btn-delete-user" class="btn btn-secondary btn-sm disabled">
@@ -49,7 +52,7 @@
 </div>
 
 <!-- Modal for add-->
-<div class="modal fade" id="add_userModal" tabindex="-1" role="dialog" aria-labelledby="add_userModalLabel" aria-hidden="true">
+<div class="modal fade" id="add_dialog" tabindex="-1" role="dialog" aria-labelledby="add_dialogLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -63,7 +66,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
@@ -72,11 +75,11 @@
 </div>
 
 <!-- Modal for edit -->
-<div class="modal fade" id="edit_userModal" tabindex="-1" role="dialog" aria-labelledby="edit_userModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit_dialog" tabindex="-1" role="dialog" aria-labelledby="edit_dialogLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
+        <h5 class="modal-title" id="dialogLabel">Edit User Details</h5>
       </div>
       <form id="editUserForm" action="../config/edit_user.php" method="POST">
         <div class="modal-body">
@@ -90,14 +93,13 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" >Submit</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
 
 <?php
     include('../includes/footer.php');
@@ -150,17 +152,38 @@ $(document).ready(function() {
     });
 
     // Edit User button click event
-    $('#btn-edit-user').on('click', function() {
+    $('#btn-add-whitelisted').on('click', function() {
+        var userRole = <?php echo json_encode($_SESSION['role']); ?>;
 
+        if (userRole === 0) {
+            // Non-admin user, display an error message or take appropriate action
+            alert("You don't have permission to Add users. Please ask the Admin.");
+            return;
+        }
+
+        $('#add_dialog').modal('show');
+    });
+
+    // Edit User button click event
+    $('#btn-edit-user').on('click', function() {
+        
         var selectedRowData = table.rows({ selected: true }).data()[0];
         var name = selectedRowData.name;
         var email = selectedRowData.email;
+
+        var userRole = <?php echo json_encode($_SESSION['role']); ?>;
+
+        if (userRole === 0) {
+            // Non-admin user, display an error message or take appropriate action
+            alert("You don't have permission to Edit users. Please ask the Admin.");
+            return;
+        }
 
         // Set the name and email values in the form
         $('#editUserForm #name').val(name);
         $('#editUserForm #email').val(email);
 
-        
+        $('#edit_dialog').modal('show');
     });
 
     // Delete User button click event
