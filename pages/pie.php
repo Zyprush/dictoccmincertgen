@@ -14,19 +14,36 @@
     <link rel="stylesheet" href="../assets/css/chart.css" />
   </head>
   <body>
-    <h2 class="chart-heading">Popular Programming Languages</h2>
-    <div class="programming-stats">
-      <div class="chart-container">
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h2 class="chart-heading">Relevance 1</h2>
         <canvas class="my-chart"></canvas>
       </div>
-
-      <div class="details">
-        <ul></ul>
+      <div class="chart-card">
+        <h2 class="chart-heading">Relevance 2</h2>
+        <canvas class="my-chart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2 class="chart-heading">Relevance 3</h2>
+        <canvas class="my-chart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2 class="chart-heading">Relevance 4</h2>
+        <canvas class="my-chart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2 class="chart-heading">Relevance 5</h2>
+        <canvas class="my-chart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2 class="chart-heading">Relevance 6</h2>
+        <canvas class="my-chart"></canvas>
       </div>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <script src="../assets/js/chart.js"></script>
   </body>
 </html>
