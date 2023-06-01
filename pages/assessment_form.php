@@ -11,22 +11,25 @@
         // Get the webinar_id parameter from the query string
         $webinar_id = $_GET['webinar_id'];
     ?>
+    <style>
+  /* Custom styles for radio button */
+  .form-check-input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+</style>
 
     <div class="container" style="max-width: 900px; margin-top:10px; margin-bottom: 10px;">
         <div class="card" style="background-color: #8191A6;">
 
-            <div class="card-header" style="background-color: white;">
+            <div class="card-header bg-white">
                 <div class="row align-items-center">
-                    <div class="col-auto">
-                        <img src="../assets/img/logo.png" alt="logo" style="width: 200px; height: 200px;">
-                    </div>
                     <div class="col">
-                        <h3 class="mb-0" style="color: #3E5F8C;">REPUBLIC OF THE PHILIPPINES</h3>
-                        <hr class="my-2" style="border-color: #3E5F8C; border-width: 2px;">
-                        <h3 class="mb-0" style="color: #3E5F8C;">DEPARTMENT OF INFORMATION AND COMMUNICATIONS TECHNOLOGY</h3>
+                        <img src="../assets/img/Picture1.jpg" alt="logo" class="img-fluid" style="max-width: 100%; height: auto;">
                     </div>
                 </div>
             </div>
+
 
             <div class="card-body">
                 <form method="POST" action="../config/submit_assessment.php">
@@ -45,7 +48,7 @@
                         </ol>
 
                         <!-- Slides -->
-                        <div class="carousel-inner">
+                        <div class="carousel-inner p-0">
                             <div class="carousel-item active" id="slide1">
 
                                 <div class="container">
@@ -84,9 +87,10 @@
                                         </label>
                                         <input type="email" class="form-control" id="email" name="email" required>
                                     </div>
-                                </div>
 
-                                <button class="btn btn-primary nextBtn">Next</button>
+                                    <button class="btn btn-primary nextBtn">Next</button>
+                                    
+                                </div>
 
                             </div>
 
@@ -130,10 +134,11 @@
                                             Thank you for your participation in this training / webinar / course on <?php echo $title; ?>.  We would appreciate your feedback and welcome any additional comments that you may have. Your response will be used to enhance our training / webinar / course and ensure that we meet your future needs. Please provide your response to the questions listed below by clicking your choice from the options provided. We value your responses to this evaluation questions.
                                         </p>
                                     </div>
-                                </div>
 
-                                <button class="btn btn-primary backBtn">Back</button>
-                                <button class="btn btn-primary nextBtn">Next</button>
+                                    <button class="btn btn-primary backBtn">Back</button>
+                                    <button class="btn btn-primary nextBtn">Next</button>
+
+                                </div>
 
                             </div>
 
