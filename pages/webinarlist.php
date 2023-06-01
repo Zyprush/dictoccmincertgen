@@ -89,51 +89,52 @@
   </div>
 </div>
 
-<!-- View Links dialog -->
-<div class="modal fade" id="viewLinksModal" tabindex="-1" role="dialog" aria-labelledby="viewLinksModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<!-- Viewlinks webinar dialog -->
+<div class="modal fade" id="viewLinkModal" tabindex="-1" role="dialog" aria-labelledby="viewLinkModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="viewLinksModalLabel">View Links</h5>
+        <h5 class="modal-title" id="viewLinkModalLabel">Webinar Links Details</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="mb-3">
-          <label for="webinarLink">Webinar Link:</label>
+        <div class="form-group">
+          <label for="webinar_links">Webinar Link:</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="webinarLink" readonly>
-            <button class="btn btn-primary ml-3" type="button" id="openWebinarLink">
-              Open
+            <input type="text" class="form-control mr-2" id="webinar_links" name="webinar_links">
+            <button class="btn btn-primary" type="button" id="openWebinarLink">
+              <i class="bi bi-link-45deg"></i>
             </button>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="registrationLink">Registration Link:</label>
+        <div class="form-group">
+          <label for="registration_link">Assessment Link:</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="registrationLink" readonly>
-            <button class="btn btn-primary ml-3" type="button" id="openRegistrationLink">
-              Open
+            <input type="text" class="form-control mr-2" id="assessment_link" name="assessment_link">
+            <button class="btn btn-primary" type="button" id="openAssessmentLink">
+              <i class="bi bi-link-45deg"></i>
             </button>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="assessmentLink">Assessment Link:</label>
+        <div class="form-group">
+          <label for="registration_link">Registration Link:</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="assessmentLink" readonly>
-            <button class="btn btn-primary ml-3" type="button" id="openAssessmentLink">
-              Open
+            <input type="text" class="form-control mr-2" id="registration_link" name="registration_link">
+            <button class="btn btn-primary" type="button" id="openRegistrationLink">
+              <i class="bi bi-link-45deg"></i>
             </button>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 <?php
@@ -279,51 +280,52 @@ $(document).ready(function() {
             var selectedRowData = table.rows({ selected: true }).data()[0];
             var webinarID = selectedRowData.webinar_id;
 
-            // Fetch the links from the server
+            // Fetch the webinar details from the server
             $.ajax({
-              url: '../config/fetch-links.php',
-              type: 'GET',
-              data: { id: webinarID },
-              success: function(response) {
-                // Parse the JSON response
-                var links = JSON.parse(response);
+                url: '../config/fetch-link.php',
+                type: 'GET',
+                data: { id: webinarID },
+                success: function(response) {
+                    // Parse the JSON response
+                    var webinar = JSON.parse(response);
 
-                // Extract the links
-                var webinarLink = links.webinar_link;
-                var registrationLink = links.registration_link;
-                var assessmentLink = links.assessment_link;
+                    // Extract the webinar details
+                    var webinarLink = webinar.webinar_link;
+                    var assessmentLink = webinar.assessment_link;
+                    var registrationLink = webinar.registration_link;
 
-                // Set the values in the dialog
-                $('#viewLinksModal #webinarLink').val(webinarLink);
-                $('#viewLinksModal #registrationLink').val(registrationLink);
-                $('#viewLinksModal #assessmentLink').val(assessmentLink);
+                    // Set the values in the form
+                    $('#webinar_links').val(webinarLink);
+                    $('#assessment_link').val(assessmentLink);
+                    $('#registration_link').val(registrationLink);
+                    
 
-                // Show the dialog
-                $('#viewLinksModal').modal('show');
-              },
-              error: function(xhr, status, error) {
-                // Handle the error response
-                console.log(error);
-              }
+                    // Show the dialog
+                    $('#viewLinkModal').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error response
+                    console.log(error);
+                }
             });
           });
-
-          // Open Webinar Link
+        // JavaScript code for opening links in a new tab
+        $(document).ready(function() {
           $('#openWebinarLink').on('click', function() {
-            var webinarLink = $('#viewLinksModal #webinarLink').val();
+            var webinarLink = $('#webinar_links').val();
             window.open(webinarLink, '_blank');
           });
 
-          // Open Registration Link
-          $('#openRegistrationLink').on('click', function() {
-            var registrationLink = $('#viewLinksModal #registrationLink').val();
-            window.open(registrationLink, '_blank');
-          });
-
-          // Open Assessment Link
           $('#openAssessmentLink').on('click', function() {
-            var assessmentLink = $('#viewLinksModal #assessmentLink').val();
+            var assessmentLink = $('#assessment_link').val();
             window.open(assessmentLink, '_blank');
           });
+
+          $('#openRegistrationLink').on('click', function() {
+            var registrationLink = $('#registration_link').val();
+            window.open(registrationLink, '_blank');
+          });
+        });
+
     });
 </script>
