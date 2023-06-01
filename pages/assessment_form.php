@@ -479,27 +479,24 @@
                                     </div>
                                 </div>
 
-                                <div class="container">
-                                    <div class="form-group p-3 mb-5">
-                                    <?php inputElementStyle("most_useful", "most_useful", "1. What did you find most useful his course / training / seminar?");?>
-                                
-                                    <?php inputElementStyle("least_useful", "least_useful", "2. What did you find least useful in this course / training / seminar?");?>
-                                
-                                    <?php inputElementStyle("spent_more", "spent_more", "3. On which topics, if any, would you rather have spent more time?");?>
-                                
-                                    <?php inputElementStyle("spent_less", "spent_less", "4. On which topics, if any, would you rather have spent less time?");?>
-                                
-                                    <?php inputElementStyle("improve_conduct", "improve_conduct", "5. What advice can you give to improve the future conduct of this course / training / seminar?");?>
-                                
-                                    <?php inputElementStyle("recommend", "recommend", "6. Could you recommend this course / training / seminar to your colleagues?");?>
-                                
-                                    <?php inputElementStyle("result_participation", "result_participation", "7. Please list three (3) things that you intend to do as a result of your participation in this course / training / seminar.");?>
-                                
-                                    <?php inputElementStyle("comments", "comments", "8. Comments and / or Suggestions.");?>
+                                <?php inputElementStyle("most_useful", "most_useful", "1. What did you find most useful his course / training / seminar?");?>
+                            
+                                <?php inputElementStyle("least_useful", "least_useful", "2. What did you find least useful in this course / training / seminar?");?>
+                            
+                                <?php inputElementStyle("spent_more", "spent_more", "3. On which topics, if any, would you rather have spent more time?");?>
+                            
+                                <?php inputElementStyle("spent_less", "spent_less", "4. On which topics, if any, would you rather have spent less time?");?>
+                            
+                                <?php inputElementStyle("improve_conduct", "improve_conduct", "5. What advice can you give to improve the future conduct of this course / training / seminar?");?>
+                            
+                                <?php inputElementStyle("recommend", "recommend", "6. Could you recommend this course / training / seminar to your colleagues?");?>
+                            
+                                <?php inputElementStyle("result_participation", "result_participation", "7. Please list three (3) things that you intend to do as a result of your participation in this course / training / seminar.");?>
+                            
+                                <?php inputElementStyle("comments", "comments", "8. Comments and / or Suggestions.");?>
 
-                                    <button class="btn btn-primary backBtn">Back</button>
-                                    <button class="btn btn-primary nextBtn">Next</button>
-                                </div>
+                                <button class="btn btn-primary backBtn">Back</button>
+                                <button class="btn btn-primary nextBtn">Next</button>
 
                             </div>
 
