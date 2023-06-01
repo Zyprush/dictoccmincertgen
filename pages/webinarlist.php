@@ -71,15 +71,15 @@
         <div class="modal-body">
           <input type="hidden" name="key" id="webinar_id">
           <div class="form-group">
-            <label for="webinar_title">Webinar Title:</label>
+            <label for="webinar_title"><b>Webinar Title:</b> </label>
             <input type="text" class="form-control" id="webinar_title" name="webinar_title" required>
           </div>
           <div class="form-group">
-            <label for="webinar_date">Webinar Date:</label>
+            <label for="webinar_date"><b> Webinar Date:</b></label>
             <input type="date" class="form-control" id="webinar_date" name="webinar_date" required>
           </div>
           <div class="form-group">
-            <label for="webinar_link">Webinar Link:</label>
+            <label for="webinar_link"><b>Webinar Link:</b> </label>
             <input type="text" class="form-control" id="webinar_link" name="webinar_link" required>
           </div>
         </div>
@@ -104,7 +104,7 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="webinar_links">Webinar Link:</label>
+          <label for="webinar_links"><b>Webinar Link:</b> </label>
           <div class="input-group">
             <input type="text" class="form-control mr-2" id="webinar_links" name="webinar_links">
             <button class="btn btn-primary" type="button" id="openWebinarLink">
@@ -113,7 +113,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="registration_link">Assessment Link:</label>
+          <label for="registration_link"><b>Assessment Link:</b> </label>
           <div class="input-group">
             <input type="text" class="form-control mr-2" id="assessment_link" name="assessment_link">
             <button class="btn btn-primary" type="button" id="openAssessmentLink">
@@ -122,7 +122,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="registration_link">Registration Link:</label>
+          <label for="registration_link"><b>Registration Link:</b> </label>
           <div class="input-group">
             <input type="text" class="form-control mr-2" id="registration_link" name="registration_link">
             <button class="btn btn-primary" type="button" id="openRegistrationLink">

@@ -90,6 +90,9 @@ echo '<script>var webinar_id = "' . $webinar_id . '";</script>';
       <input type="hidden" name="status" id="status" value="0">
       </form>
     </div>
+    <div class="card-footer">
+      <div class="ml-auto">DICT Certificate Generator. <span>&copy;</span>2023</div>
+    </div>
   </div>
 </div>
 
