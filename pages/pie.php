@@ -11,55 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-        
-        .chart-heading {
-            font-family: "Rubik", sans-serif;
-            color: #023047;
-            text-transform: uppercase;
-            font-size: 24px;
-            text-align: center;
-        }
-        
-        .chart-container {
-            width: 200px;
-        }
-        
-        .programming-stats {
-            font-family: "Rubik", sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin: 0 auto;
-            width: fit-content;
-            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            padding: 8px 32px;
-            color: #023047;
-            transition: all 400ms ease;
-        }
-        
-        .programming-stats:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 16px -7px rgba(0, 0, 0, 0.3);
-        }
-        
-        .programming-stats .details ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .programming-stats .details ul li {
-            font-size: 16px;
-            margin: 12px 0;
-            text-transform: uppercase;
-        }
-        
-        .programming-stats .details .percentage {
-            font-weight: 700;
-            color: #e63946;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/chart.css" />
   </head>
   <body>
     <h2 class="chart-heading">Popular Programming Languages</h2>
@@ -75,47 +27,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <script>
-        const chartData = {
-            labels: ["Python", "Java", "JavaScript", "C#", "Others"],
-            data: [30, 17, 10, 7, 36],
-        };
-        
-        const myChart = document.querySelector(".my-chart");
-        const ul = document.querySelector(".programming-stats .details ul");
-        
-        new Chart(myChart, {
-            type: "doughnut",
-            data: {
-            labels: chartData.labels,
-            datasets: [
-                {
-                label: "Language Popularity",
-                data: chartData.data,
-                },
-            ],
-            },
-            options: {
-            borderWidth: 10,
-            borderRadius: 2,
-            hoverBorderWidth: 0,
-            plugins: {
-                legend: {
-                display: false,
-                },
-            },
-            },
-        });
-        
-        const populateUl = () => {
-            chartData.labels.forEach((l, i) => {
-            let li = document.createElement("li");
-            li.innerHTML = `${l}: <span class='percentage'>${chartData.data[i]}%</span>`;
-            ul.appendChild(li);
-            });
-        };
-        
-        populateUl();
-    </script>
+    <script src="../assets/js/chart.js"></script>
   </body>
 </html>
