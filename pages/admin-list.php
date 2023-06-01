@@ -143,11 +143,11 @@ $(document).ready(function() {
     $('#adminTable tbody').on('click', 'tr', function() {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
-            $('#btn-edit-user, #btn-delete-user, #btn-promote-user').addClass('disabled').removeClass('btn-primary');
+            $('#btn-edit-user, #btn-delete-user, #btn-promote-user').addClass('disabled').removeClass('btn-primary').addClass('btn-secondary');
         } else {
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
-            $('#btn-edit-user, #btn-delete-user, #btn-promote-user').removeClass('disabled').addClass('btn-primary');
+            $('#btn-edit-user, #btn-delete-user, #btn-promote-user').removeClass('disabled').removeClass('btn-secondary').addClass('btn-primary');
         }
     });
 

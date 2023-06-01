@@ -28,3 +28,4 @@ if (isset($_GET['id'])) {
     $response = array('error' => 'Webinar ID is missing');
     echo json_encode($response);
 }
+?>
