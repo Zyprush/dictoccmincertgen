@@ -4,9 +4,11 @@
 ?>
 
 <div class="container">
-  <div class="card">
-    <div class="card-header">
-      Registered Attendee
+  <div class="card border shadow rounded">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="col-sm-12 col-md-6 font-weight-bold">
+        General Registered Attendee list
+      </div>
     </div>
     <div class="card-body">
       <table id="participant-list" class="table table-hover">
@@ -26,6 +28,9 @@
           <!-- Data fetched from Realtime Database will be added here -->
         </tbody>
       </table>
+    </div>
+    <div class="card-footer">
+      <div class="ml-auto">DICT Certificate Generator. <span>&copy;</span>2023</div>
     </div>
   </div>
 </div>
