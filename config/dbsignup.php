@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->setFrom('certgendict@gmail.com', 'DICT');
     $mail->addAddress($email, $name);
     $mail->Subject = 'Signup Confirmation';
-    $mail->Body = "Please click the following link to confirm your signup: $signupLink";
+    $mail->Body = "Please click the following link to confirm access your account: $signupLink";
 
     if (!$mail->send()) {
       // Email sending failed
@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redirect to a success page or display a success message
-    $_SESSION['status'] = "Sign up email sent! Please check your inbox.";
+    $_SESSION['status'] = "Email sent! Please check your inbox.";
     header('Location: ../pages/signup.php');
     exit();
   } else {
