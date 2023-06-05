@@ -38,6 +38,12 @@ if (isset($_GET['token'])) {
       $stmt->bind_param('s', $token);
       $stmt->execute();
 
+      // Delete whitelisted data
+      $deleteWhitelistedQuery = "DELETE FROM whitelisted WHERE email = ?";
+      $stmt = $conn->prepare($deleteWhitelistedQuery);
+      $stmt->bind_param('s', $email);
+      $stmt->execute();
+
       // Redirect to a success page or display a success message
       $_SESSION['status'] = "Account created successfully!";
       header('Location: ../pages/signin.php');
