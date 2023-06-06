@@ -37,7 +37,7 @@
                     <!-- Add a hidden input field for webinar_id -->
                     <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
 
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="false">
                         <!-- Indicators -->
                         <ol class="carousel-indicators" hidden>
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -777,18 +777,18 @@
 
 <script>
     
-    // Disable swipe behavior on carousel
-    $('#myCarousel').on('touchstart', function(event){
-        const initialX = event.originalEvent.touches[0].clientX;
+    // Check if the device is a touch device (mobile or tablet)
+    function isTouchDevice() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints;
+    }
 
-        $(this).one('touchmove', function(event){
-            const currentX = event.originalEvent.touches[0].clientX;
-            const diffX = currentX - initialX;
-            if (Math.abs(diffX) > 5) {
-                event.preventDefault();
-            }
-        });
-    });
+    // Initialize Hammer.js on the carousel element
+    var carousel = document.getElementById('myCarousel');
+    if (isTouchDevice()) {
+        var hammer = new Hammer(carousel);
+        hammer.get('swipe').set({ enable: false });
+    }
+
 
     $(document).ready(function() {
         // Initialize the carousel
