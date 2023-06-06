@@ -113,8 +113,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $insertResult = $stmt->execute();
 
   if ($insertResult) {
-    // Send email with signup link
-    $signupLink = 'http://localhost/dictoccmincertgen/config/signup_confirmation.php?token=' . urlencode($token);
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+
+    // Get the current domain name
+    $domain = $_SERVER['HTTP_HOST'];
+
+    // Define the base URL using the current domain
+    $baseUrl = $protocol . $domain;
+
+    // Construct the signup link using the base URL
+    $signupLink = $baseUrl . '/config/signup_confirmation.php?token=' . urlencode($token);
     $mail = new PHPMailer;
     $mail->isSMTP();
     // Configure your SMTP settings
