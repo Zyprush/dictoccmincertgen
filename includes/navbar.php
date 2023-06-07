@@ -34,8 +34,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle <?php echo $currentPage === 'admin-list.php' || $currentPage === '#' ? 'active' : ''; ?>" href="#" id="profileManagementDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="bi bi-person-circle"></i>
-            Profile
+            Account
           </a>
           <div class="dropdown-menu" aria-labelledby="participantManagementDropdown">
             <a class="dropdown-item" href="#">Edit profile</a>

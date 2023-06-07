@@ -59,7 +59,7 @@
     </style>
 
     <title><?php echo $pageTitle; ?></title>
-
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
   </head>
   <body>
     <?php include('navbar.php'); ?>

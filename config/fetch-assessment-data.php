@@ -24,6 +24,11 @@ if (isset($_GET['id'])) {
     $classInteractionData = array(); // Array to store class interaction question averages
     $staffSensitivityData = array(); // Array to store staff sensitivity question averages
     $overallRatingData = array(); // Array to store overall rating question averages
+    $masteryData = array(); // Array to store mastery question averages
+    $methodologyData = array(); // Array to store methodology question averages
+    $communicationsData = array(); // Array to store communications question averages
+    $classManagementData = array(); // Array to store class management question averages
+    $qualitiesData = array(); // Array to store personal qualities question averages
 
     while ($row = mysqli_fetch_assoc($result)) {
         $relevantAverage = ($row['question1'] + $row['question2'] + $row['question3']) / 3;
@@ -43,6 +48,21 @@ if (isset($_GET['id'])) {
         
         $overallRatingAverage = $row['question18'];
         $overallRatingData[] = $overallRatingAverage;
+
+        $masteryAverage = ($row['question19'] + $row['question20'] + $row['question21'] + $row['question22']) / 4;
+        $masteryData[] = $masteryAverage;
+
+        $methodologyAverage = ($row['question23'] + $row['question24'] + $row['question25'] + $row['question26'] + $row['question27']) / 5;
+        $methodologyData[] = $methodologyAverage;
+
+        $communicationsAverage = ($row['question28'] + $row['question29']) / 2;
+        $communicationsData[] = $communicationsAverage;
+
+        $classManagementAverage = ($row['question30'] + $row['question31'] + $row['question32'] + $row['question33']) / 4;
+        $classManagementData[] = $classManagementAverage;
+
+        $qualitiesAverage = ($row['question34'] + $row['question35'] + $row['question36'] + $row['question37']) / 4;
+        $qualitiesData[] = $qualitiesAverage;
     }
 
     // Calculate the overall average relevance, information/skills average, instructional design average,
@@ -53,6 +73,11 @@ if (isset($_GET['id'])) {
     $classInteractionOverallAverage = count($classInteractionData) > 0 ? array_sum($classInteractionData) / count($classInteractionData) : 0;
     $staffSensitivityOverallAverage = count($staffSensitivityData) > 0 ? array_sum($staffSensitivityData) / count($staffSensitivityData) : 0;
     $overallRatingOverallAverage = count($overallRatingData) > 0 ? array_sum($overallRatingData) / count($overallRatingData) : 0;
+    $masteryAverage = count($masteryData) > 0 ? array_sum($masteryData) / count($masteryData) : 0;
+    $methodologyAverage = count($methodologyData) > 0 ? array_sum($methodologyData) / count($methodologyData) : 0;
+    $communicationsAverage = count($communicationsData) > 0 ? array_sum($communicationsData) / count($communicationsData) : 0;
+    $classManagementAverage = count($classManagementData) > 0 ? array_sum($classManagementData) / count($classManagementData) : 0;
+    $qualitiesAverage = count($qualitiesData) > 0 ? array_sum($qualitiesData) / count($qualitiesData) : 0;
 
     // Prepare the response data
     $response = array(
@@ -68,6 +93,16 @@ if (isset($_GET['id'])) {
         'staffSensitivityOverallAverage' => $staffSensitivityOverallAverage,
         'overallRatingAverages' => $overallRatingData,
         'overallRatingOverallAverage' => $overallRatingOverallAverage,
+        'masteryAverages' => $masteryData,
+        'masteryOverallAverage' => $masteryAverage,
+        'methodologyAverages' => $methodologyData,
+        'methodologyOverallAverage' => $methodologyAverage,
+        'communicationsAverages' => $communicationsData,
+        'communicationsOverallAverage' => $communicationsAverage,
+        'classManagementAverages' => $classManagementData,
+        'classManagementOverallAverage' => $classManagementAverage,
+        'qualitiesAverages' => $qualitiesData,
+        'qualitiesOverallAverage' => $qualitiesAverage,
         'webinar_id' => $webinar_id
     );
 
