@@ -33,14 +33,69 @@
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title><?php echo $pageTitle; ?></title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+      body {
+        background-color: #e4e9f7;
+        font-family: 'Poppins', sans-serif;
+      }
+      .card-header {
+        background-color: #e4e9f7; 
+        color: #000;
+        font-weight: bold;
+        border-bottom: 1px;
+
+      }
+      .card-footer {
+        background-color: #e4e9f7; 
+        color: #000;
+        border-top: 1px;
+      }
+      .btn {
+        background-color: #004f83;
+        color: #ffffff;
+      }
+      .input-group-text {
+        background-color: #004f83; 
+        color: #ffffff;
+      }
+      .card-body {
+        background-color: #e4e9f7;
+      }
+      .card {
+        max-width: 400px;
+        border: none;
+        border-radius: 20px;
+      }
+      .navbar {
+        background-color: #00315a;
+      }
+      .card-footer a {
+        color: #000;
+        font-weight: bold;
+      }
+    </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mx-auto">
+<nav class="navbar navbar-expand-md navbar-dark mx-auto" >
     <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="../pages/signin.php ">
       <img src="../assets/img/logo.png" width="70" height="70" class="d-inline-block align-top" alt="Logo">
-      <span class="ml-2">DICT Certification</span>
+      <span class="ml-2">
+        DICT Certification
+        <?php
+        if ($currentPage === 'signin.php') {
+          echo "- Signin";
+        } elseif ($currentPage === 'signup.php') {
+          echo "- Signup";
+        } elseif ($currentPage === 'about.php') {
+          echo "- About";
+        } elseif ($currentPage === 'contact.php') {
+          echo "- Contact";
+        }
+        ?>
+      </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

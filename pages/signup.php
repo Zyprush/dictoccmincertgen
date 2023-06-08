@@ -7,19 +7,19 @@
         exit();
     }
 ?>
-<div class="container my-5">
-    <div class="card mx-auto shadow" style="max-width: 400px;">
+<div class="container my-5 pt-5">
+    <div class="card mx-auto">
         <div class="card-header">
             <?php
                 if(isset($_SESSION['status'])){
                     if(!empty($_SESSION['status'])){
-                        echo "<h4 class='text-center mt-1 text-danger'>".($_SESSION['status'])."</h4>";
+                        echo "<h2 class='text-center mt-1 text-danger'>".($_SESSION['status'])."</h2>";
                         unset($_SESSION['status']);
                     } else {
-                        echo "<h4 class='text-center mt-1'>Register form</h4>";
+                        echo "<h2 class='text-center mt-1'>Register form</h2>";
                     }
                 } else {
-                    echo "<h4 class='text-center mt-1'>Register form</h4>";
+                    echo "<h1 class='text-center mt-1'>Register</h1>";
                 }
             ?>
         </div>
@@ -43,11 +43,11 @@
                         <input type="password" class="form-control ml-1" id="password" name="password" placeholder="Password" required>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" name="signup_btn">Sign Up</button>
+                <button type="submit" class="btn btn-block" name="signup_btn">Sign Up</button>
             </form>
         </div>
         <div class="card-footer">
-            <p class="text-center m-0">Already have an account? <a href="signin.php">Sign in</a></p>
+            <p class="text-center m-0">Already have an account? <a href="signin.php">Sign In</a></p>
         </div>
     </div>
 </div>
