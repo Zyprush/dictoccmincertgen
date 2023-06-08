@@ -63,18 +63,6 @@ const fetchData = async () => {
       });
     };
 
-    const relevantChart = document.getElementById("relevantChart");
-    const informationChart = document.getElementById("informationChart");
-    const instructionalDesignChart = document.getElementById("instructionalDesignChart");
-    const classInteractionChart = document.getElementById("classInteractionChart");
-    const staffSensitivityChart = document.getElementById("staffSensitivityChart");
-    const overallRatingChart = document.getElementById("overallRatingChart");
-    const subjectMatterChart = document.getElementById("subjectMatterChart");
-    const methodologyChart = document.getElementById("methodologyChart");
-    const communicationSkillsChart = document.getElementById("communicationSkillsChart");
-    const classroomManagementChart = document.getElementById("classroomManagementChart");
-    const personalQualitiesChart = document.getElementById("personalQualitiesChart");
-
     createChart(relevantChart, data.relevantAverages, "Relevance of the Training");
     createChart(informationChart, data.informationAverages, "Information / Skills Acquired");
     createChart(instructionalDesignChart, data.instructionalDesignAverages, "Instructional Design");
