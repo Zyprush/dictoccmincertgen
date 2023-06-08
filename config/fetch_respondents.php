@@ -13,7 +13,11 @@ if ($result && $result->num_rows > 0) {
     $data[] = array(
       'webinar_id' => $row['webinar_id'],
       'certificate_name' => $row['certificate_name'],
-      'certificate_email' => $row['certificate_email']
+      'certificate_email' => $row['certificate_email'],
+      'agreement' => $row['agreement'],
+      'gender' => $row['gender'],
+      'age' => $row['age'],
+      'citizenship' => $row['citizenship']
     );
   }
 }

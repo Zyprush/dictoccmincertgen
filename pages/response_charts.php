@@ -16,7 +16,12 @@ $webinar_id = $_GET['id'];
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header custom-card-header">
-                                <h2 class="text-center chart-heading mt-2"> <strong> Course Evaluation </strong> </h2>
+                                <h2 class="text-center chart-heading mt-2"> <strong> Course Evaluation </strong> 
+                                <a class="btn btn-primary btn-sm float-right mr-2" href="cvs-files.php?id=<?= $webinar_id ?>">
+                                    <i class="bi bi-box-arrow-down"></i>
+                                </a>
+                            </h2>
+                                
                             </div>
                             <div class="card-body">   
                                 <div class="row px-3">
@@ -72,7 +77,11 @@ $webinar_id = $_GET['id'];
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header custom-card-header">
-                                <h2 class="text-center chart-heading mt-2"> <strong> RESOURCE PERSON / TRAINER EVALUATION </strong> </h2>
+                                <h2 class="text-center chart-heading mt-2"> <strong> RESOURCE PERSON / TRAINER EVALUATION </strong> 
+                                <a class="btn btn-primary btn-sm float-right mr-2" href="cvs-files.php?id=<?= $webinar_id ?>">
+                                    <i class="bi bi-box-arrow-down"></i>
+                                </a>
+                                </h2>
                             </div>
                             <div class="card-body">
                                 <div class="row px-3">
@@ -122,7 +131,11 @@ $webinar_id = $_GET['id'];
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header custom-card-header">
-                                <h2 class="text-center chart-heading mt-2"> <strong> COMMENTS </strong> </h2>
+                                <h2 class="text-center chart-heading mt-2"> <strong> COMMENTS </strong> 
+                                <a class="btn btn-primary btn-sm float-right mr-2" href="cvs-files.php?id=<?= $webinar_id ?>">
+                                    <i class="bi bi-box-arrow-down"></i>
+                                </a>
+                                </h2>
                             </div>
                             <div class="card-body" style="height: 815px; overflow-y: auto;">
                                 <!-- Display the table with the category averages -->

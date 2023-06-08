@@ -13,17 +13,19 @@ const fetchData = async () => {
         averageCounts[average] = (averageCounts[average] || 0) + 1;
       });
 
-      const chartColors = chartData.map((average) => {
-        if (average >= 5) {
+      const chartColors = Object.keys(averageCounts).map((average) => {
+        if (average = 5) {
           return "#00cc00"; // Green for rating 5 (Excellent)
-        } else if (average >= 4) {
+        } else if (average = 4) {
           return "#99ff33"; // Yellow-green for rating 4 (Very Satisfactory)
-        } else if (average >= 3) {
+        } else if (average = 3) {
           return "#ffcc00"; // Yellow for rating 3 (Satisfactory)
-        } else if (average >= 2) {
+        } else if (average = 2) {
           return "#ff6600"; // Orange for rating 2 (Fair)
+        } else if (average = 1) {
+          return "#ff0000"; // Red for rating 2 (Fair)
         } else {
-          return "#ff0000"; // Red for rating 1 (Poor)
+          return ""; // nothing
         }
       });
 

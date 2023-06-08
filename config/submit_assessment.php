@@ -16,7 +16,7 @@ if ($tableExists->num_rows == 0) {
         e_name VARCHAR(255),
         province VARCHAR(255),
         region VARCHAR(255),
-        age INT(11),
+        age VARCHAR(255),
         gender VARCHAR(255),
         citizenship VARCHAR(255),
         certificate_name VARCHAR(255),
