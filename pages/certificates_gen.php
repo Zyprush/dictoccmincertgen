@@ -81,8 +81,12 @@
 
 <!-- Loading overlay -->
 <div id="loading-overlay">
-  <div class="loading-spinner"></div>
+  <div class="d-flex flex-column align-items-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p style="color: white;">Email is sending, please do not close or reload the page.</p>
+  </div>
 </div>
+
   
 <div style="display: none;" id="email-message">
   <div class="card border shadow custom-card-width">
