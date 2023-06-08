@@ -51,6 +51,10 @@
     </div>
 </div>
 
+<?php
+    include('../includes/footer.php');
+?>
+
 <!-- Modal for add-->
 <div class="modal fade" id="add_dialog" tabindex="-1" role="dialog" aria-labelledby="add_dialogLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -101,9 +105,7 @@
   </div>
 </div>
 
-<?php
-    include('../includes/footer.php');
-?>
+
 
 <!-- Include DataTables JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -1,8 +1,8 @@
 <?php
     include('../config/authentication.php');
     include('../includes/header.php');
-?>
 
+?>
 
 <div class="container my-1">
         <?php

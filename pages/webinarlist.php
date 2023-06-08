@@ -56,7 +56,9 @@
       </div>
   </div>
 </div>
-
+<?php
+    include('../includes/footer.php');
+?>
 <!-- Edit webinar dialog -->
 <div class="modal fade" id="editWebinarModal" tabindex="-1" role="dialog" aria-labelledby="editWebinarModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -140,9 +142,7 @@
 
 
 
-<?php
-    include('../includes/footer.php');
-?>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>

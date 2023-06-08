@@ -58,11 +58,14 @@
       }
     </style>
 
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
   </head>
   <body>
-    <?php include('navbar.php'); ?>
 
-    <div class="py-4">
+    <?php include('sidebar.php'); ?>
+    <section class="home-section pt-5">
 
