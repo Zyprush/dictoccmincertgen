@@ -16,7 +16,7 @@ if ($type == 'webinar') {
     echo 0;
   }
 } else if ($type == 'participant') {
-  $query = "SELECT COUNT(*) AS total_count FROM participants";
+  $query = "SELECT COUNT(*) AS total_count FROM assessments";
   $result = $conn->query($query);
 
   if ($result && $result->num_rows > 0) {

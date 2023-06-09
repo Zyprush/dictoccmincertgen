@@ -11,10 +11,26 @@
       
       <h2 class="mt-5"><i class="fas fa-code fa-lg"></i> Our Developer</h2>
       <p class="lead">Meet our Developer!</p>
-      <p><i class="fas fa-user fa-lg"></i> The website was developed by <b>Jake Denver Alberio</b> and <b>Hanz Bausa</b> , skilled web developers passionate about creating user-friendly and visually appealing websites.</p>
+      <p>
+        <i class="fas fa-user fa-lg"></i> The website was developed by
+        <b><a href="mailto:alberiojake27@gmail.com" class="contact-link" data-toggle="popover" data-placement="top" data-content="alberiojake27@gmail.com">Jake Denver Alberio</a></b>
+        and
+        <b><a href="mailto:hanzbausa123@gmail.com" class="contact-link" data-toggle="popover" data-placement="top" data-content="hanzbausa123@gmail.com">Hanz Bausa</a></b>,
+        skilled web developers passionate about creating user-friendly and visually appealing websites.
+      </p>
       
     </div>
   </div>
 </div>
 
+
+<!-- Add this JavaScript code to initialize the Bootstrap popover -->
+<script>
+  // Initialize Bootstrap popover
+  $(function () {
+    $('.contact-link').popover({
+      trigger: 'hover',
+    });
+  });
+</script>
 <?php include('../includes/footer.php'); ?>

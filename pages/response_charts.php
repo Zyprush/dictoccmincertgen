@@ -16,7 +16,7 @@ $webinar_id = $_GET['id'];
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header custom-card-header">
-                                <h2 class="text-center chart-heading mt-2"> <strong> Course Evaluation </strong> 
+                                <h2 class="text-center chart-heading mt-2" style="color: #fff;"> <strong> Course Evaluation </strong> 
                                 <a class="btn btn-primary btn-sm float-right mr-2" href="cvs-files.php?id=<?= $webinar_id ?>">
                                     <i class="bi bi-box-arrow-down"></i>
                                 </a>
@@ -77,7 +77,7 @@ $webinar_id = $_GET['id'];
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header custom-card-header">
-                                <h2 class="text-center chart-heading mt-2"> <strong> RESOURCE PERSON / TRAINER EVALUATION </strong> 
+                                <h2 class="text-center chart-heading mt-2" style="color: #fff;"> <strong> RESOURCE PERSON / TRAINER EVALUATION </strong> 
                                 <a class="btn btn-primary btn-sm float-right mr-2" href="cvs-files.php?id=<?= $webinar_id ?>">
                                     <i class="bi bi-box-arrow-down"></i>
                                 </a>
@@ -131,7 +131,7 @@ $webinar_id = $_GET['id'];
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header custom-card-header">
-                                <h2 class="text-center chart-heading mt-2"> <strong> COMMENTS </strong> 
+                                <h2 class="text-center chart-heading mt-2" style="color: #fff;"> <strong> COMMENTS </strong> 
                                 <a class="btn btn-primary btn-sm float-right mr-2" href="cvs-files.php?id=<?= $webinar_id ?>">
                                     <i class="bi bi-box-arrow-down"></i>
                                 </a>
@@ -188,7 +188,7 @@ $webinar_id = $_GET['id'];
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../assets/js/chart.js"></script>
+
 
 <script>
     var swiper = new Swiper('.swiper-container', {
@@ -202,6 +202,7 @@ $webinar_id = $_GET['id'];
 </script>
 
 <?php include('../includes/footer.php'); ?>
+<script src="../assets/js/chart.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@
 </style>
 
     <div class="container" style="max-width: 900px; margin-top:10px; margin-bottom: 10px;">
-        <div class="card" style="background-color: #8191A6;">
+        <div class="card-shadow">
 
             <div class="card-header bg-white">
                 <div class="row align-items-center">

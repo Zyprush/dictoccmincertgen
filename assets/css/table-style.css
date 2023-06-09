@@ -8,4 +8,18 @@
     background-color: #f79e02;
     border-color: #f79e02;
   }
-  
+  .badge-pending {
+    background-color: #e53f31;
+    border-radius: 20px;
+    width: 100px;
+    color: #fff;
+    padding: 4px 10px;
+    }
+
+    .badge-completed {
+    background-color: #379e54;
+    border-radius: 20px;
+    width: 100px;
+    color: #fff;
+    padding: 4px 10px;
+    }

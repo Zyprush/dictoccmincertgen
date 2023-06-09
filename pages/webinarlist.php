@@ -161,10 +161,10 @@ $(document).ready(function() {
             "data": "status", 
             "render": function(data, type, row) {
                 if (data == 0) {
-                    return '<span class="text-danger">Pending</span>';
-                } else {
-                    return '<span class="text-success">Completed</span>';
-                }
+                        return '<span class="status-badge badge-pending">Pending</span>';
+                    } else {
+                        return '<span class="status-badge badge-completed">Completed</span>';
+                    }
             }
                 }
             ],
