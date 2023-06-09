@@ -1,5 +1,5 @@
     <?php
-        include('../includes/header.php');
+        include('../includes/headers.php');
 
         if (!isset($_GET['webinar_id'])) {
             // Redirect the user to the webinar list page
@@ -11,10 +11,10 @@
         $webinar_id = $_GET['webinar_id'];
     ?>
 
-    <div class="container" style="max-width: 500px;">
-        <div class="card shadow">
+    <div class="container">
+        <div class="card shadow mt-3">
             <div class="card-header">
-                <h1 class="my-4">Registration Form</h1>
+                <h5>Registration Form</h5>
             </div>
             <div class="card-body">
                 <form method="POST" action="../config/submit_registration.php">
@@ -49,7 +49,10 @@
                         <input type="text" class="form-control" id="position" name="position" required>
                     </div>
                     <input type="hidden" name="webinar_id" value="<?php echo $webinar_id; ?>">
-                    <button type="submit" class="btn btn-primary" name="register_btn"><i class="fas fa-paper-plane"></i> Register</button>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-block" name="register_btn"><i class="fas fa-paper-plane"></i> Register</button>
+                    </div>
+                    
                 </form>
             </div>
         </div>

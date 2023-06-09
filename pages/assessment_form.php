@@ -1,6 +1,6 @@
 <?php
         require_once('../includes/components.php');
-        include('../includes/header-2.0.php');
+        include('../includes/headers.php');
 
         if (!isset($_GET['webinar_id'])) {
             // Redirect the user to the webinar list page
