@@ -130,11 +130,11 @@
   <div class="card border shadow">
     <div class="card-header">
       Completed Certificates
-      <button class="btn btn-secondary btn-sm float-right" id="email-certificates-btn" disabled>
+      <button class="btn btn-primary btn-sm float-right" id="email-certificates-btn" disabled>
         Email Certificates
         <i class="fas fa-cog"></i>
       </button>
-      <button class="btn btn-secondary btn-sm float-right mr-2" id="select-all-btn" onclick="toggleSelectAll()">
+      <button class="btn btn-primary btn-sm float-right mr-2" id="select-all-btn" onclick="toggleSelectAll()">
         Select All
       </button>
     </div>
