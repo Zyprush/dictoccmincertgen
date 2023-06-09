@@ -16,7 +16,7 @@
 <div class="container">
     <div class="card border shadow rounded">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <div class="col-sm-12 col-md-6 font-weight-bold">
+            <div class="col-sm-12 col-md-6 ">
                 Admin List
             </div>
             <div class="col-sm-6">

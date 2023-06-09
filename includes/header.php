@@ -57,10 +57,9 @@
         font-family: 'Poppins', sans-serif;
       }
     </style>
-
+    <link rel="stylesheet" href="../assets/css/table-style.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
   </head>

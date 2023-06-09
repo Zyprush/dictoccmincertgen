@@ -6,7 +6,7 @@
 <div class="container">
   <div class="card border shadow rounded">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <div class="col-sm-12 col-md-6 font-weight-bold">
+      <div class="col-sm-12 col-md-6">
         General Respondents list
       </div>
     </div>
@@ -27,9 +27,6 @@
           <!-- Data fetched from Realtime Database will be added here -->
         </tbody>
       </table>
-    </div>
-    <div class="card-footer">
-      <div class="ml-auto">DICT Certificate Generator. <span>&copy;</span>2023</div>
     </div>
   </div>
 </div>

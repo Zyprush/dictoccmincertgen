@@ -44,7 +44,6 @@
         color: #000;
         font-weight: bold;
         border-bottom: 1px;
-
       }
       .card-footer {
         background-color: #e4e9f7; 

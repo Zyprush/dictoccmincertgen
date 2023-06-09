@@ -10,7 +10,7 @@
     <i class="bx bx-menu" id="btn"></i>
   </div>
   <ul class="nav-list">
-    <li style:="background-color:White;">
+    <li id="create-btn">
       <a href="../pages/addWebinar.php">
         <i class="bx bx-plus"></i>
         <span class="link_name">Create</span>
