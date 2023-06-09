@@ -182,7 +182,7 @@
 
     document.getElementById("general-btn").addEventListener("click", function() {
     var webinarId = "<?php echo $webinar_id; ?>";
-    var url = "response_charts.php?id=" + webinarId;
+    var url = "responses-data.php?id=" + webinarId;
     window.open(url, "_blank");
     });
 

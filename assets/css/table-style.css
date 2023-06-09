@@ -23,3 +23,6 @@
     color: #fff;
     padding: 4px 10px;
     }
+    .card-title {
+      font-weight: bold;
+    }
