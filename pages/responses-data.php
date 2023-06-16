@@ -106,7 +106,9 @@ if (isset($_GET['id'])) {
                                 ?>
 
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
+                                    </div>
                                 </div>
 
                                 <p class="card-text">
@@ -125,16 +127,18 @@ if (isset($_GET['id'])) {
                             krsort($information_skills_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($information_skills_counts[$i]) ? $information_skills_counts[$i] : 0;
-                                    $percentage = round(($count / count($information_skills_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
-                                
+                                </div>
+
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -150,16 +154,18 @@ if (isset($_GET['id'])) {
                             krsort($instructional_design_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($instructional_design_counts[$i]) ? $instructional_design_counts[$i] : 0;
-                                    $percentage = round(($count / count($instructional_design_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -175,16 +181,18 @@ if (isset($_GET['id'])) {
                             krsort($class_interaction_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($class_interaction_counts[$i]) ? $class_interaction_counts[$i] : 0;
-                                    $percentage = round(($count / count($class_interaction_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -200,16 +208,18 @@ if (isset($_GET['id'])) {
                             krsort($sensitivity_assistance_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($sensitivity_assistance_counts[$i]) ? $sensitivity_assistance_counts[$i] : 0;
-                                    $percentage = round(($count / count($sensitivity_assistance_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -225,16 +235,18 @@ if (isset($_GET['id'])) {
                             krsort($general_rating_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($general_rating_counts[$i]) ? $general_rating_counts[$i] : 0;
-                                    $percentage = round(($count / count($general_rating_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -266,16 +278,18 @@ if (isset($_GET['id'])) {
                             krsort($mastery_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($mastery_counts[$i]) ? $mastery_counts[$i] : 0;
-                                    $percentage = round(($count / count($mastery_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -291,16 +305,18 @@ if (isset($_GET['id'])) {
                             krsort($methodology_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($methodology_counts[$i]) ? $methodology_counts[$i] : 0;
-                                    $percentage = round(($count / count($methodology_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -316,16 +332,18 @@ if (isset($_GET['id'])) {
                             krsort($communication_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($communication_counts[$i]) ? $communication_counts[$i] : 0;
-                                    $percentage = round(($count / count($communication_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -341,16 +359,18 @@ if (isset($_GET['id'])) {
                             krsort($management_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($management_counts[$i]) ? $management_counts[$i] : 0;
-                                    $percentage = round(($count / count($management_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
+                                </div>
 
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
@@ -366,16 +386,18 @@ if (isset($_GET['id'])) {
                             krsort($qualities_counts);
                             ?>
                             <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <p class="card-text">
-                                    <?php
-                                    $count = isset($qualities_counts[$i]) ? $qualities_counts[$i] : 0;
-                                    $percentage = round(($count / count($qualities_averages)) * 100);
-                                    ?>
+                                <?php
+                                $count = isset($relevance_counts[$i]) ? $relevance_counts[$i] : 0;
+                                $percentage = round(($count / count($relevance_averages)) * 100);
+                                ?>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage; ?>%;" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <?php echo $percentage; ?>%
                                     </div>
-                                    
+                                </div>
+
+                                <p class="card-text">
                                     <?php echo $i; ?> - <?php echo $percentage; ?>%
                                 </p>
                             <?php endfor; ?>
