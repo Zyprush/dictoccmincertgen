@@ -1,5 +1,5 @@
 <?php
-
+   
 function inputElement($id, $name, $text){
     $ele ="
         <div class=\"form group\">
