@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="#" target="_blank">
-      <img src="/assets/img/logo.png" alt="Project Banner">
+      <img src="/assets/img/dict-banner.png" alt="Project Banner">
     </a>
   <br />
 
